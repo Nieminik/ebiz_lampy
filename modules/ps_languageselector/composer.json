@@ -1,0 +1,20 @@
+{
+  "name": "prestashop/ps_languageselector",
+  "description": "PrestaShop module ps_languageselector",
+  "homepage": "https://github.com/PrestaShop/ps_languageselector",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "PrestaShop SA",
+      "email": "contact@prestashop.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "prepend-autoloader": false
+  },
+  "type": "prestashop-module"
+}

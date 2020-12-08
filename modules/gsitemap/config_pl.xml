@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>gsitemap</name>
+    <displayName><![CDATA[Mapa strony Google]]></displayName>
+    <version><![CDATA[4.2.0]]></version>
+    <description><![CDATA[Generuj plik mapy strony Google]]></description>
+    <author><![CDATA[PrestaShop]]></author>
+    <tab><![CDATA[seo]]></tab>
+	<confirmUninstall><![CDATA[Czy na pewno chcesz odinstalować ten moduł?]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
