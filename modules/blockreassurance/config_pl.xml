@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
     <name>blockreassurance</name>
-    <displayName><![CDATA[Bezpieczeństwo klienta]]></displayName>
-    <version><![CDATA[3.0.1]]></version>
-    <description><![CDATA[Dodaj blok wyświetlający więcej informacji o bezpieczeństwie Twoich klient&oacute;w]]></description>
+    <displayName><![CDATA[Customer Reassurance]]></displayName>
+    <version><![CDATA[4.1.1]]></version>
+    <description><![CDATA[Stw&oacute;rz atmosferę zaufania i wyeksponuj wysoką jakość swoich usług: bezpieczne płatności, darmową dostawę, zwroty itd.]]></description>
     <author><![CDATA[PrestaShop]]></author>
-    <tab><![CDATA[]]></tab>
+    <tab><![CDATA[seo]]></tab>
+	<confirmUninstall><![CDATA[Czy na pewno chcesz odinstalować ten moduł?]]></confirmUninstall>
     <is_configurable>1</is_configurable>
-    <need_instance>1</need_instance>
+    <need_instance>0</need_instance>
 	<limited_countries></limited_countries>
 </module>

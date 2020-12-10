@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request\V_1;
 
-
 use Configuration;
 use Country;
 
@@ -35,14 +34,7 @@ abstract class RequestAbstractMB extends RequestAbstract
     public function getApiContext($mode_order = null)
     {
         $apiContext = parent::getApiContext($mode_order);
-
-        if (Country::getIsoById(Configuration::get('PS_COUNTRY_DEFAULT')) == 'MX') {
-            $bnCodeSuffix = 'Mexico';
-        } else {
-            $bnCodeSuffix = 'Brazil';
-        }
-
-        $apiContext->addRequestHeader('PayPal-Partner-Attribution-Id', (getenv('PLATEFORM') == 'PSREAD')?'PrestaShop_Cart_Ready_'.$bnCodeSuffix:'PrestaShop_Cart_'.$bnCodeSuffix);
+        $apiContext->addRequestHeader("PayPal-Partner-Attribution-Id", $this->method->getPaypalPartnerId());
 
         return $apiContext;
     }

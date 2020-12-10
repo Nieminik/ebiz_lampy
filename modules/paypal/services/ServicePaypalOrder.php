@@ -30,7 +30,8 @@ use PrestaShopBundle\Security\Admin\Employee;
 
 require_once dirname(__FILE__) . '/../classes/PaypalOrder.php';
 require_once dirname(__FILE__) . '/../classes/PaypalCapture.php';
-require_once dirname(__FILE__) . '/../classes/AbstractMethodPaypal.php';
+
+use PaypalAddons\classes\AbstractMethodPaypal;
 
 class ServicePaypalOrder
 {

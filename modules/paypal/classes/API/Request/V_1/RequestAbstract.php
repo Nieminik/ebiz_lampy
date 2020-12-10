@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request\V_1;
 
-
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PaypalAddons\classes\API\Request\RequestInteface;

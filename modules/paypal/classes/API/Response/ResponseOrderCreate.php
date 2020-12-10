@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Response;
 
-
 class ResponseOrderCreate extends Response
 {
     /** @var string*/

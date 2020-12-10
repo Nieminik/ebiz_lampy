@@ -99,13 +99,17 @@
           </div>
         {elseif isset($method) && in_array($method, ['EC', 'PPP'])}
           <a href="{$urlOnboarding|addslashes}"
-             target="_blank"
-             data-paypal-button
-             data-paypal-onboard-complete="onboardCallback"
-             class="btn btn-default">
-              <i class="icon-signin"></i>
-              {l s='Connect or create PayPal account' mod='paypal'}
+            target="_blank"
+            data-paypal-button
+            data-paypal-onboard-complete="onboardCallback"
+            class="btn btn-default spinner-button"
+          >
+            <i class="icon-signin"></i>
+            <div class="spinner pp__mr-1"></div>
+            {l s='Connect or create PayPal account' mod='paypal'}
           </a>
+
+          <script src="{$paypalOnboardingLib|addslashes}"></script>
         {/if}
 
     {/if}

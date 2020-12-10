@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Response;
 
-
 class ResponseOrderRefund extends Response
 {
     /** @var string*/
@@ -140,6 +139,4 @@ class ResponseOrderRefund extends Response
         $this->alreadyRefunded = (bool) $alreadyRefunded;
         return $this;
     }
-
-
 }

@@ -34,11 +34,13 @@ const Shortcut = {
 
   page: null,
 
-  button: document.querySelector('[paypal-button-container]'),
+  button: null,
 
   controller: sc_init_url,
 
   controllerScOrder: scOrderUrl,
+
+  styleSetting: typeof styleSetting === 'undefined' ? null : styleSetting,
 
   init() {
     this.updateInfo();
@@ -49,6 +51,7 @@ const Shortcut = {
 
   updateInfo() {
     this.page = $('[data-container-express-checkout]').data('paypal-source-page');
+    this.button = document.querySelector('[paypal-button-container]');
 
     if (this.page == 'product') {
       this.productQuantity = $('input[name="qty"]').val();
@@ -71,13 +74,14 @@ const Shortcut = {
   },
 
   initButton() {
+    if (typeof Shortcut.getStyleSetting()['width'] !== 'undefined') {
+      Shortcut.button.style.width = Shortcut.getStyleSetting()['width'] + 'px';
+    }
+
     paypal.Buttons({
       fundingSource: paypal.FUNDING.PAYPAL,
 
-      style: {
-        label: 'pay',
-        height: 35
-      },
+      style: Shortcut.getStyleSetting(),
 
       createOrder: function(data, actions) {
         return Shortcut.getIdOrder();
@@ -165,13 +169,22 @@ const Shortcut = {
         Shortcut.button.style.display = 'none';
       }
     });
-  }
+  },
+
+  getStyleSetting() {
+    // Returns a default styles if styleSetting is not setted
+    if (this.styleSetting === null) {
+      return {
+        label: 'buynow',
+        height: 35
+      };
+    }
+
+    return this.styleSetting;
+  },
+
 };
 
-
-$(document).ready( () => {
-  Shortcut.init();
-  Shortcut.initButton();
-});
+window.Shortcut = Shortcut;
 
 

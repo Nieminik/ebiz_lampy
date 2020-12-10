@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API;
 
-
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PaypalAddons\classes\API\Request\PaypalAccessTokenRequest;
 use PaypalAddons\classes\API\Request\PaypalAuthorizationVoidRequest;

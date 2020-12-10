@@ -2,7 +2,7 @@
 <module>
     <name>statslive</name>
     <displayName><![CDATA[Odwiedzających online]]></displayName>
-    <version><![CDATA[2.0.2]]></version>
+    <version><![CDATA[2.1.0]]></version>
     <description><![CDATA[Dodaje listę klient&oacute;w i użytkownik&oacute;w, kt&oacute;rzy są obecnie w trybie online w panelu statystyk.]]></description>
     <author><![CDATA[PrestaShop]]></author>
     <tab><![CDATA[analytics_stats]]></tab>

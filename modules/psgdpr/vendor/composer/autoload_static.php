@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita0b97ae952099f55a528456d05627017
+class ComposerStaticInitf5d427740d4a2b1e852a489841f2b86e
 {
     public static $classMap = array (
         'APIFAQ' => __DIR__ . '/../..' . '/classes/APIFAQClass.php',
@@ -23,7 +23,7 @@ class ComposerStaticInita0b97ae952099f55a528456d05627017
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInita0b97ae952099f55a528456d05627017::$classMap;
+            $loader->classMap = ComposerStaticInitf5d427740d4a2b1e852a489841f2b86e::$classMap;
 
         }, null, ClassLoader::class);
     }

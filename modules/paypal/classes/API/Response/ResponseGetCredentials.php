@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Response;
 
-
 class ResponseGetCredentials extends Response
 {
     /** @var string*/

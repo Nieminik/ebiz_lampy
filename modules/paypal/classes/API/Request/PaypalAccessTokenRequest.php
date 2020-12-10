@@ -26,8 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request;
 
-
-
 use PaypalAddons\classes\API\Response\Error;
 use PaypalAddons\classes\API\Response\PaypalResponseAccessToken;
 use PayPalCheckoutSdk\Core\AccessTokenRequest;

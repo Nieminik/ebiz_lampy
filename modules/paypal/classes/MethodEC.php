@@ -28,7 +28,6 @@ use PaypalAddons\classes\API\PaypalApiManager;
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PaypalPPBTlib\Extensions\ProcessLogger\ProcessLoggerHandler;
 
-
 /**
  * Class MethodEC.
  * @see https://developer.paypal.com/docs/classic/api/ NVP SOAP SDK
@@ -212,18 +211,6 @@ class MethodEC extends AbstractMethodPaypal
         return (bool)Configuration::get('PAYPAL_CONNECTION_EC_CONFIGURED');
     }
 
-    /**
-     * @return bool
-     */
-    public function isCredentialsSetted()
-    {
-        if ($this->isSandbox()) {
-            return Configuration::get('PAYPAL_EC_CLIENTID_SANDBOX') && Configuration::get('PAYPAL_EC_SECRET_SANDBOX');
-        } else {
-            return Configuration::get('PAYPAL_EC_CLIENTID_LIVE') && Configuration::get('PAYPAL_EC_SECRET_LIVE');
-        }
-    }
-
     public function checkCredentials()
     {
         $response = $this->paypalApiManager->getAccessTokenRequest()->execute();
@@ -251,10 +238,9 @@ class MethodEC extends AbstractMethodPaypal
         $tplVars['mode'] = $this->isSandbox() ? 'SANDBOX' : 'LIVE';
         $tplVars['paypal_ec_clientid'] = $this->getClientId();
         $tplVars['paypal_ec_secret'] = $this->getSecret();
-
-        \Media::addJsDef([
-            'paypalOnboardingLib' => $this->isSandbox() ? 'https://www.sandbox.paypal.com/webapps/merchantboarding/js/lib/lightbox/partner.js' : 'https://www.paypal.com/webapps/merchantboarding/js/lib/lightbox/partner.js'
-        ]);
+        $tplVars['paypalOnboardingLib'] = $this->isSandbox() ?
+            'https://www.sandbox.paypal.com/webapps/merchantboarding/js/lib/lightbox/partner.js' :
+            'https://www.paypal.com/webapps/merchantboarding/js/lib/lightbox/partner.js';
 
         return $tplVars;
     }
