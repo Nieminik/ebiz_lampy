@@ -8,7 +8,7 @@
 * It is also available through the world-wide-web at this URL:
 * http://opensource.org/licenses/afl-3.0.php
 * If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
+* oppain it through the world-wide-web, please send an email
 * to license@prestashop.com so we can send you a copy immediately.
 *
 * DISCLAIMER
@@ -24,7 +24,42 @@
 *
 *}
 
-<p>{l s='Benefit from many PayPal advantages such as :' mod='paypal'}</p>
-<p><img src="{$path|escape:'html':'UTF-8'}views/img/protected.png" style="height: 43px; padding-right: 10px;">{l s='Your orders are protected' mod='paypal'}*</p>
-<p><img src="{$path|escape:'html':'UTF-8'}views/img/refund.png" style=" height: 43px; padding-right: 10px;">{l s='Return shipping refunded' mod='paypal'}*</p>
-<p><i>{l s='* See conditions on PayPal website' mod='paypal'}</i></p>
+{capture name='data_content' assign='data_content'}
+  <div class="pp-info" data-pp-info>
+    <div class="row">
+      <div class="col-md-6 item pp__mb-3">
+          {include file='module:paypal/views/templates/front/_partials/verified_user.tpl'}
+        <div class="header pp__pt-1">{l s='Safer and more protected' mod='paypal'}</div>
+        <div class="desc pp__pt-1">{l s='Buyer protection and free return shipping covers eligible purchase.' mod='paypal'}</div>
+      </div>
+      <div class="col-md-6 item pp__mb-3">
+          {include file='module:paypal/views/templates/front/_partials/language.tpl'}
+        <div class="header pp__pt-1">{l s='Simple and convenient' mod='paypal'}</div>
+        <div class="desc pp__pt-1">{l s='Use your account from wherever in the world you shop.' mod='paypal'}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 item pp__mb-3">
+          {include file='module:paypal/views/templates/front/_partials/offline_bolt.tpl'}
+        <div class="header pp__pt-1">{l s='Wherever you are' mod='paypal'}</div>
+        <div class="desc pp__pt-1">{l s='Pay fast from any device without entering your financial details.' mod='paypal'}</div>
+      </div>
+      <div class="col-md-6 item pp__mb-3">
+          {include file='module:paypal/views/templates/front/_partials/monetization.tpl'}
+        <div class="header pp__pt-1">{l s='No additional fees' mod='paypal'}</div>
+        <div class="desc pp__pt-1">{l s='Skip entering your financial info, PayPal keeps your data secure.' mod='paypal'}</div>
+      </div>
+    </div>
+  </div>
+{/capture}
+<div data-paypal-info class="pp__pl-2 pp__d-table-cell">
+  <a href="#"
+     class="pp__text-primary"
+     data-paypal-info-popover
+     data-html="true"
+     data-container="body"
+     data-content="{$data_content}"
+  >
+    <i class="material-icons">info</i>
+  </a>
+</div>

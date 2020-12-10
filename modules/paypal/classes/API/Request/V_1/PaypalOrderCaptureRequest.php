@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request\V_1;
 
-
 use Context;
 use Customer;
 use Exception;

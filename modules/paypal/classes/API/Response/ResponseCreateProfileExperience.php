@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Response;
 
-
 class ResponseCreateProfileExperience extends Response
 {
     /** @var string*/

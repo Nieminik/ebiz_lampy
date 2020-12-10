@@ -26,6 +26,7 @@
 // Import functions for scrolling effect to necessary block on click
 import {hoverConfig, hoverTabConfig} from './functions.js';
 import { SetupAdmin } from './adminSetup.js';
+import {Tools} from './tools.js';
 
 var CustomizeCheckout = {
   init() {
@@ -45,7 +46,23 @@ var CustomizeCheckout = {
     });
 
     CustomizeCheckout.checkConfigurations();
+    CustomizeCheckout.updateHookPreview();
     $('input').change(CustomizeCheckout.checkConfigurations);
+    $('select').change(CustomizeCheckout.checkConfigurations);
+    $(document).on('click', '[toggle-style-configuration]', function (e) {
+      CustomizeCheckout.toggleStyleConfiguration(e);
+      CustomizeCheckout.updatePreviewButton(e);
+      CustomizeCheckout.updateColorDescription(e);
+    });
+    $(document).on('change', '[customize-style-shortcut-container]', CustomizeCheckout.updatePreviewButton);
+    $(document).on('change', '[data-type="color"]', CustomizeCheckout.updateColorDescription);
+    $(document).on('change', '.pp-select-preview-container', CustomizeCheckout.updateHookPreview);
+    $(document).on('change', '[data-type="height"]', CustomizeCheckout.checkHeight);
+    $(document).on('change', '[data-type="width"]', CustomizeCheckout.checkWidth);
+
+    if (typeof sectionSelector !== 'undefined') {
+      CustomizeCheckout.scrollTo(sectionSelector);
+    }
   },
 
     checkConfigurations() {
@@ -54,6 +71,8 @@ var CustomizeCheckout = {
       const EcOptions = [
           'paypal_express_checkout_in_context',
           'paypal_express_checkout_shortcut_cart',
+          'paypal_express_checkout_shortcut',
+          'paypal_express_checkout_shortcut_signup',
           'paypal_api_advantages',
           'paypal_config_brand',
           'paypal_config_logo'
@@ -74,6 +93,80 @@ var CustomizeCheckout = {
           'paypal_os_validation_error',
           'paypal_os_refunded_paypal'
       ];
+      const customShortcutStyle = document.querySelector('[name="PAYPAL_EXPRESS_CHECKOUT_CUSTOMIZE_SHORTCUT_STYLE"]');
+      const shortcutLocationProduct = $('[name="paypal_express_checkout_shortcut"]');
+      const shortcutLocationCart = $('[name="paypal_express_checkout_shortcut_cart"]');
+      const shortcutLocationSignup = $('[name="paypal_express_checkout_shortcut_signup"]');
+      const showShortcutOnProductPage = document.querySelector('[name="paypal_express_checkout_shortcut"]');
+      const displayModeProductPage = document.querySelector('[name="PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_PRODUCT"]');
+      const showShortcutOnCartPage = document.querySelector('[name="paypal_express_checkout_shortcut_cart"]');
+      const displayModeCartPage = document.querySelector('[name="PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_CART"]');
+      const showShortcutOnSignupPage = document.querySelector('[name="paypal_express_checkout_shortcut_signup"]');
+      const displayModeSignupPage = document.querySelector('[name="PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_SIGNUP"]');
+
+
+      // Show the product page display configurations of a shortcut if need
+      if (showShortcutOnProductPage.checked && customShortcutStyle.checked) {
+        $('[data-section-customize-mode-product]').closest('.form-group').show();
+        CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_PRODUCT');
+        CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_STYLE_COLOR_PRODUCT');
+
+        if (displayModeProductPage.value === '1') {
+          CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_PRODUCT');
+          CustomizeCheckout.hideConfiguration('productPageWidgetCode');
+        } else if (displayModeProductPage.value === '2') {
+          CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_PRODUCT');
+          CustomizeCheckout.showConfiguration('productPageWidgetCode');
+        }
+      } else {
+        $('[data-section-customize-mode-product]').closest('.form-group').hide();
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_PRODUCT');
+        CustomizeCheckout.hideConfiguration('productPageWidgetCode');
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_PRODUCT');
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_STYLE_COLOR_PRODUCT');
+      }
+
+      // Show the cart page display configurations of a shortcut if need
+      if (showShortcutOnCartPage.checked  && customShortcutStyle.checked) {
+        $('[data-section-customize-mode-cart]').closest('.form-group').show();
+        CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_CART');
+        CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_STYLE_COLOR_CART');
+
+        if (displayModeCartPage.value === '1') {
+          CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_CART');
+          CustomizeCheckout.hideConfiguration('cartPageWidgetCode');
+        } else if (displayModeCartPage.value === '2') {
+          CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_CART');
+          CustomizeCheckout.showConfiguration('cartPageWidgetCode');
+        }
+      } else {
+        $('[data-section-customize-mode-cart]').closest('.form-group').hide();
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_CART');
+        CustomizeCheckout.hideConfiguration('cartPageWidgetCode');
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_CART');
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_STYLE_COLOR_CART');
+      }
+
+      // Show the signup page display configurations of a shortcut if need
+      if (showShortcutOnSignupPage.checked  && customShortcutStyle.checked) {
+        $('[data-section-customize-mode-signup]').closest('.form-group').show();
+        CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_SIGNUP');
+        CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_STYLE_COLOR_SIGNUP');
+
+        if (displayModeSignupPage.value === '1') {
+          CustomizeCheckout.showConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_SIGNUP');
+          CustomizeCheckout.hideConfiguration('signupPageWidgetCode');
+        } else if (displayModeSignupPage.value === '2') {
+          CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_SIGNUP');
+          CustomizeCheckout.showConfiguration('signupPageWidgetCode');
+        }
+      } else {
+        $('[data-section-customize-mode-signup]').closest('.form-group').hide();
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_DISPLAY_MODE_SIGNUP');
+        CustomizeCheckout.hideConfiguration('signupPageWidgetCode');
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_HOOK_SIGNUP');
+        CustomizeCheckout.hideConfiguration('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_STYLE_COLOR_SIGNUP');
+      }
 
       if (paypalEcEnabled.length > 0 ) {
         if (paypalEcEnabled.prop('checked') == true) {
@@ -102,6 +195,22 @@ var CustomizeCheckout = {
           $('.advanced-help-message').hide();
         }
       }
+
+      // Show the alert if the customize shortcut style is active and any shortcut location is not active
+      if (customShortcutStyle !== null) {
+        if (
+          customShortcutStyle.checked === true
+          && shortcutLocationProduct.prop('checked') === false
+          && shortcutLocationCart.prop('checked') === false
+          && shortcutLocationSignup.prop('checked') === false
+        ) {
+            $('.shortcut-customize-style-alert').closest('.form-group').show();
+            $('.shortcut-customize-style-alert').removeClass('hidden');
+        } else {
+            $('.shortcut-customize-style-alert').closest('.form-group').hide();
+            $('.shortcut-customize-style-alert').addClass('hidden');
+        }
+      }
     },
 
     // Hide block while switch inactive
@@ -122,7 +231,144 @@ var CustomizeCheckout = {
         formGroup.show();
     },
 
-}
+  toggleStyleConfiguration(e) {
+    var button = $(e.target);
+    var configurations = button.closest('[customize-style-shortcut-container]').find('[configuration-section]');
+    var preview = button.closest('[customize-style-shortcut-container]').find('[preview-section]');
+
+    if (configurations.hasClass('hidden')) {
+      button.find('i').addClass('icon-remove');
+      button.find('i').removeClass('icon-edit');
+      configurations.removeClass('hidden');
+      preview.removeClass('invisible');
+    } else {
+      button.find('i').removeClass('icon-remove');
+      button.find('i').addClass('icon-edit');
+      configurations.addClass('hidden');
+      preview.addClass('invisible');
+    }
+  },
+
+  updatePreviewButton(e) {
+    var container = $(e.target).closest('[customize-style-shortcut-container]');
+    var preview = container.find('[preview-section]').find('[button-container]');
+    var configurations = container.find('[configuration-section]');
+    var color = configurations.find('[data-type="color"]').val();
+    var shape = configurations.find('[data-type="shape"]').val();
+    var label = configurations.find('[data-type="label"]').val();
+    var width = configurations.find('[data-type="width"]').val();
+    var height = configurations.find('[data-type="height"]').val();
+
+    $.ajax({
+      url: controllerUrl,
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        ajax: true,
+        action: 'getShortcut',
+        color: color,
+        shape: shape,
+        label: label,
+        height: height,
+        width: width
+      },
+      success(response) {
+        if ('content' in response) {
+          preview.html(response.content);
+        }
+      },
+    })
+  },
+
+  updateColorDescription(e) {
+    var container = $(e.target).closest('[customize-style-shortcut-container]');
+    var color = container.find('[data-type="color"]').val();
+
+    container.find('[after-select-content] [data-color]').hide();
+
+    if (color === 'gold') {
+      container.find('[after-select-content] [data-color="gold"]').show();
+    } else if(color === 'blue') {
+      container.find('[after-select-content] [data-color="blue"]').show();
+    } else if (['silver', 'white', 'black'].includes(color)) {
+      container.find('[after-select-content] [data-color="other"]').show();
+    }
+
+  },
+
+  updateHookPreview() {
+    const containers = $('.pp-select-preview-container');
+
+    containers.each((index, container) => {
+      container = $(container);
+      let option = container.find('option:selected');
+      let previewPath = option.attr('data-preview-image');
+      let previewContainter = container.find('.pp-preview');
+      previewContainter.css('background-image', `url(${previewPath})`);
+    });
+  },
+
+  checkHeight(e) {
+     const containerSize = $(e.target).closest('[chain-input-container]');
+     const msgContainer = containerSize.closest('[field]').find('[msg-container]');
+     const inputHeight = containerSize.find('[data-type="height"]');
+     let height = inputHeight.val();
+     let msg = null;
+
+     if (height == 'undefined') {
+       return true;
+     }
+
+     height = parseInt(height);
+
+     if (height > 55 || height < 25) {
+       msg = Tools.getAlert(inputHeight.attr('data-msg-error'), 'danger');
+     }
+
+     if (msg == null) {
+       msgContainer.html('');
+       return true;
+     }
+
+     msgContainer.html(msg);
+     return true;
+  },
+
+  checkWidth(e) {
+    const containerSize = $(e.target).closest('[chain-input-container]');
+    const msgContainer = containerSize.closest('[field]').find('[msg-container]');
+    const inputWidth = containerSize.find('[data-type="width"]');
+    let width = inputWidth.val();
+    let msg = null;
+
+    if (width == 'undefined') {
+      return true;
+    }
+
+    width = parseInt(width);
+
+    if (width < 150) {
+      msg = Tools.getAlert(inputWidth.attr('data-msg-error'), 'danger');
+    }
+
+    if (msg == null) {
+      msgContainer.html('');
+      return true;
+    }
+
+    msgContainer.html(msg);
+    return true;
+  },
+
+  scrollTo(selector) {
+    const el = $(sectionSelector);
+    // Scroll to current block
+    $('html, body').animate({
+      scrollTop: el.offset().top - 200 + "px"
+    }, 900);
+  }
+
+};
 
 $(document).ready(() => {
   CustomizeCheckout.init();

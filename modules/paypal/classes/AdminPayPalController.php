@@ -64,6 +64,8 @@ class AdminPayPalController extends \ModuleAdminController
 
     public function initContent()
     {
+        header('Clear-Site-Data: "cache"');
+
         if ((int)\Configuration::get('PAYPAL_SANDBOX') == 1) {
             $message = $this->module->l('Your PayPal account is currently configured to accept payments on Sandbox.', 'AdminPayPalController');
             $message .= ' (<b>' . $this->module->l('test environment', 'AdminPayPalController') . '</b>). ';
@@ -77,15 +79,26 @@ class AdminPayPalController extends \ModuleAdminController
             \Configuration::updateValue('PAYPAL_NEED_CHECK_CREDENTIALS', 0);
         }
 
+        $need_rounding = false;
+
+        if (\Configuration::get('PS_ROUND_TYPE') != \Order::ROUND_ITEM
+            || \Configuration::get('PS_PRICE_ROUND_MODE') != PS_ROUND_HALF_UP
+            || \Configuration::get('PS_PRICE_DISPLAY_PRECISION') != 2) {
+            $need_rounding = true;
+        }
+
         $showWarningForUserBraintree = $this->module->showWarningForUserBraintree();
         $showPsCheckoutInfo = $this->module->showPsCheckoutMessage();
-        $this->context->smarty->assign('showWarningForUserBraintree', $showWarningForUserBraintree);
-        $this->context->smarty->assign('methodType', $this->method);
-        $this->context->smarty->assign('moduleDir', _MODULE_DIR_);
-        $this->context->smarty->assign('showPsCheckoutInfo', $showPsCheckoutInfo);
-        $this->context->smarty->assign('headerToolBar', $this->headerToolBar);
-        $this->context->smarty->assign('showRestApiIntegrationMessage', $this->isShowRestApiIntegrationMessage());
-        $this->context->smarty->assign('psVersion', _PS_VERSION_);
+        $this->context->smarty->assign([
+            'showWarningForUserBraintree' => $showWarningForUserBraintree,
+            'methodType' => $this->method,
+            'moduleDir' => _MODULE_DIR_,
+            'showPsCheckoutInfo' => $showPsCheckoutInfo,
+            'headerToolBar' => $this->headerToolBar,
+            'showRestApiIntegrationMessage' => $this->isShowRestApiIntegrationMessage(),
+            'psVersion' => _PS_VERSION_,
+            'need_rounding' => $need_rounding,
+        ]);
     }
 
     public function renderForm($fields_form = null)
@@ -129,7 +142,6 @@ class AdminPayPalController extends \ModuleAdminController
             'message' => array()
         );
         $hooksUnregistered = $this->module->getHooksUnregistered();
-
         if (empty($hooksUnregistered) == false) {
             $response['success'] = false;
             $response['message'][] = $this->getHooksUnregisteredMessage($hooksUnregistered);
@@ -181,7 +193,7 @@ class AdminPayPalController extends \ModuleAdminController
             $return['status'] = false;
             $curl_info = curl_getinfo($curl);
             if ($curl_info['http_code'] == 401) {
-                $return['error_message'] = $this->module->l('401 Unauthorized. Please note that the TLS verification can not be done if you have a htaccess password protection enabled on your website.', 'AdminPayPalController');
+                $return['error_message'] = $this->module->l('401 Unauthorised. Please note that the TLS verification can\'t be done if you have htaccess password protection, debug or maintenance mode enabled on your web site.', 'AdminPayPalController');
             } else {
                 $return['error_message'] = curl_error($curl);
             }
@@ -283,6 +295,37 @@ class AdminPayPalController extends \ModuleAdminController
 
         $jsonResponse = new JsonResponse($response);
         return $jsonResponse->send();
+    }
+
+    public function displayAjaxUpdateRoundingSettings()
+    {
+        \Configuration::updateValue(
+            'PS_ROUND_TYPE',
+            '1',
+            false,
+            null,
+            (int) $this->context->shop->id
+        );
+
+        \Configuration::updateValue(
+            'PS_PRICE_ROUND_MODE',
+            '2',
+            false,
+            null,
+            (int) $this->context->shop->id
+        );
+
+        \Configuration::updateValue(
+            'PS_PRICE_DISPLAY_PRECISION',
+            '2',
+            false,
+            null,
+            (int) $this->context->shop->id
+        );
+
+        $message = $this->module->l('Settings updated. Your rounding settings are compatible with PayPal!', 'AdminPayPalController');
+
+        $this->ajaxDie($message);
     }
 
     public function installPsCheckout()

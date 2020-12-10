@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request;
 
-
 interface RequestInteface
 {
     public function execute();

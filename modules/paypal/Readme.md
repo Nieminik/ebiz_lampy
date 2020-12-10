@@ -1,30 +1,33 @@
-# PayPal Officiel
+# PayPal Official Module for PrestaShop
 
 ## About
 
-Let customer pay with one of this payment methods : 
+Let customer pay with one of the payment methods : 
 
 On PrestaShop 1.7 : 
 - PayPal Express Checkout
 - PayPal Express Checkout Cards
-- PayPal Plus Germany, Mexique and Brazil
+- PayPal Plus Germany, Mexico and Brazil
 
 On PrestaShop 1.6 : 
 - PayPal Express Checkout
-- PayPal Integral Evolution
 - Braintree cards
-- PayPal Plus
+- PayPal Plus Germany
 
 #### Product page on PrestaShop Addons:
 
 https://addons.prestashop.com/en/payment-card-wallet/1748-paypal-official.html
 
+#### Support on PrestaShop Addons:
+
+https://addons.prestashop.com/en/contact-us?id_product=1748
+
 ## Module version guide
 
 | PrestaShop version | Module version     |  Repo                | Doc                |  PHP Version |
 |---------|------------|---------------------|---------------------|-------------|
-| 1.5.x - 1.6.x     | 3.14.x        |  [release/3.14.0][paypal-3.12] | |   5.3 or greater    |
-| 1.7.x    | 5.x        |  [master][paypal-4] | [module documentation][6]|   5.4 or greater    |
+| 1.5.x - 1.6.x     | 3.x        |  [release/3.14.0][paypal-3.12] | |   5.3 or greater    |
+| 1.7.x    | 5.x        |  [master][paypal-4] | [User Guide][6]|   5.4 or greater    |
 
 ## Requirements
 

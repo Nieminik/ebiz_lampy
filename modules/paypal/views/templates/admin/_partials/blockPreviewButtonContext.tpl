@@ -72,10 +72,30 @@
 		</div>
 		<img src="{$moduleDir|addslashes}paypal/views/img/product_page_button.png" alt="product_page_button">
 	</div>
+
+  <div class="pp__py-2 pp__px-1">
+    <div class="pp__mb-2">
+      <input type="checkbox" {if isset($paypal_express_checkout_shortcut_signup) &&
+      $paypal_express_checkout_shortcut_signup}checked{/if} name="paypal_express_checkout_shortcut_signup"
+             id="paypal_express_checkout_shortcut_signup" value="1">
+      <label for="paypal_express_checkout_shortcut_signup"  class="control-label">
+				<span
+                class="label-tooltip"
+                data-toggle="tooltip"
+                data-html="true"
+                title=""
+                data-original-title="<p style='text-align:left'>{l s='Express Checkout Shortcut on «Sign up» step in checkout is recommended for allowing your customer to skip the «Sign up» form on your website. All information, including delivery address, will be provided by PayPal' mod='paypal'}</p>"
+        >
+					{l s='Sign up step in checkout' mod='paypal'}
+				</span>
+      </label>
+    </div>
+    <img src="{$moduleDir|addslashes}paypal/views/img/signin-checkout-button.png" alt="product_page_button">
+  </div>
 </div>
 
 <div class="alert alert-info">
 	<button type="button" class="close" data-dismiss="alert">×</button>
-    {l s='Shortcut converts best when activated on both product pages & cart page' mod='paypal'}
+    {l s='PayPal shortcuts allow a faster checkout for your buyers. PayPal automatically provides you with the client\'s shipping and billing information.' mod='paypal'}
 </div>
 

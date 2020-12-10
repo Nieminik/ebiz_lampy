@@ -26,6 +26,7 @@
 
 require_once _PS_MODULE_DIR_ . 'paypal/vendor/autoload.php';
 
+use PaypalAddons\classes\AbstractMethodPaypal;
 use PrestaShop\PrestaShop\Core\Addon\Module\ModuleManagerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use PaypalAddons\classes\AdminPayPalController;
@@ -48,24 +49,19 @@ class AdminPayPalHelpController extends AdminPayPalController
         parent::initContent();
 
         $countryDefault = new Country((int)\Configuration::get('PS_COUNTRY_DEFAULT'), $this->context->language->id);
-        $need_rounding = false;
+        $method = AbstractMethodPaypal::load($this->method);
 
-        if (Configuration::get('PS_ROUND_TYPE') != Order::ROUND_ITEM) {
-            $need_rounding = true;
+        if ($method->isSandbox()) {
+            $settingLink = 'https://www.sandbox.paypal.com/businessprofile/settings/info/edit';
+        } else {
+            $settingLink = 'https://www.paypal.com/businessprofile/settings/info/edit';
         }
 
-        if (Configuration::get('PS_PRICE_ROUND_MODE') != PS_ROUND_HALF_UP) {
-            $need_rounding = true;
-        }
-
-        if (defined('_PS_PRICE_COMPUTE_PRECISION_') && (int)_PS_PRICE_COMPUTE_PRECISION_ != 2) {
-            $need_rounding = true;
-        }
-
+        $this->context->smarty->assign('settingLink', $settingLink);
         $tpl_vars = array(
-            'need_rounding' => $need_rounding,
             'psCheckoutBtnText' => $this->getCheckoutBtnText(),
-            'showPsCheckout' => in_array($countryDefault->iso_code, $this->module->countriesApiCartUnavailable)
+            'showPsCheckout' => in_array($countryDefault->iso_code, $this->module->countriesApiCartUnavailable),
+            'settingLink' => $settingLink
         );
 
         $this->context->smarty->assign($tpl_vars);

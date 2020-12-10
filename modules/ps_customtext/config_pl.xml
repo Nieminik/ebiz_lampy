@@ -2,7 +2,7 @@
 <module>
     <name>ps_customtext</name>
     <displayName><![CDATA[Niestandardowe bloki tekstu]]></displayName>
-    <version><![CDATA[4.1.0]]></version>
+    <version><![CDATA[4.1.1]]></version>
     <description><![CDATA[Zintegrowane bloki tekstu własnego w dowolnym miejscu w Twoim sklepie]]></description>
     <author><![CDATA[PrestaShop]]></author>
     <tab><![CDATA[]]></tab>

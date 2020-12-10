@@ -30,6 +30,8 @@ if (!defined('_PS_VERSION_')) {
 
 include_once(_PS_MODULE_DIR_ . 'paypal/vendor/autoload.php');
 
+use PaypalAddons\classes\Shortcut\ShortcutConfiguration;
+use PaypalAddons\classes\Shortcut\ShortcutSignup;
 use PaypalPPBTlib\Extensions\ProcessLogger\ProcessLoggerExtension;
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 use PaypalPPBTlib\Install\ModuleInstaller;
@@ -47,7 +49,7 @@ define('PAYPAL_PAYMENT_CUSTOMER_CURRENCY', -1);
 // BT = Braintree
 // PPP = PayPal Plus
 
-class PayPal extends \PaymentModule
+class PayPal extends \PaymentModule implements WidgetInterface
 {
     const PAYPAL_PARTNER_CLIENT_ID_LIVE = 'ATgR8ZE5M_Jd7F_XMMQDqMfFFgr7hJHFw8yKfklWU4TwzReENgydr5I042YfS1nRTDey7C1NbuFfKo_o';
 
@@ -181,7 +183,7 @@ class PayPal extends \PaymentModule
         'displayAdminOrder',
         'actionOrderStatusPostUpdate',
         'actionOrderStatusUpdate',
-        'header',
+        'displayHeader',
         'displayFooterProduct',
         'actionBeforeCartUpdateQty',
         'displayReassurance',
@@ -194,7 +196,15 @@ class PayPal extends \PaymentModule
         'displayAdminOrderTop',
         'displayAdminOrderTabLink',
         'displayAdminOrderTabContent',
-        'displayOrderPreview'
+        'displayOrderPreview',
+        ShortcutConfiguration::HOOK_REASSURANCE,
+        ShortcutConfiguration::HOOK_AFTER_PRODUCT_ADDITIONAL_INFO,
+        ShortcutConfiguration::HOOK_AFTER_PRODUCT_THUMBS,
+        ShortcutConfiguration::HOOK_EXPRESS_CHECKOUT,
+        ShortcutConfiguration::HOOK_FOOTER_PRODUCT,
+        ShortcutConfiguration::HOOK_PRODUCT_ACTIONS,
+        ShortcutConfiguration::HOOK_SHOPPING_CART_FOOTER,
+        ShortcutConfiguration::HOOK_PERSONAL_INFORMATION_TOP
     );
 
     /**
@@ -310,7 +320,7 @@ class PayPal extends \PaymentModule
     {
         $this->name = 'paypal';
         $this->tab = 'payments_gateways';
-        $this->version = '5.2.1';
+        $this->version = '5.3.1';
         $this->author = '202 ecommerce';
         $this->display = 'view';
         $this->module_key = '336225a5988ad434b782f2d868d7bfcd';
@@ -329,7 +339,6 @@ class PayPal extends \PaymentModule
         $this->description = $this->l('Allow your customers to pay with PayPal - the safest, quickest and easiest way to pay online.');
         $this->confirmUninstall = $this->l('Are you sure you want to delete your details?');
         $this->express_checkout = $this->l('PayPal Express Checkout ');
-        $this->module_link = $this->context->link->getAdminLink('AdminModules', true) . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
 
         $this->errors = '';
         $countryDefault = new \Country((int)\Configuration::get('PS_COUNTRY_DEFAULT'), $this->context->language->id);
@@ -428,9 +437,11 @@ class PayPal extends \PaymentModule
             $shops = Shop::getShops();
             foreach ($shops as $shop) {
                 Configuration::updateValue('PAYPAL_CRON_TIME', date('Y-m-d H:m:s'), false, null, (int)$shop['id_shop']);
+                Configuration::updateValue('PAYPAL_PREVIOUS_VERSION', $this->version, false, null, (int)$shop['id_shop']);
             }
         } else {
             Configuration::updateValue('PAYPAL_CRON_TIME', date('Y-m-d H:m:s'));
+            Configuration::updateValue('PAYPAL_PREVIOUS_VERSION', $this->version);
         }
 
         return true;
@@ -551,29 +562,69 @@ class PayPal extends \PaymentModule
 
     public function hookDisplayShoppingCartFooter()
     {
-        if (Module::isEnabled('braintreeofficial') && (int)Configuration::get('BRAINTREEOFFICIAL_ACTIVATE_PAYPAL')) {
-            return;
-        }
-        if ('cart' !== $this->context->controller->php_self ||
-            !Configuration::get('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_CART') ||
-            $this->context->cart->nbProducts() == 0 ||
-            $this->paypal_method == 'MB' && (bool)Configuration::get('PAYPAL_MB_EC_ENABLED') == false) {
-            return false;
+        if ($this->context->controller instanceof CartController === false) {
+            return '';
         }
 
-        if ($this->paypal_method == 'MB') {
-            $methodType = 'EC';
-        } else {
-            $methodType = $this->paypal_method;
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_CART,
+            'hook' => ShortcutConfiguration::HOOK_SHOPPING_CART_FOOTER
+        ]);
+    }
+
+    public function hookDisplayProductActions($params)
+    {
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_PRODUCT,
+            'hook' => ShortcutConfiguration::HOOK_PRODUCT_ACTIONS
+        ]);
+    }
+
+    public function hookDisplayAfterProductThumbs($params)
+    {
+        if ((int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_PRODUCT) !== ShortcutConfiguration::DISPLAY_MODE_TYPE_HOOK) {
+            return '';
         }
 
-        $method = AbstractMethodPaypal::load($methodType);
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_PRODUCT,
+            'hook' => ShortcutConfiguration::HOOK_AFTER_PRODUCT_THUMBS
+        ]);
+    }
 
-        if ($method->isConfigured() == false) {
-            return;
+    public function hookDisplayProductAdditionalInfo($params)
+    {
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_PRODUCT,
+            'hook' => ShortcutConfiguration::HOOK_AFTER_PRODUCT_ADDITIONAL_INFO
+        ]);
+    }
+
+    public function hookDisplayFooterProduct($params)
+    {
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_PRODUCT,
+            'hook' => ShortcutConfiguration::HOOK_FOOTER_PRODUCT
+        ]);    }
+
+    public function hookDisplayExpressCheckout($params)
+    {
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_CART,
+            'hook' => ShortcutConfiguration::HOOK_EXPRESS_CHECKOUT
+        ]);
+    }
+
+    public function hookDisplayPersonalInformationTop($params)
+    {
+        if ($this->context->customer->isLogged()) {
+            return '';
         }
 
-        return $method->renderExpressCheckoutShortCut($this->context, $methodType, 'cart');
+        return $this->displayShortcutButton([
+            'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_SIGNUP,
+            'hook' => ShortcutConfiguration::HOOK_PERSONAL_INFORMATION_TOP
+        ]);
     }
 
     public function getContent()
@@ -690,7 +741,7 @@ class PayPal extends \PaymentModule
         }
         $paymentOption = new PaymentOption();
         $action_text = $this->l('Pay with Paypal');
-        $paymentOption->setLogo(Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/views/img/paypal_sm.png'));
+        $paymentOption->setLogo(Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/views/img/paypal_logo.png'));
         $paymentOption->setModuleName($this->name);
         if (Configuration::get('PAYPAL_API_ADVANTAGES')) {
             $action_text .= ' | ' . $this->l('It\'s simple, fast and secure');
@@ -704,9 +755,11 @@ class PayPal extends \PaymentModule
         } else {
             $paymentOption->setAction($this->context->link->getModuleLink($this->name, 'ecInit', array('credit_card' => '0'), true));
         }
-        if (!$is_virtual) {
+        if (!$is_virtual && Configuration::get('PAYPAL_API_ADVANTAGES')) {
             $paymentOption->setAdditionalInformation($this->context->smarty->fetch('module:paypal/views/templates/front/payment_infos.tpl'));
         }
+
+        $paymentOption->setModuleName('paypal-ec');
 
         $paymentOptions[] = $paymentOption;
 
@@ -724,6 +777,7 @@ class PayPal extends \PaymentModule
 
     public function hookHeader()
     {
+        $returnContent = '';
         $this->context->controller->registerStylesheet($this->name . '-fo', 'modules/' . $this->name . '/views/css/paypal_fo.css');
         $resources = array();
         $method = AbstractMethodPaypal::load($this->paypal_method);
@@ -733,7 +787,7 @@ class PayPal extends \PaymentModule
             Configuration::updateValue('PAYPAL_NEED_CHECK_CREDENTIALS', 0);
         }
 
-        if (Tools::getValue('controller') == "order") {
+       if (Tools::getValue('controller') == "order") {
             if (!$this->checkActiveModule()) {
                 return;
             }
@@ -744,7 +798,23 @@ class PayPal extends \PaymentModule
                 return false;
             }
 
-            if ((Configuration::get('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT') || Configuration::get('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT_CART')) && (isset($this->context->cookie->paypal_ecs) || isset($this->context->cookie->paypal_pSc))) {
+           $this->context->controller->registerJavascript($this->name . '-paypal-info', 'modules/' . $this->name . '/views/js/paypal-info.js');
+           $resources[] = '/modules/' . $this->name . '/views/js/paypal-info.js';
+
+            // Show Shortcut on signup page if need
+            // if ps version is '1.7.6' and bigger than use native hook displayPersonalInformationTop
+            if ($this->isShowShortcut() && !$this->context->customer->isLogged()) {
+                if (version_compare(_PS_VERSION_, '1.7.6', '<')
+                    && ((bool)Configuration::get(ShortcutConfiguration::CUSTOMIZE_STYLE) === false || (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_SIGNUP) == ShortcutConfiguration::DISPLAY_MODE_TYPE_HOOK)) {
+                    $Shortcut = new ShortcutSignup();
+                    $returnContent .= $Shortcut->render();
+                }
+                $returnContent .= $this->context->smarty->fetch('module:paypal/views/templates/front/prefetch.tpl');
+                return $returnContent;
+            }
+
+            if ((Configuration::get(ShortcutConfiguration::SHOW_ON_PRODUCT_PAGE) || Configuration::get(ShortcutConfiguration::SHOW_ON_CART_PAGE) || Configuration::get(ShortcutConfiguration::SHOW_ON_SIGNUP_STEP))
+                && (isset($this->context->cookie->paypal_ecs) || isset($this->context->cookie->paypal_pSc))) {
                 $this->context->controller->registerJavascript($this->name . '-paypal-ec-sc', 'modules/' . $this->name . '/views/js/shortcut_payment.js');
                 $resources[] = '/modules/' . $this->name . '/views/js/shortcut_payment.js' . '?v=' . $this->version;
                 if (isset($this->context->cookie->paypal_ecs)) {
@@ -815,7 +885,8 @@ class PayPal extends \PaymentModule
         }
 
         $this->context->smarty->assign('resources', $resources);
-        return $this->context->smarty->fetch('module:paypal/views/templates/front/prefetch.tpl');
+        $returnContent .= $this->context->smarty->fetch('module:paypal/views/templates/front/prefetch.tpl');
+        return $returnContent;
     }
 
     public function checkActiveModule()
@@ -880,13 +951,94 @@ class PayPal extends \PaymentModule
 
     public function hookDisplayReassurance()
     {
-        if (Module::isEnabled('braintreeofficial') && (int)Configuration::get('BRAINTREEOFFICIAL_ACTIVATE_PAYPAL')) {
-            return;
+        if ($this->context->controller instanceof ProductController) {
+            return $this->displayShortcutButton([
+                'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_PRODUCT,
+                'hook' => ShortcutConfiguration::HOOK_REASSURANCE
+            ]);
         }
-        if ('product' !== $this->context->controller->php_self ||
-            !Configuration::get('PAYPAL_EXPRESS_CHECKOUT_SHORTCUT') ||
-            $this->paypal_method == 'MB' && (bool)Configuration::get('PAYPAL_MB_EC_ENABLED') == false) {
-            return false;
+
+        if ($this->context->controller instanceof CartController) {
+            return $this->displayShortcutButton([
+                'sourcePage' => ShortcutConfiguration::SOURCE_PAGE_CART,
+                'hook' => ShortcutConfiguration::HOOK_REASSURANCE
+            ]);
+        }
+
+        return '';
+    }
+
+    /**
+     * @param array $data
+     * @return string
+     */
+    public function displayShortcutButton($data)
+    {
+        if ($this->isShowShortcut() === false) {
+            return '';
+        }
+
+        if (false === isset($data['sourcePage'])) {
+            return '';
+        }
+
+        if (isset($data['hook'])) {
+
+            if ($data['sourcePage'] == ShortcutConfiguration::SOURCE_PAGE_PRODUCT) {
+                if (Configuration::get(ShortcutConfiguration::CUSTOMIZE_STYLE)
+                    && (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_PRODUCT) !== ShortcutConfiguration::DISPLAY_MODE_TYPE_HOOK) {
+
+                    return '';
+                }
+                // Take a hook by default
+                if (version_compare(_PS_VERSION_, '1.7.6', '<')
+                    || (int)Configuration::getGlobalValue(ShortcutConfiguration::USE_OLD_HOOK)) {
+                    $hookSetted = ShortcutConfiguration::HOOK_REASSURANCE;
+                } else {
+                    $hookSetted = ShortcutConfiguration::HOOK_PRODUCT_ACTIONS;
+                }
+
+                // If a style customization conf is active, take a hook configured
+                if (Configuration::get(ShortcutConfiguration::CUSTOMIZE_STYLE)) {
+                    $hookSetted = Configuration::get(ShortcutConfiguration::PRODUCT_PAGE_HOOK);
+                }
+
+                if ($hookSetted != $data['hook']) {
+                    return '';
+                }
+            }
+
+            if ($data['sourcePage'] == ShortcutConfiguration::SOURCE_PAGE_CART) {
+                if (Configuration::get(ShortcutConfiguration::CUSTOMIZE_STYLE)
+                    && (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_CART) !== ShortcutConfiguration::DISPLAY_MODE_TYPE_HOOK) {
+
+                    return '';
+                }
+                // Take a hook by default
+                if ((int)Configuration::getGlobalValue(ShortcutConfiguration::USE_OLD_HOOK)) {
+                    $hookSetted = ShortcutConfiguration::HOOK_SHOPPING_CART_FOOTER;
+                } else {
+                    $hookSetted = ShortcutConfiguration::HOOK_EXPRESS_CHECKOUT;
+                }
+
+
+                // If a style customization conf is active, take a hook configured
+                if (Configuration::get(ShortcutConfiguration::CUSTOMIZE_STYLE)) {
+                    $hookSetted = Configuration::get(ShortcutConfiguration::CART_PAGE_HOOK);
+                }
+
+                if ($hookSetted != $data['hook']) {
+                    return '';
+                }
+            }
+
+            if ($data['sourcePage'] == ShortcutConfiguration::SOURCE_PAGE_SIGNUP) {
+                if (Configuration::get(ShortcutConfiguration::CUSTOMIZE_STYLE)
+                    && (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_SIGNUP) !== ShortcutConfiguration::DISPLAY_MODE_TYPE_HOOK) {
+
+                    return '';
+                }
+            }
         }
 
         if ($this->paypal_method == 'MB') {
@@ -898,10 +1050,10 @@ class PayPal extends \PaymentModule
         $method = AbstractMethodPaypal::load($methodType);
 
         if ($method->isConfigured() == false) {
-            return;
+            return '';
         }
 
-        return $method->renderExpressCheckoutShortCut($this->context, $methodType, 'product');
+        return $method->renderExpressCheckoutShortCut($data['sourcePage']);
     }
 
     /**
@@ -932,7 +1084,11 @@ class PayPal extends \PaymentModule
         if ($id_currency = $this->needConvert()) {
             $currency = new Currency((int)$id_currency);
         } else {
-            $currency = Context::getContext()->currency;
+            if (Validate::isLoadedObject(Context::getContext()->currency)) {
+                $currency = Context::getContext()->currency;
+            } else {
+                $currency = new Currency((int)Configuration::get('PS_CURRENCY_DEFAULT'));
+            }
         }
         return $currency->iso_code;
     }
@@ -1062,13 +1218,19 @@ class PayPal extends \PaymentModule
         }
 
         $return = $this->getAdminOrderPageMessages($params);
-        $return .= $this->getPartialRefund();
+        $return .= $this->getPartialRefund($params);
 
         return $return;
     }
 
-    protected function getPartialRefund()
+    protected function getPartialRefund($params)
     {
+        $paypal_order = PaypalOrder::loadByOrderId($params['id_order']);
+
+        if (!Validate::isLoadedObject($paypal_order)) {
+            return '';
+        }
+
         $this->context->smarty->assign('chb_paypal_refund', $this->l('Refund on PayPal'));
         return $this->context->smarty->fetch(_PS_MODULE_DIR_ . $this->name . '/views/templates/hook/partialRefund.tpl');
     }
@@ -1076,7 +1238,7 @@ class PayPal extends \PaymentModule
     public function hookDisplayAdminOrderTop($params)
     {
         $return = $this->getAdminOrderPageMessages($params);
-        $return .= $this->getPartialRefund();
+        $return .= $this->getPartialRefund($params);
 
         return $return;
     }
@@ -1086,7 +1248,7 @@ class PayPal extends \PaymentModule
         /* @var $paypal_order PaypalOrder */
         $id_order = $params['id_order'];
         $order = new Order((int)$id_order);
-        $paypal_msg = '';
+        $paypal_msg = "<div class='module_warning'>";
         $paypal_order = PaypalOrder::loadByOrderId($id_order);
         $paypal_capture = PaypalCapture::loadByOrderPayPalId($paypal_order->id);
 
@@ -1156,6 +1318,8 @@ class PayPal extends \PaymentModule
             $tmpMessage .= '</p>';
             $paypal_msg .= $this->displayWarning($tmpMessage);
         }
+
+        $paypal_msg .= "</div>";
 
         return $paypal_msg . $this->display(__FILE__, 'views/templates/hook/paypal_order.tpl');
     }
@@ -1654,14 +1818,30 @@ class PayPal extends \PaymentModule
 
     public function displayInformation($message, $btnClose = true, $widthByContent = false, $class = false)
     {
+        return $this->displayAlert($message, 'info', $btnClose, $widthByContent, $class);
+    }
+
+    public function displayError($message, $btnClose = true, $widthByContent = false, $class = false)
+    {
+        return $this->displayAlert($message, 'danger', $btnClose, $widthByContent, $class);
+    }
+
+    public function displayWarning($message, $btnClose = true, $widthByContent = false, $class = false)
+    {
+        return $this->displayAlert($message, 'warning', $btnClose, $widthByContent, $class);
+    }
+
+    public function displayAlert($message, $type, $btnClose = true, $widthByContent = false, $class = false)
+    {
         $tplVars = array(
             'message' => $message,
             'btnClose' => $btnClose,
             'widthByContent' => $widthByContent,
-            'class' => $class
+            'class' => $class,
+            'type' => $type
         );
         $this->context->smarty->assign($tplVars);
-        return $this->context->smarty->fetch(_PS_MODULE_DIR_ . $this->name . '/views/templates/admin/_partials/alertInfo.tpl');
+        return $this->context->smarty->fetch(_PS_MODULE_DIR_ . $this->name . '/views/templates/admin/_partials/alert.tpl');
     }
 
     public function isSslActive()
@@ -1840,6 +2020,8 @@ class PayPal extends \PaymentModule
         $hooksUnregistered = array();
 
         foreach ($this->hooks as $hookName) {
+            $hookName = Hook::getNameById(Hook::getIdByName($hookName));;
+
             if (Hook::isModuleRegisteredOnHook($this, $hookName, $this->context->shop->id)) {
                 continue;
             }
@@ -1848,6 +2030,32 @@ class PayPal extends \PaymentModule
         }
 
         return $hooksUnregistered;
+    }
+
+    public function resetHooks()
+    {
+        //Unregister module hooks
+        // Retrieve hooks used by the module
+        $query = new DbQuery();
+        $query
+            ->from('hook_module')
+            ->where('id_module = ' . (int)$this->id)
+            ->select('id_hook');
+        $result = Db::getInstance()->executeS($query);
+
+        if (false === empty($result)) {
+            foreach ($result as $row) {
+                $this->unregisterHook((int) $row['id_hook']);
+                $this->unregisterExceptions((int) $row['id_hook']);
+            }
+        }
+
+        //Register hooks
+        if (false === empty($this->hooks)) {
+            foreach ($this->hooks as $hook) {
+                $this->registerHook($hook);
+            }
+        }
     }
 
     public function getIpnPaypalListener($sandbox = null)
@@ -1933,5 +2141,73 @@ class PayPal extends \PaymentModule
         }
 
         return Configuration::updateValue('PAYPAL_NOT_SHOW_PS_CHECKOUT', json_encode($notShowDetailsArray));
+    }
+
+    /**
+     * @return bool
+     */
+    public function isShowShortcut()
+    {
+        if (is_null($this->context->controller)) {
+            return false;
+        }
+
+        if (Module::isEnabled('braintreeofficial') && (int)Configuration::get('BRAINTREEOFFICIAL_ACTIVATE_PAYPAL')) {
+            return false;
+        }
+
+        if ($this->paypal_method === 'MB' && (bool)Configuration::get('PAYPAL_MB_EC_ENABLED') === false) {
+            return false;
+        }
+
+        if ($this->context->controller instanceof OrderController && Configuration::get(ShortcutConfiguration::SHOW_ON_SIGNUP_STEP)) {
+            return true;
+        }
+
+        if ($this->context->controller instanceof ProductController && Configuration::get(ShortcutConfiguration::SHOW_ON_PRODUCT_PAGE)) {
+            return true;
+        }
+
+        if ($this->context->controller instanceof CartController && Configuration::get(ShortcutConfiguration::SHOW_ON_CART_PAGE)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function renderWidget($hookName, array $configuration)
+    {
+        if (false === isset($configuration['action']) || $configuration['action'] !== 'paymentshortcut') {
+            return '';
+        }
+
+        $sourcePage = null;
+
+        if ($this->context->controller instanceof ProductController && (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_PRODUCT) === ShortcutConfiguration::DISPLAY_MODE_TYPE_WIDGET) {
+            $sourcePage = ShortcutConfiguration::SOURCE_PAGE_PRODUCT;
+        } elseif ($this->context->controller instanceof CartController && (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_CART) === ShortcutConfiguration::DISPLAY_MODE_TYPE_WIDGET) {
+            $sourcePage = ShortcutConfiguration::SOURCE_PAGE_CART;
+        } elseif ($this->context->controller instanceof OrderController && (int)Configuration::get(ShortcutConfiguration::DISPLAY_MODE_SIGNUP) === ShortcutConfiguration::DISPLAY_MODE_TYPE_WIDGET) {
+            $sourcePage = ShortcutConfiguration::SOURCE_PAGE_SIGNUP;
+        }
+
+        if ($sourcePage === null) {
+            return '';
+        }
+
+        return $this->displayShortcutButton(['sourcePage' => $sourcePage]);
+    }
+
+    public function getWidgetVariables($hookName, array $configuration)
+    {
+    }
+
+    public function getIdProductAttributeByIdAttributes($idProduct, $idAttributes, $findBest = false)
+    {
+        if (version_compare(_PS_VERSION_, '1.7.3.1', '<')) {
+            return Product::getIdProductAttributesByIdAttributes($idProduct, $idAttributes, $findBest);
+        } else {
+            return Product::getIdProductAttributeByIdAttributes($idProduct, $idAttributes, $findBest);
+        }
     }
 }

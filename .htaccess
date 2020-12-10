@@ -16,6 +16,14 @@ RewriteRule ^api(?:/(.*))?$ %{ENV:REWRITEBASE}webservice/dispatcher.php?url=$1 [
 
 # AlphaImageLoader for IE and fancybox
 RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
+
+
+#Domain: dniemiro.dev
+RewriteRule . - [E=REWRITEBASE:/]
+RewriteRule ^api(?:/(.*))?$ %{ENV:REWRITEBASE}webservice/dispatcher.php?url=$1 [QSA,L]
+
+# AlphaImageLoader for IE and fancybox
+RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
 </IfModule>
 
 AddType application/vnd.ms-fontobject .eot
@@ -50,3 +58,4 @@ AddType font/woff2 .woff2
 ErrorDocument 404 /index.php?controller=404
 
 # ~~end~~ Do not remove this comment, Prestashop will keep automatically the code outside this comment when .htaccess will be generated again
+

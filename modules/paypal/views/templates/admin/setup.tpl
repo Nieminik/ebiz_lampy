@@ -32,6 +32,10 @@
     {include './_partials/messages/restApiIntegrationMessage.tpl'}
 {/if}
 
+{if isset($need_rounding) && $need_rounding}
+  {include './_partials/messages/roundingSettingsMessage.tpl'}
+{/if}
+
 {include './_partials/headerLogo.tpl'}
 
 <div>

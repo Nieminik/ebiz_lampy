@@ -70,7 +70,7 @@ class PaypalScInitModuleFrontController extends PaypalAbstarctModuleFrontControl
             case 'product':
                 $product = new Product((int)$request->idProduct);
                 $group = $this->parseCombination($request->combination);
-                $product->id_product_attribute = Product::getIdProductAttributeByIdAttributes($request->idProduct, $group);
+                $product->id_product_attribute = $this->module->getIdProductAttributeByIdAttributes($request->idProduct, $group);
                 if ($product->checkQty($request->quantity)) {
                     $this->jsonValues = array('success' => true);
                 } else {
@@ -112,7 +112,7 @@ class PaypalScInitModuleFrontController extends PaypalAbstarctModuleFrontControl
         if ($this->values['combination']) {
             // build group for search product attribute
             $group = $this->parseCombination($this->values['combination']);
-            $this->context->cart->updateQty($this->values['quantity'], $this->values['id_product'], Product::getIdProductAttributeByIdAttributes($this->values['id_product'], $group));
+            $this->context->cart->updateQty($this->values['quantity'], $this->values['id_product'], $this->module->getIdProductAttributeByIdAttributes($this->values['id_product'], $group));
         } else {
             $this->context->cart->updateQty($this->values['quantity'], $this->values['id_product']);
         }
@@ -135,6 +135,7 @@ class PaypalScInitModuleFrontController extends PaypalAbstarctModuleFrontControl
             $this->prepareProduct();
         }
 
+        $this->method->setShortCut(true);
         $this->method->init();
         $this->jsonValues = ['success' => true, 'idOrder' => $this->method->getPaymentId()];
     }

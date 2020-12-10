@@ -30,6 +30,8 @@ namespace PaypalAddons\classes\API\Request;
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PaypalAddons\classes\API\Response\Error;
 use PaypalAddons\classes\API\Response\ResponseOrderRefund;
+use PaypalAddons\classes\Exception\OrderFullyRefundedException;
+use PaypalAddons\classes\Exception\RefundCalculationException;
 use PaypalAddons\services\ServicePaypalOrder;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Payments\CapturesRefundRequest;
@@ -53,11 +55,11 @@ class PaypalOrderRefundRequest extends RequestAbstract
         $captureRefund = new CapturesRefundRequest($this->getResourceId());
         $captureRefund->prefer('return=representation');
 
-        if ($body = $this->buildRequestBody()) {
-            $captureRefund->body = $body;
-        }
-
         try {
+            if ($body = $this->buildRequestBody()) {
+                $captureRefund->body = $body;
+            }
+
             $exec = $this->client->execute($captureRefund);
 
             if (in_array($exec->statusCode, [200, 201, 202])) {
@@ -83,6 +85,8 @@ class PaypalOrderRefundRequest extends RequestAbstract
             if ($resultDecoded->details[0]->issue == 'CAPTURE_FULLY_REFUNDED') {
                 $response->setAlreadyRefunded(true);
             }
+        } catch (OrderFullyRefundedException $e) {
+            $response->setSuccess(false)->setAlreadyRefunded(true);
         } catch (\Exception $e) {
             $error = new Error();
             $error->setErrorCode($e->getCode())->setMessage($e->getMessage());
@@ -118,10 +122,13 @@ class PaypalOrderRefundRequest extends RequestAbstract
 
     /**
      * @return array
+     * @throws OrderFullyRefundedException
+     * @throws RefundCalculationException
      */
     protected function getAmount()
     {
         $total = 0;
+        $totalRefund = 0;
 
         try {
             $order = $this->method->getInfo($this->paypalOrder->id_payment);
@@ -135,19 +142,22 @@ class PaypalOrderRefundRequest extends RequestAbstract
 
             if (isset($payments->refunds)) {
                 foreach ($payments->refunds as $refund) {
-                    $total += -($refund->amount->value);
+                    $totalRefund += $refund->amount->value;
                 }
             }
         } catch (\Exception $e) {
-            // if there is the error, so return 0
-            $total = 0;
+            throw new RefundCalculationException($e->getMessage());
         }
 
-        $total = $this->method->formatPrice($total, $this->paypalOrder->currency);
+        if ($total == $totalRefund) {
+            throw new OrderFullyRefundedException();
+        }
+
+        $refundValue = $this->method->formatPrice(($total - $totalRefund), $this->paypalOrder->currency);
 
         $amount = [
             'currency_code' => $this->paypalOrder->currency,
-            'value' => $total
+            'value' => $refundValue
         ];
 
         return $amount;

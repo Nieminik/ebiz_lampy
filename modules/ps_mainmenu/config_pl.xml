@@ -2,7 +2,7 @@
 <module>
     <name>ps_mainmenu</name>
     <displayName><![CDATA[Menu gł&oacute;wne]]></displayName>
-    <version><![CDATA[2.1.1]]></version>
+    <version><![CDATA[2.2.0]]></version>
     <description><![CDATA[Dodaje nowe menu na g&oacute;rze strony internetowej sklepu.]]></description>
     <author><![CDATA[PrestaShop]]></author>
     <tab><![CDATA[front_office_features]]></tab>

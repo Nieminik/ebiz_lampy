@@ -2,7 +2,7 @@
 <module>
     <name>ps_customersignin</name>
     <displayName><![CDATA[Łącze klienta &bdquo;Zaloguj się&quot;]]></displayName>
-    <version><![CDATA[2.0.2]]></version>
+    <version><![CDATA[2.0.3]]></version>
     <description><![CDATA[Dodaje blok kt&oacute;ry wyświetla informację o kliencie.]]></description>
     <author><![CDATA[PrestaShop]]></author>
     <tab><![CDATA[]]></tab>

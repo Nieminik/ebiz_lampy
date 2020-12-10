@@ -29,7 +29,6 @@ if (!defined('_PS_VERSION_')) {
 }
 
 use PaypalPPBTlib\Install\ModuleInstaller;
-use PaypalAddons\classes\AbstractMethodPaypal;
 
 /**
  * @param $module PayPal

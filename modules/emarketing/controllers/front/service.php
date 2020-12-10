@@ -101,7 +101,7 @@ class EmarketingServiceModuleFrontController extends ModuleFrontController
             $token = $tokenParts[1];
         }
 
-        if ($postData['authorization'] == $token) {
+        if ($postData['authorization'] === $token) {
             return true;
         }
 

@@ -2,7 +2,7 @@
 <module>
     <name>psgdpr</name>
     <displayName><![CDATA[Oficjalna zgodność z RODO]]></displayName>
-    <version><![CDATA[1.2.0]]></version>
+    <version><![CDATA[1.2.1]]></version>
     <description><![CDATA[Spełniaj najważniejsze wymogi Og&oacute;lnego rozporządzenia o ochronie danych dzięki modułowi opracowanemu przez PrestaShop.]]></description>
     <author><![CDATA[PrestaShop]]></author>
     <tab><![CDATA[administration]]></tab>

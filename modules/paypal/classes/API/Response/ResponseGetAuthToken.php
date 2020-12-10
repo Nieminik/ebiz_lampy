@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Response;
 
-
 class ResponseGetAuthToken extends Response
 {
     /** @var string*/

@@ -43,11 +43,15 @@ abstract class ShortcutAbstract
     /** @var AbstractMethodPaypal*/
     protected $method;
 
+    /** @var string*/
+    protected $id;
+
     public function __construct()
     {
         $this->context = Context::getContext();
         $this->module = Module::getInstanceByName('paypal');
         $this->method = AbstractMethodPaypal::load($this->getMethodType());
+        $this->setId(uniqid());
     }
 
     /**
@@ -69,6 +73,7 @@ abstract class ShortcutAbstract
         $JSvars = [];
         $JSvars['sc_init_url'] = $this->context->link->getModuleLink($this->module->name, 'ScInit', array(), true);
         $JSvars['scOrderUrl'] = $this->context->link->getModuleLink($this->module->name, 'scOrder', array(), true);
+        $JSvars['styleSetting'] = $this->getStyleSetting();
 
         return $JSvars;
     }
@@ -80,12 +85,12 @@ abstract class ShortcutAbstract
     {
         $JSscripts = [];
 
-        foreach (Media::getJqueryPath() as $lib) {
-            $JSscripts[] = $lib;
+        foreach (Media::getJqueryPath() as $index => $lib) {
+            $JSscripts['jq-lib-' . $index] = $lib;
         }
 
-        $JSscripts[] = $this->method->getUrlJsSdkLib();
-        $JSscripts[] = '/modules/' . $this->module->name . '/views/js/shortcut.js?v=' . $this->module->version;
+        $JSscripts['paypal-lib'] = $this->method->getUrlJsSdkLib();
+        $JSscripts['shortcut'] = '/modules/' . $this->module->name . '/views/js/shortcut.js?v=' . $this->module->version;
 
         return $JSscripts;
     }
@@ -110,4 +115,31 @@ abstract class ShortcutAbstract
      * @return []
      */
     abstract protected function getTplVars();
+
+    protected function getStyleSetting()
+    {
+        $styleSetting = [];
+        $styleSetting['label'] = 'pay';
+        $styleSetting['height'] = 35;
+
+        return $styleSetting;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return (string) $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return ShortcutAbstract
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 }

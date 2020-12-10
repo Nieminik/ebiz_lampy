@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request;
 
-
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PaypalAddons\classes\API\Response\Error;
 use PaypalAddons\classes\API\Response\ResponseOrderGet;
@@ -103,7 +102,6 @@ class PaypalOrderGetRequest extends RequestAbstract
         } else {
             return '';
         }
-
     }
 
     protected function getCity(\PayPalHttp\HttpResponse $exec)
@@ -161,6 +159,5 @@ class PaypalOrderGetRequest extends RequestAbstract
     {
         return $exec->result->payer->name->surname;
     }
-
 
 }

@@ -27,7 +27,8 @@
 namespace PaypalAddons\services;
 
 require_once dirname(__FILE__) . '/../classes/PaypalVaulting.php';
-require_once dirname(__FILE__) . '/../classes/AbstractMethodPaypal.php';
+
+use PaypalAddons\classes\AbstractMethodPaypal;
 
 class ServicePaypalVaulting
 {

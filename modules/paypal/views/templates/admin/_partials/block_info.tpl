@@ -28,10 +28,7 @@
     <p>
       {{l s='If you encounter rounding issues with your orders, please change PrestaShop round mode in: [a @href1@]Preferences > General[/a] then change for:' mod='paypal'}|paypalreplace:['@href1@' => {{$link->getAdminLink('AdminPreferences', true)}}, '@target@' => {'target="blank"'}]}
     </p>
-    <ul>
-      <li class="h4">{l s='Round mode: "Round up away from zero, when it is half way there (recommended) "' mod='paypal'}</li>
-      <li class="h4">{l s='Round type: "Round on each item"' mod='paypal'}</li>
-      <li class="h4">{l s='Number of decimals' d='Admin.Shopparameters.Feature'}: "2"</li>
-    </ul>
+
+    {include file="../_partials/roundingSettings.tpl" variant="help"}
   </div>
 </div>

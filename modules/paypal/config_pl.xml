@@ -2,7 +2,7 @@
 <module>
     <name>paypal</name>
     <displayName><![CDATA[PayPal]]></displayName>
-    <version><![CDATA[5.2.1]]></version>
+    <version><![CDATA[5.3.1]]></version>
     <description><![CDATA[Korzystaj z usługi PayPal Complete Payments i rozwijaj swoją działalność w Internecie, na urządzeniach mobilnych i za granicą. Akceptuj karty kredytowe, karty debetowe i płatności PayPal.]]></description>
     <author><![CDATA[202 ecommerce]]></author>
     <tab><![CDATA[payments_gateways]]></tab>

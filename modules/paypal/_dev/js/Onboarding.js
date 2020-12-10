@@ -40,16 +40,4 @@ export  const Onboarding = {
       }
     });
   },
-
-  test (authCode, sharedId) {
-
-  },
-
-  addPaypalLib () {
-    if (typeof(paypalOnboardingLib) != 'undefined') {
-      let script = document.createElement('script');
-      script.src = paypalOnboardingLib;
-      document.body.appendChild(script);
-    }
-  }
 };

@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API;
 
-
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PaypalAddons\classes\API\Request\RequestDummy;
 use PaypalAddons\classes\API\Request\V_1\PaypalOrderCaptureRequest;

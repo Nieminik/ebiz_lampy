@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request\V_1;
 
-
 use Cart;
 use Configuration;
 use Context;
@@ -92,6 +91,10 @@ class PaypalOrderCreateRequest extends RequestAbstractMB
 
         $this->_getPaymentDetails();
 
+        if (Context::getContext()->cart->isVirtualCart() === false) {
+            $this->_itemList->setShippingAddress($this->getPayerShippingAddress());
+        }
+
         // ### Transaction
         // A transaction defines the contract of a
         // payment - what is the payment for and who
@@ -126,9 +129,8 @@ class PaypalOrderCreateRequest extends RequestAbstractMB
             ->setRedirectUrls($redirectUrls)
             ->setTransactions(array($transaction));
 
-        if (is_callable(array(get_class($this->method), 'getIdProfileExperience'), true)) {
-            $payment->setExperienceProfileId($this->method->getIdProfileExperience());
-        }
+        // Set application_context
+        $payment->application_context = $this->getApplicationContext();
 
         // ### Create Payment
         // Create a payment by calling the 'create' method
@@ -154,6 +156,21 @@ class PaypalOrderCreateRequest extends RequestAbstractMB
             ->setSuccess(true);
     }
 
+    protected function getApplicationContext()
+    {
+        if (Context::getContext()->cart->isVirtualCart()) {
+            $applicationContext = [
+                'shipping_preference' => 'NO_SHIPPING'
+            ];
+        } else {
+            $applicationContext = [
+                'shipping_preference' => 'SET_PROVIDED_ADDRESS'
+            ];
+        }
+
+        return $applicationContext;
+    }
+
     /**
      * @return PayerInfo
      */
@@ -166,15 +183,11 @@ class PaypalOrderCreateRequest extends RequestAbstractMB
         $payerInfo->setEmail($customer->email);
         $payerInfo->setFirstName($customer->firstname);
         $payerInfo->setLastName($customer->lastname);
-        $payerInfo->setShippingAddress($this->getPayerShippingAddress());
 
         if ($countryCustomer->iso_code == 'BR') {
             $payerTaxId = str_replace(array('.', '-', '/'), '', $addressCustomer->vat_number);
             $payerInfo->setTaxId($payerTaxId);
             $payerInfo->setTaxIdType($this->method->getTaxIdType($payerTaxId));
-        } else {
-            $payerInfo->setTaxId('');
-            $payerInfo->setTaxIdType('');
         }
 
         return $payerInfo;
@@ -187,7 +200,7 @@ class PaypalOrderCreateRequest extends RequestAbstractMB
     {
         $addressCustomer = new Address(Context::getContext()->cart->id_address_delivery);
         $payerShippingAddress = new ShippingAddress();
-        $payerShippingAddress->setCountryCode(Country::getIsoById($addressCustomer->id_country));
+        $payerShippingAddress->setCountryCode(Tools::strtoupper(Country::getIsoById($addressCustomer->id_country)));
         $payerShippingAddress->setCity($addressCustomer->city);
         $payerShippingAddress->setLine1($addressCustomer->address1);
         $payerShippingAddress->setPostalCode($addressCustomer->postcode);
@@ -195,7 +208,7 @@ class PaypalOrderCreateRequest extends RequestAbstractMB
 
         if ((int)$addressCustomer->id_state) {
             $state = new State($addressCustomer->id_state);
-            $payerShippingAddress->setState($state->iso_code);
+            $payerShippingAddress->setState(Tools::strtoupper($state->iso_code));
         }
 
         return $payerShippingAddress;

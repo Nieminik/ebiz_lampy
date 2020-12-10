@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request;
 
-
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PaypalAddons\classes\API\Response\Error;
 use PaypalAddons\classes\API\Response\Response;
@@ -91,10 +90,13 @@ class PaypalOrderPatchRequest extends PaypalOrderCreateRequest
             'value' => [
                 'amount' => $this->getAmount($currency),
                 'items' => $items,
-                'shipping' => $shippingInfo,
                 'custom_id' => $this->getCustomId()
             ]
         ];
+
+        if (false === empty($shippingInfo)) {
+            $body[0]['value']['shipping'] = $shippingInfo;
+        }
 
         return $body;
     }

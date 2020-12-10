@@ -31,6 +31,7 @@ use PaypalPPBTlib\Install\ModuleInstaller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use PaypalAddons\classes\AdminPayPalController;
 use PaypalAddons\classes\AbstractMethodPaypal;
+use PaypalAddons\classes\API\Onboarding\PaypalGetCredentials;
 
 class AdminPayPalSetupController extends AdminPayPalController
 {
@@ -60,6 +61,7 @@ class AdminPayPalSetupController extends AdminPayPalController
     public function init()
     {
         parent::init();
+
         if (Tools::getValue('useWithoutBraintree')) {
             Configuration::updateValue('PAYPAL_USE_WITHOUT_BRAINTREE', 1);
         }
@@ -337,8 +339,23 @@ class AdminPayPalSetupController extends AdminPayPalController
         $paypalOnboarding = new PaypalGetAuthToken($authCode, $sharedId, $sellerNonce, $method->isSandbox());
         $result = $paypalOnboarding->execute();
 
+        if ($result->isSuccess() === false) {
+            $this->log($result->getError()->getMessage());
+            return;
+        }
+
+        $partnerId = $method->isSandbox() ? PayPal::PAYPAL_PARTNER_ID_SANDBOX : PayPal::PAYPAL_PARTNER_ID_LIVE;
+        $paypalGetCredentials = new PaypalGetCredentials($result->getAuthToken(), $partnerId, $method->isSandbox());
+        $result = $paypalGetCredentials->execute();
+
         if ($result->isSuccess()) {
-            Configuration::updateValue('PAYPAL_AUTH_TOKEN', $result->getAuthToken());
+            $params = [
+                'clientId' => $result->getClientId(),
+                'secret' => $result->getSecret()
+            ];
+            $method->setConfig($params);
+        } else {
+            $this->log($result->getError()->getMessage());
         }
     }
 

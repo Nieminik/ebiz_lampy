@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Request;
 
-
 use PaypalAddons\classes\AbstractMethodPaypal;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 

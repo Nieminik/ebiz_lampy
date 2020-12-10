@@ -26,7 +26,6 @@
 
 namespace PaypalAddons\classes\API\Response;
 
-
 class ResponseOrderCapture extends Response
 {
     /** @var string*/
@@ -230,7 +229,5 @@ class ResponseOrderCapture extends Response
         $this->capture = $capture;
         return $this;
     }
-
-
 }
 
