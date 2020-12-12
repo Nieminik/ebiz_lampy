@@ -44,14 +44,12 @@ def get_object_from_presta(endpoint: str, object_name: str):
 
 def add_object_to_presta(endpoint: str, data: dict, object_name: str):
     data = {object_name: data}
-    # pprint(data)
     response = presta_api.add(endpoint, data)
     return response[object_name]
 
 
 def edit_presta_object(endpoint: str, obj_id: str, data: dict, object_name: str):
     data = {object_name: data}
-    # pprint(data)
     data[object_name]["id"] = obj_id
     response = presta_api.edit(endpoint, data)
     return response[object_name]
