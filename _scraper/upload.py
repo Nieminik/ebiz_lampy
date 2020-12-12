@@ -217,9 +217,6 @@ def main():
         name_to_presta_id["products"][prod_name] = presta_id
         source_id_to_presta_id["products"][prod_id] = presta_id
 
-    dump_to_file(name_to_presta_id, "name2presta.json")
-    dump_to_file(source_id_to_presta_id, "source2presta.json")
-
 
 if __name__ == "__main__":
     main()
