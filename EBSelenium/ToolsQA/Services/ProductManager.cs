@@ -7,44 +7,67 @@ namespace ToolsQA
     public class ProductManager
     {
         private readonly IWebDriver webDriver;
+        private const int MIN_IN_STOCK = 20;
 
         public ProductManager(IWebDriver webDriver)
         {
             this.webDriver = webDriver;
         }
 
-        public void AddProductToCard(string xPath, int qty)
+        public void AddProductToCard(ProductModel product)
         {
-           // webDriver.Navigate
+            
+                NavigateToProducts();
+            
 
-            webDriver.FindElement(By.XPath(xPath)).Click();
+            //Clicking Category Product
+            webDriver.FindElement(By.XPath(product.CategoryXPath)).Click();
 
-            var touchSpinUp =  webDriver.FindElement(By.XPath("//i[@class='material-icons touchspin-up']"));
+            var result = Enumerable.Range(1, MIN_IN_STOCK).OrderBy(g => Guid.NewGuid()).Take(10).ToArray();
 
-            Repeat(qty, () => {
-                touchSpinUp.Click();
+            var productXPath = product.ElemXPath;
+
+
+            var splitXPath = productXPath.Split("Q");
+
+
+            Enumerable.Range(1, product.QtyElem).ToList().ForEach(li =>
+            {
+                var xPathToClick = String.Concat(splitXPath[0], li, splitXPath[1]);
+
+                webDriver.FindElement(By.XPath(xPathToClick)).Click();
+
+                //write Qty
+                var qtyInput = webDriver.FindElement(By.XPath("//input[@id='quantity_wanted']"));
+                qtyInput.Clear();
+                qtyInput.SendKeys(result[li - 1].ToString());
+
+                //Submit 
+                webDriver.FindElement(By.XPath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/div[1]/div[2]/button[1]")).Click();
+
+                webDriver.Navigate().Back();
             });
 
-            webDriver.FindElement(By.XPath("//div[@class='add']")).Click();
             webDriver.Navigate().Back();
+            
         }
 
         public void RemoveFromCard(int qty = 1)
         {
+            
             webDriver.FindElement(By.XPath("//div[@class='blockcart cart-preview active']")).Click();
 
-            var touchSpinDown = webDriver.FindElements(By.XPath(@"//button"))[2];
-
-            //Enumerable.
-
-            Repeat(qty, () => touchSpinDown.Click()); 
+            webDriver.FindElement(By.XPath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/div[3]/div[1]/a[1]/i[1]")).Click();
         }
 
-        private static void Repeat(int count, Action action)
+        public void NavigateToProducts() 
         {
-            for (int i = 1; i <= count; i++)
-                action();
+            //Click +
+            webDriver.Navigate().GoToUrl("https://dniemiro.dev/2-strona-glowna");
+            webDriver.FindElement(By.XPath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/div[1]/i[1]")).Click();
         }
+
+
     }
 }
 

@@ -4,10 +4,12 @@ using System.Text;
 
 namespace ToolsQA
 {
-    class ProductModel
+    public class ProductModel
     {
-        public int Qty { get; set; }
-        public string Name { get; set; }
+        public int QtyElem { get; set; }
+        public string ElemXPath { get; set; }
+        public string CategoryXPath { get; set; }
+
 
         public ProductModel()
         { 

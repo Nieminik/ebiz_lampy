@@ -20,8 +20,20 @@ namespace ToolsQA
 
             var products = new List<ProductModel>()
             {
-                new ProductModel() { Name = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/section[1]/section[1]/section[1]/div[1]/article[2]/div[1]/a[1]/img[1]", Qty = 5},
-                new ProductModel() { Name = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/section[1]/section[1]/section[1]/div[1]/article[3]/div[1]/a[1]/img[1]", Qty = 3}
+                new ProductModel()
+                {
+                    CategoryXPath = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]",
+                    ElemXPath     = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[2]/section[1]/section[1]/div[3]/div[1]/div[1]/article[Q]/div[1]/a[1]/img[1]",
+                    QtyElem = 5
+                },
+                new ProductModel()
+                {
+                     CategoryXPath = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/div[2]/ul[1]/li[2]/a[1]",
+                     ElemXPath = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[2]/section[1]/section[1]/div[3]/div[1]/div[1]/article[Q]/div[1]/a[1]/img[1]",
+                     QtyElem = 5
+                }
+                                     
+               // new ProductModel() { XPath = "",}
             };
 
             var purchaser = new Purchaser
@@ -36,10 +48,8 @@ namespace ToolsQA
                 City = "Sopot"
             };
 
-            products.ForEach(p =>
-            {
-                cardManager.AddProductToCard(p.Name, p.Qty);
-            });
+            
+            products.ForEach(p => cardManager.AddProductToCard(p));
 
             cardManager.RemoveFromCard();
             registration.registerUser(purchaser);

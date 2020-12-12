@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace ToolsQA
 {
@@ -36,20 +37,22 @@ namespace ToolsQA
             webDriver.FindElement(By.Name("address1")).SendKeys(purchaser.Address);
             webDriver.FindElement(By.Name("postcode")).SendKeys(purchaser.PostalCode);
             webDriver.FindElement(By.Name("city")).SendKeys(purchaser.City);
-            this.SubmitChanges();
-        }
-
-        private void SelectPayment()
-        {
-            webDriver.FindElement(By.XPath("//input[@id='payment-option-2']")).Click();
-            this.SubmitChanges();
+            webDriver.FindElement(By.XPath("//footer[@class='form-footer clearfix']//button[@type='submit'][contains(text(),'Dalej')]")).Click();
         }
 
         private void SelectCarrier()
         {
             webDriver.FindElement(By.XPath("//input[@id='delivery_option_6']")).Click();
-            this.SubmitChanges();
+            webDriver.FindElement(By.XPath("//form[@id='js-delivery']//button[@type='submit'][contains(text(),'Dalej')]")).Click();
         }
+
+        private void SelectPayment()
+        {
+            webDriver.FindElement(By.XPath("//input[@id='payment-option-2']")).Click();
+          //  webDriver.FindElement(By.XPath("")).Click();
+        }
+
+        
        
         private void FinalizeOrder()
         {
@@ -62,6 +65,7 @@ namespace ToolsQA
             webDriver.FindElement(By.XPath("//a[@id='history-link']")).Click();
         }
 
-        private void SubmitChanges () => webDriver.FindElement(By.XPath("//button[@type='submit'][contains(text(),'Dalej')]")).Click();
+        
+           
     }
 }

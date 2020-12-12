@@ -6,7 +6,7 @@ namespace ToolsQA
     class Registration
     {
         private readonly IWebDriver webDriver;
-        private readonly string registerUrl = @"https://dniemiro.dev/index.php?controller=authentication&create_account=1";
+        private readonly string registerUrl = @"https://dniemiro.dev/logowanie?create_account=1";
 
         public Registration(IWebDriver webDriver)
         {
