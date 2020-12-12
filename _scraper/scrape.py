@@ -128,15 +128,20 @@ def extract_manufacturers_data(manufacturers):
 
 def get_products(category):
     details = category.get("details", [])
-    results = details.get("products", [])
-    results = [product for product in results if product["type"] == "simple"]
+    results = []
 
-    for product in results:
-        product["category_id"] = category["products_categories_id"]
-
-    subcategories = category.get("subcategories", [])
-    for subcategory in subcategories:
-        results += get_products(subcategory)
+    subcategories = category.get("subcategories")
+    if subcategories:
+        for subcategory in subcategories:
+            results += get_products(subcategory)
+    else:
+        results = [
+            product
+            for product in details.get("products", [])
+            if product["type"] == "simple"
+        ]
+        for product in results:
+            product["category_id"] = category["products_categories_id"]
 
     return results
 
