@@ -1,6 +1,6 @@
 import json
-from pprint import pprint
-from typing import Any, OrderedDict
+import os
+from typing import Any
 
 import requests
 
@@ -67,8 +67,7 @@ def dump_to_file(obj: Any, filename: str):
         json.dump(obj, file, indent="    ", ensure_ascii=False)
 
 
-def save_static_file(binary_content, resource_name: str):
-    filepath = f"{IMAGES_DIR}/{resource_name}"
+def save_static_file(binary_content, filepath: str):
     with open(filepath, "wb") as file:
         file.write(binary_content)
 
@@ -156,8 +155,10 @@ def extract_products_data(products):
 
 def download_product_image(product):
     resource_name = product["image_url"]
-    file = get_static_file(resource_name)
-    save_static_file(file, resource_name)
+    filepath = f"{IMAGES_DIR}/{resource_name}"
+    if not os.path.exists(filepath):
+        file = get_static_file(resource_name)
+        save_static_file(file, filepath)
 
 
 def main():
