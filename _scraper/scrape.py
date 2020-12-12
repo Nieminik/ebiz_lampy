@@ -58,7 +58,7 @@ def get_from_api(endpoint_url: str):
 
 def get_static_file(resource_name: str):
     url = settings.SOURCE_STATIC_BASE_URL + resource_name
-    return requests.get(url, allow_redirects=True)
+    return requests.get(url, allow_redirects=True).content
 
 
 def dump_to_file(obj: Any, filename: str):
@@ -154,6 +154,12 @@ def extract_products_data(products):
     return results
 
 
+def download_product_image(product):
+    resource_name = product["image_url"]
+    file = get_static_file(resource_name)
+    save_static_file(file, resource_name)
+
+
 def main():
     main_category = scrape_category(MAIN_CATEGORY_ID)
     dump_to_file(main_category, "categories.json")
@@ -163,6 +169,9 @@ def main():
 
     all_products = extract_products_data(get_products(main_category))
     dump_to_file(all_products, "products.json")
+
+    for product in all_products.values():
+        download_product_image(product)
 
 
 if __name__ == "__main__":
