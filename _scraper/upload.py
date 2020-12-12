@@ -24,35 +24,37 @@ def fill_stocks(presta_api, source_id_to_presta_id, products_json):
 
     for stock in stocks:
         presta_prod_id = stock["id_product"]["#text"]
-        if presta_prod_id not in source_id_to_presta_id["products"].values():
+        prod_ids = source_id_to_presta_id["products"]
+        source_id = {v: k for k, v in prod_ids.items()}.get(presta_prod_id)
+        if source_id is None:
             continue
 
-        prod_ids = source_id_to_presta_id["products"]
-        source_id = {v: k for k, v in prod_ids.items()}[presta_prod_id]
         product = next((x for x in products_json if x["products_id"] == source_id), None)
         if product is None:
             continue
 
-        first = product["quantity"].split(" ")[0]
-        if first == ">100":
+        first_word = product["quantity"].split(" ")[0]
+        if first_word == ">100":
             quantity = random.randint(100, 200)
         else:
             try:
-                quantity = int(first)
+                quantity = int(first_word)
             except ValueError:
                 quantity = 0
 
         data = {
             f"{SA}": {
                 "id": stock["id"],
+                # rewriting fields
                 "id_product": presta_prod_id,
                 "id_product_attribute": stock["id_product_attribute"],
                 "id_shop": stock["id_shop"],
                 "id_shop_group": stock["id_shop_group"],
                 "depends_on_stock": stock["depends_on_stock"],
                 "out_of_stock": stock["out_of_stock"],
-                "quantity": quantity,
                 "location": stock["location"]
+                # modifying quantity
+                "quantity": quantity,
             }
         }
         presta_api.edit(f"{SA}s/{stock['id']}", data)
