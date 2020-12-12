@@ -49,11 +49,7 @@ namespace ToolsQA
         private void SelectPayment()
         {
             webDriver.FindElement(By.XPath("//input[@id='payment-option-2']")).Click();
-          //  webDriver.FindElement(By.XPath("")).Click();
         }
-
-        
-       
         private void FinalizeOrder()
         {
             webDriver.FindElement(By.XPath("//input[@id='conditions_to_approve[terms-and-conditions]']")).Click();
@@ -63,9 +59,6 @@ namespace ToolsQA
 
             //TODO TU MOZE BYC BLAD
             webDriver.FindElement(By.XPath("//a[@id='history-link']")).Click();
-        }
-
-        
-           
+        }    
     }
 }

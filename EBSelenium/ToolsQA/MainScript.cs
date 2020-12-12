@@ -32,19 +32,18 @@ namespace ToolsQA
                      ElemXPath = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[2]/section[1]/section[1]/div[3]/div[1]/div[1]/article[Q]/div[1]/a[1]/img[1]",
                      QtyElem = 5
                 }
-                                     
-               // new ProductModel() { XPath = "",}
+                                   
             };
 
             var purchaser = new Purchaser
             {
-                FirstName = "Jek",
-                Lastname = "Tessviron",
-                Email = "polaczek@cedssdadxdxddd.pl",
+                FirstName = "Jan",
+                Lastname = "Kowalski",
+                Email = "buziaczek@interia.pl",
                 Password = "Qwerty123",
                 Birthday = new DateTime(1994, 06, 01).ToShortDateString(),
                 PostalCode = "83-110",
-                Address = "Krucza 12/8",
+                Address = "Krucza 13/8",
                 City = "Sopot"
             };
 
