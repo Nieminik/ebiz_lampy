@@ -76,10 +76,48 @@ def parse_categories(category):
     return results
 
 
+def get_or_add_feature(name_to_presta_id: dict, name: str):
+    presta_id = name_to_presta_id["features"].get(name)
+    if not presta_id:
+        data = {"name": {"language": {"@id": "1", "#text": name}}}
+        response = add_object_to_presta("product_features", data, "product_feature")
+        presta_id = response["id"]
+        name_to_presta_id["features"][name] = presta_id
+    return presta_id
+
+
+def get_or_add_feature_value(
+    name_to_presta_id: dict, feature_name: str, value_name: str
+):
+    presta_id = name_to_presta_id["feature_values"].get(value_name)
+    if not presta_id:
+        feature_id = get_or_add_feature(name_to_presta_id, feature_name)
+        data = {
+            "value": {"language": {"@id": "1", "#text": value_name}},
+            "id_feature": {"#text": feature_id},
+            "custom": 0,
+        }
+        response = add_object_to_presta(
+            "product_feature_values", data, "product_feature_value"
+        )
+        presta_id = response["id"]
+        name_to_presta_id["feature_values"][value_name] = presta_id
+    return presta_id
+
+
 def main():
-    name_to_source_id = {"manufacturers": {}, "categories": {}, "products": {}}
-    name_to_presta_id = {"manufacturers": {}, "categories": {}, "products": {}}
-    source_id_to_presta_id = {"manufacturers": {}, "categories": {}, "products": {}}
+    object_types = [
+        "manufacturers",
+        "categories",
+        "products",
+        "features",
+        "feature_values",
+    ]
+    name_to_source_id = {ot: {} for ot in object_types}
+    name_to_presta_id = {ot: {} for ot in object_types}
+    source_id_to_presta_id = {ot: {} for ot in object_types}
+
+    category_parent = {}
 
     # manufacturers
     manufacturers = load_json("manufacturers.json")
@@ -129,7 +167,10 @@ def main():
         cat_id = cat["products_categories_id"]
         cat_name = cat["title"]
         cat_parent_id = cat.get("parent_category_id")
-        if cat_parent_id and cat_parent_id != "149":
+
+        category_parent[cat_id] = cat_parent_id
+
+        if cat_parent_id:
             presta_parent_id = source_id_to_presta_id["categories"][cat_parent_id]
         else:
             presta_parent_id = "2"
@@ -162,6 +203,26 @@ def main():
         name_to_presta_id["categories"][cat_name] = presta_id
         source_id_to_presta_id["categories"][cat_id] = presta_id
 
+    # features
+    for feature in get_objects_from_presta("product_features", "product_feature"):
+        feature = get_object_from_presta(
+            f"product_features/{feature['@id']}", "product_feature"
+        )
+        name_to_presta_id["features"][feature["name"]["language"]["#text"]] = feature[
+            "id"
+        ]
+
+    # feature_values
+    for feature_value in get_objects_from_presta(
+        "product_feature_values", "product_feature_value"
+    ):
+        feature_value = get_object_from_presta(
+            f"product_feature_values/{feature_value['@id']}", "product_feature_value"
+        )
+        name_to_presta_id["feature_values"][
+            feature_value["value"]["language"]["#text"]
+        ] = feature_value["id"]
+
     # products
     products = load_json("products.json")
     name_to_source_id["products"] = {
@@ -186,7 +247,27 @@ def main():
         prod_manufacturer_id = source_id_to_presta_id["manufacturers"][
             prod["producers_id"]
         ]
-        prod_category_id = source_id_to_presta_id["categories"][prod["category_id"]]
+        prod_categories = ["2"]
+        cat_id = prod["category_id"]
+        main_cat = source_id_to_presta_id["categories"][cat_id]
+        while cat_id:
+            prod_categories.append(source_id_to_presta_id["categories"][cat_id])
+            cat_id = category_parent[cat_id]
+
+        attributes = prod["attributes"]
+        product_features = []
+        for attr_name, attr_value in attributes.items():
+            feature_id = get_or_add_feature(name_to_presta_id, attr_name)
+            feature_value_id = get_or_add_feature_value(
+                name_to_presta_id, attr_name, attr_value
+            )
+            product_features.append(
+                {
+                    "id": feature_id,
+                    "id_feature_value": feature_value_id,
+                }
+            )
+
         data = {
             "state": 1,
             "active": 1,
@@ -199,10 +280,13 @@ def main():
             },
             "link_rewrite": {"language": {"@id": "1", "#text": prod_link_rewrite}},
             "id_manufacturer": prod_manufacturer_id,
-            "id_category_default": prod_category_id,
+            "id_category_default": main_cat,
             "price": prod["price"]["regular_price"].replace(",", "."),
             "associations": {
-                "categories": {"category": [{"id": "2"}, {"id": prod_category_id}]}
+                "categories": {
+                    "category": [{"id": cat_id} for cat_id in prod_categories]
+                },
+                "product_features": {"product_feature": product_features},
             },
         }
         if prod_name in name_to_presta_id["products"]:
