@@ -1,0 +1,5 @@
+ID;"Nazwa kontaktu";Imię;Nazwisko;"Adres e-mail";Firma;Sprzedaż;Włączony;Newsletter;"Oferty partnerskie";Rejestracja;"Ostatnia wizyta"
+4;Pan;Tomasz;Nawrocki;jnoenoen@wp.pl;;15,87 zł;1;0;0;"2020-11-05 18:51:26";"2020-11-05 18:51:26"
+3;Pan;Test;Testowy;test@example.com;;7,26 zł;1;0;0;"2020-11-05 16:53:01";"2020-11-05 16:53:01"
+2;Pan;John;DOE;pub@prestashop.com;;;1;1;1;"2020-11-04 22:43:11";"2020-11-04 22:43:11"
+1;Pan;Anonymous;Anonymous;anonymous@psgdpr.com;;;0;0;1;"2020-11-04 22:42:33";

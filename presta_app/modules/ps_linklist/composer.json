@@ -1,0 +1,30 @@
+{
+  "name": "prestashop/ps_linklist",
+  "description": "PrestaShop - Link list",
+  "homepage": "https://github.com/PrestaShop/ps_linklist",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "PrestaShop SA",
+      "email": "contact@prestashop.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0"
+  },
+    "require-dev": {
+    "prestashop/php-dev-tools": "^3.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "PrestaShop\\Module\\LinkList\\": "src/"
+    },
+    "classmap": ["ps_linklist.php"],
+    "exclude-from-classmap": []
+  },
+  "config": {
+    "preferred-install": "dist",
+    "prepend-autoloader": false
+  },
+  "type": "prestashop-module"
+}

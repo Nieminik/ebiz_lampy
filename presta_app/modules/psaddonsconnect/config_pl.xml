@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>psaddonsconnect</name>
+    <displayName><![CDATA[Aktualizacje i porady]]></displayName>
+    <version><![CDATA[2.1.2]]></version>
+    <description><![CDATA[2 in 1: Make security and functional updates easier for all modules in your store, and take advantage of an e-commerce tip each week to help you on your way.]]></description>
+    <author><![CDATA[PrestaShop]]></author>
+    <tab><![CDATA[]]></tab>
+	<confirmUninstall><![CDATA[Czy na pewno chcesz odinstalować ten moduł?]]></confirmUninstall>
+    <is_configurable>0</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

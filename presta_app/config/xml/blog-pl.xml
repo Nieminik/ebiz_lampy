@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="https://www.prestashop.com/pl/blog/feed.xml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:og="http://ogp.me/ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <channel>
+    <title>Blog Feed</title>
+    <link>https://www.prestashop.com/pl/blog/feed.xml</link>
+    <description></description>
+    <language>pl</language>
+     <atom:link href="https://www.prestashop.com/pl/blog/feed.xml" rel="self" type="application/rss+xml" />
+      <item>
+    <title>Jak optymalizować zamówienia i dostawę?</title>
+    <link>https://www.prestashop.com/pl/blog/optymalizowac-zamowienia-dostawe</link>
+    <description>Automatyzacja to jedno z narzędzi, na którym można bezpiecznie polegać w kontekście logistyki e-commerce.</description>
+     <pubDate>Thu, 10 Dec 2020 15:48:41 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/optymalizowac-zamowienia-dostawe</guid>
+  </item>
+  <item>
+    <title>5 sposobów na poprawę doświadczenia Twoich klientów za pomocą cyfrowych narzędzi</title>
+    <link>https://www.prestashop.com/pl/blog/sposobow-twoich-klientow</link>
+    <description>Internet staje się powszechnym miejscem robienia zakupów – aż 73% internautów w Polsce kupowało już</description>
+     <pubDate>Mon, 07 Dec 2020 15:43:34 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/sposobow-twoich-klientow</guid>
+  </item>
+  <item>
+    <title>Paczkomat, kurier czy dron? W logistyce handlu w sieci liczy się możliwość wyboru</title>
+    <link>https://www.prestashop.com/pl/blog/paczkomat-logistyce-mozliwosc</link>
+    <description>Wzrost popularności zakupów online wprowadził większą różnorodność w sposobach dostawy oferowanych przez e-sklepy.</description>
+     <pubDate>Fri, 04 Dec 2020 16:53:37 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/paczkomat-logistyce-mozliwosc</guid>
+  </item>
+  <item>
+    <title>Subskrypcje – dobry sposób na zyskanie lojalnych klientów</title>
+    <link>https://www.prestashop.com/pl/blog/subskrypcje-klientow</link>
+    <description>We wcześniejszych artykułach poruszaliśmy już temat postępującej cyfryzacji.</description>
+     <pubDate>Mon, 30 Nov 2020 14:54:44 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/subskrypcje-klientow</guid>
+  </item>
+  <item>
+    <title>Sprzedaż na koniec roku... start!</title>
+    <link>https://www.prestashop.com/pl/blog/sprzedaz-koniec-roku</link>
+    <description>Black Friday stał się obowiązkowym wydarzeniem biznesowym w wielu krajach i zazwyczaj oznacza początek sprzedaży świątecznej.</description>
+     <pubDate>Thu, 26 Nov 2020 17:47:27 +0100</pubDate>
+ <dc:creator>PrestaShop Team</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/sprzedaz-koniec-roku</guid>
+  </item>
+  <item>
+    <title>Personalizacja w e-commerce: sprzedawcy powinni postawić na marketing one-to-one</title>
+    <link>https://www.prestashop.com/pl/blog/personalizacja-e-commerce-marketing</link>
+    <description>Wyobraź sobie, że wchodzisz do restauracji, siadasz przy stoliku i natychmiast otrzymujesz swoje ulubione dania, bez potrzeby zaglądania do menu lub wołania kelnera.</description>
+     <pubDate>Tue, 24 Nov 2020 18:03:18 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/personalizacja-e-commerce-marketing</guid>
+  </item>
+  <item>
+    <title>Jak dobrze prowadzona logistyka e-commerce może poprawić satysfakcję klienta?</title>
+    <link>https://www.prestashop.com/pl/blog/logistyka-e-commerce-klienta</link>
+    <description>Konsumenci kupujący przez internet szukają najlepszej oferty, z której mogą skorzystać w jak najkrótszym czasie.</description>
+     <pubDate>Thu, 19 Nov 2020 17:08:38 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/logistyka-e-commerce-klienta</guid>
+  </item>
+  <item>
+    <title>Czym jest rozwiązanie click &amp;amp; collect i jak je szybko ustawić?</title>
+    <link>https://www.prestashop.com/pl/blog/click-collect-ustawic</link>
+    <description>Jak sprawnie ustawić w swoim sklepie usługę click and collect.</description>
+     <pubDate>Mon, 16 Nov 2020 16:32:23 +0100</pubDate>
+ <dc:creator>PrestaShop Team</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/click-collect-ustawic</guid>
+  </item>
+  <item>
+    <title>5 sposobów na poprawę doświadczenia Twoich klientów za pomocą cyfrowych narzędzi</title>
+    <link>https://www.prestashop.com/pl/blog/sposobow-doswiadczenia-twoich</link>
+    <description>Internet staje się powszechnym miejscem robienia zakupów – aż 73% internautów w Polsce kupowało już przez internet[1].</description>
+     <pubDate>Fri, 13 Nov 2020 17:27:30 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/sposobow-doswiadczenia-twoich</guid>
+  </item>
+  <item>
+    <title>5 kroków, które należy wykonać przed założeniem sklepu internetowego</title>
+    <link>https://www.prestashop.com/pl/blog/krokow-ktore-nalezy</link>
+    <description>Branża e-commerce rozwija się w Polsce bardzo dynamicznie. W latach 2014-2019 wartość tego rynku się podwoiła. Analizy wskazują, że w najbliższych latach tempo wzrostu nie spadnie.</description>
+     <pubDate>Tue, 10 Nov 2020 15:39:21 +0100</pubDate>
+ <dc:creator>Paweł Gil</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/krokow-ktore-nalezy</guid>
+  </item>
+  </channel>
+</rss>
