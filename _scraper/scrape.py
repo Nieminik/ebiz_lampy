@@ -49,6 +49,16 @@ PRODUCT_FIELDS = [
     "price",
     "category_id",
 ]
+ATTRIBUTES_FIELDS = [
+    "Stopień szczelności",
+    "Barwa światła",
+    "Strumień świetlny",
+    "Napięcie Wej.",
+    "Trzonek",
+    "Wysokość",
+    "Średnica",
+    "Moc",
+]
 
 
 def get_from_api(endpoint_url: str):
@@ -166,6 +176,22 @@ def download_product_image(product):
         save_static_file(file, filepath)
 
 
+def append_prod_attributes(all_products):
+    for product in all_products.values():
+        custom_attributes = get_from_api(f'V1/products/{product["products_id"]}')[
+            "custom_attributes"
+        ]
+        attributes = next(
+            (x for x in custom_attributes if x["attribute_code"] == "attributes")
+        )
+        product["attributes"] = {
+            x["name"]: x["value"]
+            for x in attributes["value"]
+            if x["name"] in ATTRIBUTES_FIELDS
+        }
+    return all_products
+
+
 def main():
     main_category = scrape_category(MAIN_CATEGORY_ID)
     dump_to_file(main_category, "categories.json")
@@ -174,6 +200,7 @@ def main():
     dump_to_file(all_manufacturers, "manufacturers.json")
 
     all_products = extract_products_data(get_products(main_category))
+    all_products = append_prod_attributes(all_products)
     dump_to_file(all_products, "products.json")
 
     for product in all_products.values():
