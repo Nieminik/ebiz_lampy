@@ -61,9 +61,9 @@ def dump_to_file(obj: Any, filename: str):
         json.dump(obj, file, indent="    ", ensure_ascii=False)
 
 
-def parse_categories(categories):
-    results = []
-    subcategories = categories.get("subcategories", [])
+def parse_categories(category):
+    results = [category]
+    subcategories = category.get("subcategories", [])
     for subcat in subcategories:
         results.append(subcat)
 
