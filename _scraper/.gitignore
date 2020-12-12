@@ -1,0 +1,13 @@
+# directories starting with "." or "_"
+.*/
+_*/
+
+# .env files
+*.env
+
+# scraping results
+output/*
+!output/.gitkeep
+
+images/*
+!images/.gitkeep
