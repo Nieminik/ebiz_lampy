@@ -5,9 +5,6 @@ _*/
 # .env files
 *.env
 
-# scraping results
-output/*
-!output/.gitkeep
-
+# scraped images
 images/*
 !images/.gitkeep
