@@ -23,7 +23,7 @@ HTTP_HEADERS = {
         "(KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
     ),
 }
-MAIN_CATEGORY_ID = "zrodla-swiatla-led"
+CATEGORIES = ["zrodla-swiatla-led", "oprawy-domowe-led"]
 CATEGORY_FIELDS = [
     "products_categories_id",
     "title",
@@ -55,9 +55,10 @@ ATTRIBUTES_FIELDS = [
     "Strumień świetlny",
     "Napięcie Wej.",
     "Trzonek",
-    "Wysokość",
-    "Średnica",
     "Moc",
+    "Diody LED -typ",
+    "Materiał klosza",
+    "Kolor obudowy",
 ]
 
 
@@ -66,15 +67,23 @@ def get_from_api(endpoint_url: str):
     return requests.get(url, headers=HTTP_HEADERS).json()
 
 
+def dump_to_file(obj: Any, filename: str):
+    filepath = f"{OUTPUT_DIR}/{filename}"
+    with open(filepath, "w", encoding="utf-8") as file:
+        json.dump(obj, file, indent="    ", ensure_ascii=False)
+
+
 def get_static_file(resource_name: str):
     url = settings.SOURCE_STATIC_BASE_URL + resource_name
     return requests.get(url, allow_redirects=True).content
 
 
-def dump_to_file(obj: Any, filename: str):
-    filepath = f"{OUTPUT_DIR}/{filename}"
-    with open(filepath, "w", encoding="utf-8") as file:
-        json.dump(obj, file, indent="    ", ensure_ascii=False)
+def download_product_image(product):
+    resource_name = product["image_url"]
+    filepath = f"{IMAGES_DIR}/{resource_name}"
+    if not os.path.exists(filepath):
+        binary_content = get_static_file(resource_name)
+        save_static_file(binary_content, filepath)
 
 
 def save_static_file(binary_content, filepath: str):
@@ -148,7 +157,7 @@ def get_products(category):
         results = [
             product
             for product in details.get("products", [])
-            if product["type"] == "simple"
+            if product["type"] == "simple" and product["image_url"]
         ]
         for product in results:
             product["category_id"] = category["products_categories_id"]
@@ -168,21 +177,14 @@ def extract_products_data(products):
     return results
 
 
-def download_product_image(product):
-    resource_name = product["image_url"]
-    filepath = f"{IMAGES_DIR}/{resource_name}"
-    if not os.path.exists(filepath):
-        file = get_static_file(resource_name)
-        save_static_file(file, filepath)
-
-
-def append_prod_details(all_products):
+def append_prod_attributes(all_products):
     for product in all_products.values():
         custom_attributes = get_from_api(f'V1/products/{product["products_id"]}')[
             "custom_attributes"
         ]
         product["vat"] = next(
-            (x["value"] for x in custom_attributes if x["attribute_code"] == "vat"), 23)
+            (x["value"] for x in custom_attributes if x["attribute_code"] == "vat"), 23
+        )
 
         attributes = next(
             (x for x in custom_attributes if x["attribute_code"] == "attributes")
@@ -196,18 +198,19 @@ def append_prod_details(all_products):
 
 
 def main():
-    main_category = scrape_category(MAIN_CATEGORY_ID)
-    dump_to_file(main_category, "categories.json")
+    for category_name in CATEGORIES:
+        category = scrape_category(category_name)
+        dump_to_file(category, f"categories-{category_name}.json")
 
-    all_manufacturers = extract_manufacturers_data(get_manufacturers(main_category))
-    dump_to_file(all_manufacturers, "manufacturers.json")
+        manufacturers = extract_manufacturers_data(get_manufacturers(category))
+        dump_to_file(manufacturers, f"manufacturers-{category_name}.json")
 
-    all_products = extract_products_data(get_products(main_category))
-    all_products = append_prod_details(all_products)
-    dump_to_file(all_products, "products.json")
+        products = extract_products_data(get_products(category))
+        products = append_prod_attributes(products)
+        dump_to_file(products, f"products-{category_name}.json")
 
-    for product in all_products.values():
-        download_product_image(product)
+        for product in products.values():
+            download_product_image(product)
 
 
 if __name__ == "__main__":

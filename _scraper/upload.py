@@ -8,6 +8,7 @@ import settings
 
 OUTPUT_DIR = "output"
 IMAGES_DIR = "images"
+CATEGORIES = ["oprawy-domowe-led"]  # "zrodla-swiatla-led",]
 
 presta_api = PrestashopApi(settings.PRESTASHOP_API_URL, settings.WEBSERVICE_KEY)
 
@@ -89,6 +90,7 @@ def get_or_add_feature(name_to_presta_id: dict, name: str):
 def get_or_add_feature_value(
     name_to_presta_id: dict, feature_name: str, value_name: str
 ):
+    print(f"{feature_name} -> {value_name}")
     presta_id = name_to_presta_id["feature_values"].get(value_name)
     if not presta_id:
         feature_id = get_or_add_feature(name_to_presta_id, feature_name)
@@ -106,14 +108,17 @@ def get_or_add_feature_value(
 
 
 def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
-    """ This one only fills the existing stock_available entities based on the scraped data."""
+    """
+    This one only fills the existing stock_available entities based on the scraped data.
+    """
 
     def get_available_prod_id(presta_prod_id_to_prod):
         for id, prod in presta_prod_id_to_prod.items():
-            if prod["associations"][f"{SA}s"].get(f"{SA}"):
+            if prod["associations"][f"{SA}s"].get(SA):
                 # skip one with existing stock
                 continue
             yield id
+
     prod_gen = get_available_prod_id(presta_prod_id_to_prod)
     SA = "stock_available"
 
@@ -132,11 +137,15 @@ def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
                 # Continuing to ensure all the stocks with valid products are updated.
                 continue
 
-        source_id = {v: k for k, v in source_id_to_presta_id["products"].items()}[presta_prod_id]
-        json_product = next((x for x in products_json.values() if x["products_id"] == source_id), None)
+        source_id = {v: k for k, v in source_id_to_presta_id["products"].items()}[
+            presta_prod_id
+        ]
+        json_product = next(
+            (x for x in products_json.values() if x["products_id"] == source_id), None
+        )
         if json_product is None:
             continue
-        
+
         first_word = json_product["quantity"].split(" ")[0]
         try:
             value = int(first_word)
@@ -144,7 +153,7 @@ def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
             quantity = 21
         else:
             quantity = max(21, value)
-        
+
         data = {
             "id_product": presta_prod_id,
             "id_product_attribute": stock["id_product_attribute"],
@@ -153,7 +162,7 @@ def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
             "depends_on_stock": stock["depends_on_stock"],
             "out_of_stock": stock["out_of_stock"],
             "quantity": quantity,
-            "location": stock["location"]
+            "location": stock["location"],
         }
         edit_presta_object(f"{SA}s", stock["id"], data, SA)
 
@@ -164,7 +173,7 @@ def get_tax_rule_id(tax_rule_name_to_id, vat):
             return id
 
 
-def main():
+def do_everything(category_name: str):
     object_types = [
         "manufacturers",
         "categories",
@@ -179,7 +188,7 @@ def main():
     category_parent = {}
 
     # manufacturers
-    manufacturers = load_json("manufacturers.json")
+    manufacturers = load_json(f"manufacturers-{category_name}.json")
     name_to_source_id["manufacturers"] = {
         value: key for key, value in manufacturers.items()
     }
@@ -206,7 +215,7 @@ def main():
         source_id_to_presta_id["manufacturers"][man_id] = presta_id
 
     # categories
-    categories = parse_categories(load_json("categories.json"))
+    categories = parse_categories(load_json(f"categories-{category_name}.json"))
     name_to_source_id["categories"] = {
         cat["title"]: cat["products_categories_id"] for cat in categories
     }
@@ -290,7 +299,7 @@ def main():
         tax_rule_name_to_id[tax["name"]] = tax["id"]
 
     # products
-    products = load_json("products.json")
+    products = load_json(f"products-{category_name}.json")
     name_to_source_id["products"] = {
         prod["name"].replace("=", "-"): prod_id for prod_id, prod in products.items()
     }
@@ -348,8 +357,8 @@ def main():
             "link_rewrite": {"language": {"@id": "1", "#text": prod_link_rewrite}},
             "id_manufacturer": prod_manufacturer_id,
             "id_category_default": main_cat,
+            "price": prod["price"]["regular_price"].replace(",", ".").replace(" ", ""),
             "id_tax_rules_group": get_tax_rule_id(tax_rule_name_to_id, prod["vat"]),
-            "price": prod["price"]["regular_price"].replace(",", "."),
             "associations": {
                 "categories": {
                     "category": [{"id": cat_id} for cat_id in prod_categories]
@@ -367,10 +376,22 @@ def main():
             response = add_object_to_presta("products", data, "product")
             presta_prod_id_to_prod[response["id"]] = response
             presta_id = response["id"]
+
+        if not response["id_default_image"].get("#text"):
+            # upload img
+            resource_name = prod["image_url"]
+            image_path = f"{IMAGES_DIR}/{resource_name}"
+            presta_api.add_image(f"products/{presta_id}", image_path)
+
         name_to_presta_id["products"][prod_name] = presta_id
         source_id_to_presta_id["products"][prod_id] = presta_id
 
     fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products)
+
+
+def main():
+    for category_name in CATEGORIES:
+        do_everything(category_name)
 
 
 if __name__ == "__main__":
