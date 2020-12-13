@@ -4464,6 +4464,7 @@
             "price": "98,15",
             "price_brutto": "120,72"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "6500 K (zimna)",

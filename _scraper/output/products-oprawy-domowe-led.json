@@ -19,6 +19,7 @@
             "price": "6,08",
             "price_brutto": "7,48"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -48,6 +49,7 @@
             "price": "6,61",
             "price_brutto": "8,13"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -76,6 +78,7 @@
             "price": "15,80",
             "price_brutto": "19,43"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000-4500 K (naturalna)",
@@ -108,6 +111,7 @@
             "price": "24,16",
             "price_brutto": "29,72"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -137,6 +141,7 @@
             "price": "36,00",
             "price_brutto": "44,28"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -165,6 +170,7 @@
             "price": "43,02",
             "price_brutto": "52,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -193,6 +199,7 @@
             "price": "44,96",
             "price_brutto": "55,30"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -220,6 +227,7 @@
             "price": "48,10",
             "price_brutto": "59,16"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -251,6 +259,7 @@
             "price": "66,05",
             "price_brutto": "81,24"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -280,6 +289,7 @@
             "price": "76,83",
             "price_brutto": "94,50"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -310,6 +320,7 @@
             "price": "88,05",
             "price_brutto": "108,30"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -339,6 +350,7 @@
             "price": "91,42",
             "price_brutto": "112,45"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -370,6 +382,7 @@
             "price": "95,00",
             "price_brutto": "116,85"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -401,6 +414,7 @@
             "price": "170,00",
             "price_brutto": "209,10"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP40",
             "Barwa światła": "4000 K (naturalna)",
@@ -432,6 +446,7 @@
             "price": "360,00",
             "price_brutto": "442,80"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000/4500/6000 K (ciepła)",
@@ -463,6 +478,7 @@
             "price": "1 340,00",
             "price_brutto": "1 648,20"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP33",
             "Barwa światła": "3000 K (ciepła)",
@@ -493,6 +509,7 @@
             "price": "16,74",
             "price_brutto": "20,59"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -525,6 +542,7 @@
             "price": "17,31",
             "price_brutto": "21,29"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -554,6 +572,7 @@
             "price": "17,75",
             "price_brutto": "21,83"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -580,6 +599,7 @@
             "price": "18,64",
             "price_brutto": "22,93"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -608,6 +628,7 @@
             "price": "22,81",
             "price_brutto": "28,06"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -636,6 +657,7 @@
             "price": "22,81",
             "price_brutto": "28,06"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -664,6 +686,7 @@
             "price": "23,61",
             "price_brutto": "29,04"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -696,6 +719,7 @@
             "price": "27,30",
             "price_brutto": "33,58"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Napięcie Wej.": "230 V",
@@ -723,6 +747,7 @@
             "price": "28,08",
             "price_brutto": "34,54"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -754,6 +779,7 @@
             "price": "29,41",
             "price_brutto": "36,17"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "3000K K (ciepła)",
@@ -783,6 +809,7 @@
             "price": "31,61",
             "price_brutto": "38,88"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Napięcie Wej.": "230 V",
@@ -811,6 +838,7 @@
             "price": "33,48",
             "price_brutto": "41,18"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -841,6 +869,7 @@
             "price": "34,00",
             "price_brutto": "41,82"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "3000 K (ciepła)",
@@ -873,6 +902,7 @@
             "price": "34,00",
             "price_brutto": "41,82"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -905,6 +935,7 @@
             "price": "37,00",
             "price_brutto": "45,51"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "3000 K (ciepła)",
@@ -936,6 +967,7 @@
             "price": "37,07",
             "price_brutto": "45,60"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -962,6 +994,7 @@
             "price": "37,26",
             "price_brutto": "45,83"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -992,6 +1025,7 @@
             "price": "38,00",
             "price_brutto": "46,74"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1021,6 +1055,7 @@
             "price": "40,65",
             "price_brutto": "50,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1052,6 +1087,7 @@
             "price": "41,90",
             "price_brutto": "51,54"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4500 K (naturalna)",
@@ -1083,6 +1119,7 @@
             "price": "43,00",
             "price_brutto": "52,89"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -1110,6 +1147,7 @@
             "price": "44,00",
             "price_brutto": "54,12"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -1141,6 +1179,7 @@
             "price": "44,00",
             "price_brutto": "54,12"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -1170,6 +1209,7 @@
             "price": "45,99",
             "price_brutto": "56,57"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -1200,6 +1240,7 @@
             "price": "50,00",
             "price_brutto": "61,50"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -1230,6 +1271,7 @@
             "price": "51,86",
             "price_brutto": "63,79"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -1262,6 +1304,7 @@
             "price": "52,77",
             "price_brutto": "64,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP55",
             "Barwa światła": "4000 K (naturalna)",
@@ -1291,6 +1334,7 @@
             "price": "52,77",
             "price_brutto": "64,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP55",
             "Barwa światła": "4000 K (naturalna)",
@@ -1320,6 +1364,7 @@
             "price": "54,00",
             "price_brutto": "66,42"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1350,6 +1395,7 @@
             "price": "55,61",
             "price_brutto": "68,40"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -1382,6 +1428,7 @@
             "price": "58,91",
             "price_brutto": "72,46"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4100 K (naturalna)",
@@ -1414,6 +1461,7 @@
             "price": "61,00",
             "price_brutto": "75,03"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1446,6 +1494,7 @@
             "price": "62,41",
             "price_brutto": "76,76"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -1475,6 +1524,7 @@
             "price": "63,80",
             "price_brutto": "78,47"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1507,6 +1557,7 @@
             "price": "68,06",
             "price_brutto": "83,71"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "3000K K (ciepła)",
@@ -1536,6 +1587,7 @@
             "price": "68,75",
             "price_brutto": "84,56"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1565,6 +1617,7 @@
             "price": "71,00",
             "price_brutto": "87,33"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4500 K (naturalna)",
@@ -1595,6 +1648,7 @@
             "price": "72,00",
             "price_brutto": "88,56"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1626,6 +1680,7 @@
             "price": "72,90",
             "price_brutto": "89,67"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1656,6 +1711,7 @@
             "price": "78,00",
             "price_brutto": "95,94"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -1687,6 +1743,7 @@
             "price": "84,00",
             "price_brutto": "103,32"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4200 K (naturalna)",
@@ -1719,6 +1776,7 @@
             "price": "86,94",
             "price_brutto": "106,94"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -1748,6 +1806,7 @@
             "price": "88,00",
             "price_brutto": "108,24"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "3000 K (ciepła)",
@@ -1778,6 +1837,7 @@
             "price": "88,20",
             "price_brutto": "108,49"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -1808,6 +1868,7 @@
             "price": "91,00",
             "price_brutto": "111,93"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4200 K (naturalna)",
@@ -1840,6 +1901,7 @@
             "price": "91,80",
             "price_brutto": "112,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -1870,6 +1932,7 @@
             "price": "100,50",
             "price_brutto": "123,62"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1902,6 +1965,7 @@
             "price": "100,50",
             "price_brutto": "123,62"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1934,6 +1998,7 @@
             "price": "105,00",
             "price_brutto": "129,15"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1966,6 +2031,7 @@
             "price": "105,00",
             "price_brutto": "129,15"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -1998,6 +2064,7 @@
             "price": "105,00",
             "price_brutto": "129,15"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -2027,6 +2094,7 @@
             "price": "129,27",
             "price_brutto": "159,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -2053,6 +2121,7 @@
             "price": "135,00",
             "price_brutto": "166,05"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -2082,6 +2151,7 @@
             "price": "148,23",
             "price_brutto": "182,32"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -2111,6 +2181,7 @@
             "price": "165,27",
             "price_brutto": "203,28"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -2142,6 +2213,7 @@
             "price": "232,47",
             "price_brutto": "285,94"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -2171,6 +2243,7 @@
             "price": "260,00",
             "price_brutto": "319,80"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "3000 K (ciepła)",
@@ -2201,6 +2274,7 @@
             "price": "29,88",
             "price_brutto": "36,75"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -2232,6 +2306,7 @@
             "price": "41,00",
             "price_brutto": "50,43"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -2258,6 +2333,7 @@
             "price": "44,00",
             "price_brutto": "54,12"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -2285,6 +2361,7 @@
             "price": "44,82",
             "price_brutto": "55,13"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -2315,6 +2392,7 @@
             "price": "45,23",
             "price_brutto": "55,63"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP42",
             "Barwa światła": "4000 K (naturalna)",
@@ -2344,6 +2422,7 @@
             "price": "46,49",
             "price_brutto": "57,18"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4100 K (naturalna)",
@@ -2374,6 +2453,7 @@
             "price": "48,60",
             "price_brutto": "59,78"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -2405,6 +2485,7 @@
             "price": "49,00",
             "price_brutto": "60,27"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -2434,6 +2515,7 @@
             "price": "52,38",
             "price_brutto": "64,43"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -2465,6 +2547,7 @@
             "price": "52,98",
             "price_brutto": "65,17"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -2494,6 +2577,7 @@
             "price": "54,00",
             "price_brutto": "66,42"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -2524,6 +2608,7 @@
             "price": "55,00",
             "price_brutto": "67,65"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -2555,6 +2640,7 @@
             "price": "56,03",
             "price_brutto": "68,92"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Napięcie Wej.": "230 V",
@@ -2582,6 +2668,7 @@
             "price": "56,70",
             "price_brutto": "69,74"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -2612,6 +2699,7 @@
             "price": "57,60",
             "price_brutto": "70,85"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -2642,6 +2730,7 @@
             "price": "58,00",
             "price_brutto": "71,34"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -2670,6 +2759,7 @@
             "price": "58,91",
             "price_brutto": "72,46"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -2698,6 +2788,7 @@
             "price": "59,00",
             "price_brutto": "72,57"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -2728,6 +2819,7 @@
             "price": "59,12",
             "price_brutto": "72,72"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -2759,6 +2851,7 @@
             "price": "60,28",
             "price_brutto": "74,14"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -2787,6 +2880,7 @@
             "price": "60,53",
             "price_brutto": "74,45"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4100 K (naturalna)",
@@ -2819,6 +2913,7 @@
             "price": "60,94",
             "price_brutto": "74,96"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -2849,6 +2944,7 @@
             "price": "61,00",
             "price_brutto": "75,03"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -2879,6 +2975,7 @@
             "price": "61,11",
             "price_brutto": "75,17"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "6400 K (zimna)",
@@ -2908,6 +3005,7 @@
             "price": "62,00",
             "price_brutto": "76,26"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -2935,6 +3033,7 @@
             "price": "62,18",
             "price_brutto": "76,48"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -2964,6 +3063,7 @@
             "price": "63,19",
             "price_brutto": "77,72"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -2991,6 +3091,7 @@
             "price": "64,00",
             "price_brutto": "78,72"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -3022,6 +3123,7 @@
             "price": "65,00",
             "price_brutto": "79,95"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -3050,6 +3152,7 @@
             "price": "65,06",
             "price_brutto": "80,02"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -3079,6 +3182,7 @@
             "price": "66,00",
             "price_brutto": "81,18"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -3109,6 +3213,7 @@
             "price": "66,00",
             "price_brutto": "81,18"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -3139,6 +3244,7 @@
             "price": "66,16",
             "price_brutto": "81,38"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -3166,6 +3272,7 @@
             "price": "70,35",
             "price_brutto": "86,53"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -3196,6 +3303,7 @@
             "price": "71,00",
             "price_brutto": "87,33"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -3226,6 +3334,7 @@
             "price": "71,50",
             "price_brutto": "87,95"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -3257,6 +3366,7 @@
             "price": "72,50",
             "price_brutto": "89,18"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -3288,6 +3398,7 @@
             "price": "73,40",
             "price_brutto": "90,28"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP40",
             "Barwa światła": "4000 K (naturalna)",
@@ -3319,6 +3430,7 @@
             "price": "73,91",
             "price_brutto": "90,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -3345,6 +3457,7 @@
             "price": "74,10",
             "price_brutto": "91,14"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -3375,6 +3488,7 @@
             "price": "74,44",
             "price_brutto": "91,56"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -3406,6 +3520,7 @@
             "price": "76,00",
             "price_brutto": "93,48"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -3435,6 +3550,7 @@
             "price": "77,00",
             "price_brutto": "94,71"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -3464,6 +3580,7 @@
             "price": "79,00",
             "price_brutto": "97,17"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Strumień świetlny": "1300 lm",
@@ -3492,6 +3609,7 @@
             "price": "81,00",
             "price_brutto": "99,63"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -3520,6 +3638,7 @@
             "price": "81,74",
             "price_brutto": "100,54"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -3552,6 +3671,7 @@
             "price": "82,54",
             "price_brutto": "101,52"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -3583,6 +3703,7 @@
             "price": "84,00",
             "price_brutto": "103,32"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -3609,6 +3730,7 @@
             "price": "84,00",
             "price_brutto": "103,32"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -3635,6 +3757,7 @@
             "price": "84,00",
             "price_brutto": "103,32"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -3665,6 +3788,7 @@
             "price": "90,00",
             "price_brutto": "110,70"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -3694,6 +3818,7 @@
             "price": "90,00",
             "price_brutto": "110,70"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -3723,6 +3848,7 @@
             "price": "90,18",
             "price_brutto": "110,92"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -3753,6 +3879,7 @@
             "price": "91,00",
             "price_brutto": "111,93"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -3784,6 +3911,7 @@
             "price": "91,00",
             "price_brutto": "111,93"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -3815,6 +3943,7 @@
             "price": "93,50",
             "price_brutto": "115,01"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "230 V",
@@ -3843,6 +3972,7 @@
             "price": "96,99",
             "price_brutto": "119,30"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -3874,6 +4004,7 @@
             "price": "100,00",
             "price_brutto": "123,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP40",
             "Napięcie Wej.": "230 V",
@@ -3901,6 +4032,7 @@
             "price": "106,92",
             "price_brutto": "131,51"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -3931,6 +4063,7 @@
             "price": "110,00",
             "price_brutto": "135,30"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -3962,6 +4095,7 @@
             "price": "110,00",
             "price_brutto": "135,30"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4500 K (naturalna)",
@@ -3994,6 +4128,7 @@
             "price": "111,00",
             "price_brutto": "136,53"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -4023,6 +4158,7 @@
             "price": "113,40",
             "price_brutto": "139,48"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -4053,6 +4189,7 @@
             "price": "115,00",
             "price_brutto": "141,45"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -4084,6 +4221,7 @@
             "price": "116,28",
             "price_brutto": "143,02"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -4112,6 +4250,7 @@
             "price": "119,00",
             "price_brutto": "146,37"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -4142,6 +4281,7 @@
             "price": "119,14",
             "price_brutto": "146,54"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -4171,6 +4311,7 @@
             "price": "119,14",
             "price_brutto": "146,54"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -4200,6 +4341,7 @@
             "price": "119,99",
             "price_brutto": "147,59"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -4230,6 +4372,7 @@
             "price": "119,99",
             "price_brutto": "147,59"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -4260,6 +4403,7 @@
             "price": "124,20",
             "price_brutto": "152,77"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -4290,6 +4434,7 @@
             "price": "125,00",
             "price_brutto": "153,75"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -4321,6 +4466,7 @@
             "price": "125,00",
             "price_brutto": "153,75"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -4352,6 +4498,7 @@
             "price": "137,75",
             "price_brutto": "169,43"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "3000 K (ciepła)",
@@ -4381,6 +4528,7 @@
             "price": "140,00",
             "price_brutto": "172,20"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4500 K (naturalna)",
@@ -4411,6 +4559,7 @@
             "price": "140,00",
             "price_brutto": "172,20"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4500 K (naturalna)",
@@ -4443,6 +4592,7 @@
             "price": "140,16",
             "price_brutto": "172,40"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4500 K (naturalna)",
@@ -4474,6 +4624,7 @@
             "price": "140,40",
             "price_brutto": "172,69"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -4505,6 +4656,7 @@
             "price": "145,00",
             "price_brutto": "178,35"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4500 K (naturalna)",
@@ -4535,6 +4687,7 @@
             "price": "145,00",
             "price_brutto": "178,35"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -4565,6 +4718,7 @@
             "price": "151,75",
             "price_brutto": "186,65"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP66",
             "Barwa światła": "4000 K (naturalna)",
@@ -4594,6 +4748,7 @@
             "price": "154,53",
             "price_brutto": "190,07"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -4624,6 +4779,7 @@
             "price": "156,56",
             "price_brutto": "192,57"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -4653,6 +4809,7 @@
             "price": "164,12",
             "price_brutto": "201,87"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -4683,6 +4840,7 @@
             "price": "185,00",
             "price_brutto": "227,55"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "4000 K (naturalna)",
@@ -4713,6 +4871,7 @@
             "price": "319,05",
             "price_brutto": "392,43"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -4743,6 +4902,7 @@
             "price": "355,11",
             "price_brutto": "436,79"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -4772,6 +4932,7 @@
             "price": "26,15",
             "price_brutto": "32,16"
         },
+        "vat": "23",
         "attributes": {
             "Napięcie Wej.": "230 V"
         }
@@ -4796,6 +4957,7 @@
             "price": "29,00",
             "price_brutto": "35,67"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -4822,6 +4984,7 @@
             "price": "39,00",
             "price_brutto": "47,97"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -4848,6 +5011,7 @@
             "price": "63,74",
             "price_brutto": "78,40"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -4878,6 +5042,7 @@
             "price": "71,00",
             "price_brutto": "87,33"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "3000 K (ciepła)",
@@ -4907,6 +5072,7 @@
             "price": "72,16",
             "price_brutto": "88,76"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "3000 K (ciepła)",
@@ -4936,6 +5102,7 @@
             "price": "74,55",
             "price_brutto": "91,70"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "3000 K (ciepła)",
@@ -4966,6 +5133,7 @@
             "price": "93,16",
             "price_brutto": "114,59"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -4997,6 +5165,7 @@
             "price": "176,52",
             "price_brutto": "217,12"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -5026,6 +5195,7 @@
             "price": "182,93",
             "price_brutto": "225,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -5052,6 +5222,7 @@
             "price": "236,59",
             "price_brutto": "291,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP21",
             "Napięcie Wej.": "230 V",
@@ -5078,6 +5249,7 @@
             "price": "1 400,00",
             "price_brutto": "1 722,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000-6000 K (ciepła)",
@@ -5108,6 +5280,7 @@
             "price": "1 400,00",
             "price_brutto": "1 722,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000-6000 K (ciepła)",
@@ -5138,6 +5311,7 @@
             "price": "1,00",
             "price_brutto": "1,23"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5164,6 +5338,7 @@
             "price": "4,16",
             "price_brutto": "5,12"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5191,6 +5366,7 @@
             "price": "4,74",
             "price_brutto": "5,83"
         },
+        "vat": "23",
         "attributes": {
             "Napięcie Wej.": "12 V",
             "Trzonek": "GU5.3",
@@ -5217,6 +5393,7 @@
             "price": "5,59",
             "price_brutto": "6,88"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5243,6 +5420,7 @@
             "price": "5,60",
             "price_brutto": "6,89"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5270,6 +5448,7 @@
             "price": "7,51",
             "price_brutto": "9,24"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Trzonek": "GU10",
@@ -5296,6 +5475,7 @@
             "price": "8,72",
             "price_brutto": "10,73"
         },
+        "vat": "23",
         "attributes": {
             "Napięcie Wej.": "12 V",
             "Trzonek": "G4",
@@ -5322,6 +5502,7 @@
             "price": "10,08",
             "price_brutto": "12,40"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5349,6 +5530,7 @@
             "price": "11,10",
             "price_brutto": "13,65"
         },
+        "vat": "23",
         "attributes": {
             "Napięcie Wej.": "12 V",
             "Trzonek": "GU5.3"
@@ -5374,6 +5556,7 @@
             "price": "11,20",
             "price_brutto": "13,78"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Napięcie Wej.": "12 V",
@@ -5401,6 +5584,7 @@
             "price": "11,46",
             "price_brutto": "14,10"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5428,6 +5612,7 @@
             "price": "11,46",
             "price_brutto": "14,10"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5455,6 +5640,7 @@
             "price": "12,10",
             "price_brutto": "14,88"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5483,6 +5669,7 @@
             "price": "14,60",
             "price_brutto": "17,96"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Moc": "Max.35W"
@@ -5508,6 +5695,7 @@
             "price": "15,56",
             "price_brutto": "19,14"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -5537,6 +5725,7 @@
             "price": "15,56",
             "price_brutto": "19,14"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -5566,6 +5755,7 @@
             "price": "16,20",
             "price_brutto": "19,93"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5594,6 +5784,7 @@
             "price": "17,01",
             "price_brutto": "20,92"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "220-240 V",
@@ -5621,6 +5812,7 @@
             "price": "18,20",
             "price_brutto": "22,39"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -5648,6 +5840,7 @@
             "price": "18,90",
             "price_brutto": "23,25"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Trzonek": "GU10/GU6.35",
@@ -5674,6 +5867,7 @@
             "price": "18,97",
             "price_brutto": "23,33"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -5703,6 +5897,7 @@
             "price": "21,00",
             "price_brutto": "25,83"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -5729,6 +5924,7 @@
             "price": "21,23",
             "price_brutto": "26,11"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "220-240 V",
@@ -5756,6 +5952,7 @@
             "price": "26,67",
             "price_brutto": "32,80"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -5785,6 +5982,7 @@
             "price": "26,67",
             "price_brutto": "32,80"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -5814,6 +6012,7 @@
             "price": "31,00",
             "price_brutto": "38,13"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Moc": "Max. 35W"
@@ -5839,6 +6038,7 @@
             "price": "40,50",
             "price_brutto": "49,82"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -5866,6 +6066,7 @@
             "price": "41,74",
             "price_brutto": "51,34"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3200 K (ciepła)",
@@ -5894,6 +6095,7 @@
             "price": "44,60",
             "price_brutto": "54,86"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP23",
             "Napięcie Wej.": "12 V",
@@ -5921,6 +6123,7 @@
             "price": "72,43",
             "price_brutto": "89,09"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP23",
             "Napięcie Wej.": "230 V",
@@ -5948,6 +6151,7 @@
             "price": "164,93",
             "price_brutto": "202,86"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP23",
             "Trzonek": "GU10",
@@ -5974,6 +6178,7 @@
             "price": "168,36",
             "price_brutto": "207,08"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -6003,6 +6208,7 @@
             "price": "173,98",
             "price_brutto": "214,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -6033,6 +6239,7 @@
             "price": "15,20",
             "price_brutto": "18,70"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6063,6 +6270,7 @@
             "price": "17,10",
             "price_brutto": "21,03"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4200 K (naturalna)",
@@ -6094,6 +6302,7 @@
             "price": "17,87",
             "price_brutto": "21,98"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6123,6 +6332,7 @@
             "price": "18,69",
             "price_brutto": "22,99"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6152,6 +6362,7 @@
             "price": "19,96",
             "price_brutto": "24,55"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3200 K (ciepła)",
@@ -6180,6 +6391,7 @@
             "price": "20,21",
             "price_brutto": "24,86"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "6500 K (zimna)",
@@ -6210,6 +6422,7 @@
             "price": "20,90",
             "price_brutto": "25,71"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6238,6 +6451,7 @@
             "price": "24,99",
             "price_brutto": "30,74"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6269,6 +6483,7 @@
             "price": "34,00",
             "price_brutto": "41,82"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6298,6 +6513,7 @@
             "price": "36,88",
             "price_brutto": "45,36"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "6400 K (zimna)",
@@ -6327,6 +6543,7 @@
             "price": "37,00",
             "price_brutto": "45,51"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "6400 K (zimna)",
@@ -6355,6 +6572,7 @@
             "price": "47,00",
             "price_brutto": "57,81"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "3000 K (ciepła)",
             "Strumień świetlny": "160 lm",
@@ -6383,6 +6601,7 @@
             "price": "52,77",
             "price_brutto": "64,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6412,6 +6631,7 @@
             "price": "56,96",
             "price_brutto": "70,06"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -6442,6 +6662,7 @@
             "price": "70,01",
             "price_brutto": "86,11"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "3000 K (ciepła)",
             "Strumień świetlny": "288 lm",
@@ -6473,6 +6694,7 @@
             "price": "83,73",
             "price_brutto": "102,99"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -6503,6 +6725,7 @@
             "price": "86,61",
             "price_brutto": "106,53"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -6532,6 +6755,7 @@
             "price": "95,88",
             "price_brutto": "117,93"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -6563,6 +6787,7 @@
             "price": "22,80",
             "price_brutto": "28,04"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "4000 K (naturalna)",
@@ -6590,6 +6815,7 @@
             "price": "35,46",
             "price_brutto": "43,62"
         },
+        "vat": "23",
         "attributes": {
             "Napięcie Wej.": "230 V",
             "Moc": "Max. 40W"
@@ -6615,6 +6841,7 @@
             "price": "43,17",
             "price_brutto": "53,10"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "700 lm",
@@ -6643,6 +6870,7 @@
             "price": "49,93",
             "price_brutto": "61,41"
         },
+        "vat": "23",
         "attributes": {
             "Napięcie Wej.": "230 V",
             "Moc": "Max. 40W"
@@ -6668,6 +6896,7 @@
             "price": "60,34",
             "price_brutto": "74,22"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6697,6 +6926,7 @@
             "price": "60,34",
             "price_brutto": "74,22"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6726,6 +6956,7 @@
             "price": "62,00",
             "price_brutto": "76,26"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "200 lm",
@@ -6753,6 +6984,7 @@
             "price": "66,00",
             "price_brutto": "81,18"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "110 lm",
@@ -6781,6 +7013,7 @@
             "price": "67,68",
             "price_brutto": "83,25"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V"
@@ -6806,6 +7039,7 @@
             "price": "67,95",
             "price_brutto": "83,58"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -6835,6 +7069,7 @@
             "price": "67,95",
             "price_brutto": "83,58"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4500 K (naturalna)",
@@ -6864,6 +7099,7 @@
             "price": "74,17",
             "price_brutto": "91,23"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6893,6 +7129,7 @@
             "price": "78,87",
             "price_brutto": "97,01"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "3000 K (ciepła)",
             "Strumień świetlny": "60 lm",
@@ -6921,6 +7158,7 @@
             "price": "80,48",
             "price_brutto": "98,99"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -6949,6 +7187,7 @@
             "price": "84,19",
             "price_brutto": "103,55"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "70 lm",
@@ -6976,6 +7215,7 @@
             "price": "92,12",
             "price_brutto": "113,31"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V"
@@ -7001,6 +7241,7 @@
             "price": "93,34",
             "price_brutto": "114,81"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "3000-5000 K (ciepła)",
             "Strumień świetlny": "400 lm",
@@ -7028,6 +7269,7 @@
             "price": "94,00",
             "price_brutto": "115,62"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "Zmienna K",
@@ -7056,6 +7298,7 @@
             "price": "99,83",
             "price_brutto": "122,79"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "300 lm",
@@ -7084,6 +7327,7 @@
             "price": "105,00",
             "price_brutto": "129,15"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -7113,6 +7357,7 @@
             "price": "107,81",
             "price_brutto": "132,61"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "5500 K (zimna)",
             "Strumień świetlny": "240 lm",
@@ -7140,6 +7385,7 @@
             "price": "107,81",
             "price_brutto": "132,61"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "3000-5000 K (ciepła)",
             "Strumień świetlny": "400 lm",
@@ -7167,6 +7413,7 @@
             "price": "109,44",
             "price_brutto": "134,61"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "500 lm",
@@ -7195,6 +7442,7 @@
             "price": "114,63",
             "price_brutto": "140,99"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "200 lm",
@@ -7223,6 +7471,7 @@
             "price": "118,57",
             "price_brutto": "145,84"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -7252,6 +7501,7 @@
             "price": "125,00",
             "price_brutto": "153,75"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "200 lm",
@@ -7280,6 +7530,7 @@
             "price": "126,35",
             "price_brutto": "155,41"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "RGB kolor",
             "Strumień świetlny": "100 lm",
@@ -7308,6 +7559,7 @@
             "price": "136,76",
             "price_brutto": "168,21"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "2700-6500 K (ciepła)",
             "Strumień świetlny": "400 lm",
@@ -7335,6 +7587,7 @@
             "price": "143,29",
             "price_brutto": "176,25"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "500 lm",
@@ -7362,6 +7615,7 @@
             "price": "143,99",
             "price_brutto": "177,11"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "5500 K (zimna)",
             "Strumień świetlny": "260 lm",
@@ -7389,6 +7643,7 @@
             "price": "160,17",
             "price_brutto": "197,01"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -7418,6 +7673,7 @@
             "price": "183,67",
             "price_brutto": "225,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Strumień świetlny": "1000 lm",
@@ -7448,6 +7704,7 @@
             "price": "183,67",
             "price_brutto": "225,91"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Strumień świetlny": "110 lm",
@@ -7477,6 +7734,7 @@
             "price": "300,00",
             "price_brutto": "369,00"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -7506,6 +7764,7 @@
             "price": "380,00",
             "price_brutto": "467,40"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "4000 K (naturalna)",
             "Strumień świetlny": "650 lm",
@@ -7534,6 +7793,7 @@
             "price": "13,40",
             "price_brutto": "16,48"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Trzonek": "LED",
@@ -7560,6 +7820,7 @@
             "price": "18,20",
             "price_brutto": "22,39"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP40",
             "Strumień świetlny": "5-30 lm",
@@ -7586,6 +7847,7 @@
             "price": "20,00",
             "price_brutto": "24,60"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -7617,6 +7879,7 @@
             "price": "27,34",
             "price_brutto": "33,63"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "12 V",
@@ -7644,6 +7907,7 @@
             "price": "30,69",
             "price_brutto": "37,75"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -7673,6 +7937,7 @@
             "price": "37,00",
             "price_brutto": "45,51"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "RGB K",
@@ -7701,6 +7966,7 @@
             "price": "39,00",
             "price_brutto": "47,97"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "2700 K (ciepła)",
@@ -7730,6 +7996,7 @@
             "price": "39,00",
             "price_brutto": "47,97"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -7761,6 +8028,7 @@
             "price": "39,00",
             "price_brutto": "47,97"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -7790,6 +8058,7 @@
             "price": "41,00",
             "price_brutto": "50,43"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Napięcie Wej.": "230 V",
@@ -7818,6 +8087,7 @@
             "price": "45,00",
             "price_brutto": "55,35"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP40",
             "Barwa światła": "3000-6500 K (ciepła)",
@@ -7845,6 +8115,7 @@
             "price": "46,00",
             "price_brutto": "56,58"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "2700 K (ciepła)",
@@ -7874,6 +8145,7 @@
             "price": "47,00",
             "price_brutto": "57,81"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "3000 K (ciepła)",
@@ -7902,6 +8174,7 @@
             "price": "47,00",
             "price_brutto": "57,81"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP40",
             "Barwa światła": "RGB K",
@@ -7928,6 +8201,7 @@
             "price": "74,80",
             "price_brutto": "92,00"
         },
+        "vat": "23",
         "attributes": {
             "Barwa światła": "3000 K (ciepła)",
             "Strumień świetlny": "50 lm",
@@ -7956,6 +8230,7 @@
             "price": "96,43",
             "price_brutto": "118,61"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP54",
             "Barwa światła": "4000 K (naturalna)",
@@ -7985,6 +8260,7 @@
             "price": "120,00",
             "price_brutto": "147,60"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "1600 K",
@@ -8015,6 +8291,7 @@
             "price": "136,50",
             "price_brutto": "167,90"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Napięcie Wej.": "230 V",
@@ -8043,6 +8320,7 @@
             "price": "149,41",
             "price_brutto": "183,77"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Napięcie Wej.": "230   V",
@@ -8070,6 +8348,7 @@
             "price": "159,33",
             "price_brutto": "195,98"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "RGB kolor",
@@ -8098,6 +8377,7 @@
             "price": "185,00",
             "price_brutto": "227,55"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Napięcie Wej.": "230 V",
@@ -8126,6 +8406,7 @@
             "price": "189,86",
             "price_brutto": "233,53"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP20",
             "Barwa światła": "4000 K (naturalna)",
@@ -8156,6 +8437,7 @@
             "price": "259,33",
             "price_brutto": "318,98"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP65",
             "Barwa światła": "RGB kolor",
@@ -8184,6 +8466,7 @@
             "price": "291,32",
             "price_brutto": "358,32"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "RGB kolor",
@@ -8212,6 +8495,7 @@
             "price": "661,32",
             "price_brutto": "813,42"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "28 W"
         }
@@ -8236,6 +8520,7 @@
             "price": "686,07",
             "price_brutto": "843,87"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "22 W"
         }
@@ -8260,6 +8545,7 @@
             "price": "700,92",
             "price_brutto": "862,13"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "32 W"
         }
@@ -8284,6 +8570,7 @@
             "price": "797,33",
             "price_brutto": "980,72"
         },
+        "vat": "23",
         "attributes": {
             "Stopień szczelności": "IP44",
             "Barwa światła": "2700 K (ciepła)",
@@ -8311,6 +8598,7 @@
             "price": "1 082,07",
             "price_brutto": "1 330,95"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "53 W"
         }
@@ -8335,6 +8623,7 @@
             "price": "1 240,47",
             "price_brutto": "1 525,78"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "50 W"
         }
@@ -8359,6 +8648,7 @@
             "price": "5 380,65",
             "price_brutto": "6 618,20"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "63 W"
         }
@@ -8383,6 +8673,7 @@
             "price": "5 657,85",
             "price_brutto": "6 959,16"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "70 W"
         }
@@ -8407,6 +8698,7 @@
             "price": "6 784,47",
             "price_brutto": "8 344,90"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "22 W"
         }
@@ -8431,6 +8723,7 @@
             "price": "8 560,53",
             "price_brutto": "10 529,45"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "72 W"
         }
@@ -8455,6 +8748,7 @@
             "price": "9 485,19",
             "price_brutto": "11 666,78"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "70 W"
         }
@@ -8479,6 +8773,7 @@
             "price": "10 480,14",
             "price_brutto": "12 890,57"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "80 W"
         }
@@ -8503,6 +8798,7 @@
             "price": "11 909,70",
             "price_brutto": "14 648,93"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "62 W"
         }
@@ -8527,6 +8823,7 @@
             "price": "12 164,13",
             "price_brutto": "14 961,88"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "88 W"
         }
@@ -8551,6 +8848,7 @@
             "price": "19 120,86",
             "price_brutto": "23 518,66"
         },
+        "vat": "23",
         "attributes": {
             "Moc": "132 W"
         }
