@@ -105,26 +105,23 @@ def get_or_add_feature_value(
     return presta_id
 
 
-def fill_stocks(presta_api, source_id_to_presta_id, products_json):
+def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
     """ This one only fills the existing stock_available entities based on the scraped data."""
 
-    def get_available_prod_id(ids):
-        for id in ids:
-            prod = get_object_from_presta(f"products/{id}", "product") 
+    def get_available_prod_id(presta_prod_id_to_prod):
+        for id, prod in presta_prod_id_to_prod.items():
             if prod["associations"][f"{SA}s"].get(f"{SA}"):
                 # skip one with existing stock
                 continue
             yield id
-
+    prod_gen = get_available_prod_id(presta_prod_id_to_prod)
     SA = "stock_available"
-    presta_ids = source_id_to_presta_id["products"].values()
-    prod_gen = get_available_prod_id(presta_ids)
 
-    for stock in get_objects_from_presta(f"{SA}s", f"{SA}"):
-        stock = get_object_from_presta(f'{SA}s/{stock["@id"]}', f"{SA}")
+    for stock in get_objects_from_presta(f"{SA}s", SA):
+        stock = get_object_from_presta(f'{SA}s/{stock["@id"]}', SA)
         stock_prod_id = stock["id_product"]["#text"]
 
-        if stock_prod_id in presta_ids:
+        if stock_prod_id in presta_prod_id_to_prod.keys():
             presta_prod_id = stock_prod_id
         else:
             try:
@@ -158,7 +155,7 @@ def fill_stocks(presta_api, source_id_to_presta_id, products_json):
             "quantity": quantity,
             "location": stock["location"]
         }
-        edit_presta_object(f"{SA}s", stock["id"], data, f"{SA}")
+        edit_presta_object(f"{SA}s", stock["id"], data, SA)
 
 
 def main():
@@ -295,6 +292,7 @@ def main():
         for name, p_id in name_to_source_id["products"].items()
     }
 
+    presta_prod_id_to_prod = {}  # used to cache the added / updated products
     for prod_id, prod in products.items():
         prod_name = prod["name"].replace("=", "-")
         prod_link_rewrite = (
@@ -348,15 +346,17 @@ def main():
         if prod_name in name_to_presta_id["products"]:
             # edit
             presta_id = name_to_presta_id["products"][prod_name]
-            edit_presta_object("products", presta_id, data, "product")
+            response = edit_presta_object("products", presta_id, data, "product")
+            presta_prod_id_to_prod[response["id"]] = response
         else:
             # add
             response = add_object_to_presta("products", data, "product")
+            presta_prod_id_to_prod[response["id"]] = response
             presta_id = response["id"]
         name_to_presta_id["products"][prod_name] = presta_id
         source_id_to_presta_id["products"][prod_id] = presta_id
 
-    fill_stocks(presta_api, source_id_to_presta_id, products)
+    fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products)
 
 
 if __name__ == "__main__":
