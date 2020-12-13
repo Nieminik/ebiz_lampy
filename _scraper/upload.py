@@ -8,7 +8,7 @@ import settings
 
 OUTPUT_DIR = "output"
 IMAGES_DIR = "images"
-CATEGORIES = ["oprawy-domowe-led"]  # "zrodla-swiatla-led",]
+CATEGORIES = ["oprawy-domowe-led", "zrodla-swiatla-led"]
 
 presta_api = PrestashopApi(settings.PRESTASHOP_API_URL, settings.WEBSERVICE_KEY)
 
