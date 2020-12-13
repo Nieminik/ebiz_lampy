@@ -182,6 +182,10 @@ def append_prod_attributes(all_products):
         custom_attributes = get_from_api(f'V1/products/{product["products_id"]}')[
             "custom_attributes"
         ]
+        product["vat"] = next(
+            (x["value"] for x in custom_attributes if x["attribute_code"] == "vat"), 23
+        )
+
         attributes = next(
             (x for x in custom_attributes if x["attribute_code"] == "attributes")
         )

@@ -1,0 +1,17 @@
+id;"ID zamówienia";Klient;Razem;Przewoźnik;Data;Online
+16;"Nie zamówione";"T. Testowy";0,00 zł;;"2020-11-06 12:29:39";0
+15;"Nie zamówione";;675,70 zł;;"2020-11-05 20:14:21";0
+14;"Nie zamówione";"T. Testowy";6,53 zł;;"2020-11-05 19:52:23";0
+13;11;"T. Nawrocki";3,21 zł;"Deutsche Post";"2020-11-05 19:51:01";0
+12;10;"T. Testowy";99,77 zł;"Poczta Polska";"2020-11-05 19:51:00";0
+11;9;"T. Testowy";3,21 zł;UPP;"2020-11-05 19:45:40";0
+10;"Nie zamówione";"T. Testowy";0,00 zł;;"2020-11-05 19:06:44";0
+9;7;"T. Testowy";6,53 zł;Lampy;"2020-11-05 18:52:42";0
+8;8;"T. Nawrocki";6,53 zł;"My carrier";"2020-11-05 18:51:27";0
+7;"Nie zamówione";"T. Testowy";0,00 zł;;"2020-11-05 16:55:04";0
+6;6;"T. Testowy";0,00 zł;Lampy;"2020-11-05 16:51:48";0
+5;5;"J. DOE";0,00 zł;"My carrier";"2020-11-04 22:43:11";0
+4;4;"J. DOE";0,00 zł;"My carrier";"2020-11-04 22:43:11";0
+3;3;"J. DOE";0,00 zł;"My carrier";"2020-11-04 22:43:11";0
+2;2;"J. DOE";0,00 zł;"My carrier";"2020-11-04 22:43:11";0
+1;1;"J. DOE";0,00 zł;"My carrier";"2020-11-04 22:43:11";0
