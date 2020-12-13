@@ -31,17 +31,16 @@ namespace ToolsQA
                      CategoryXPath = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/div[2]/ul[1]/li[2]/a[1]",
                      ElemXPath = "/html[1]/body[1]/main[1]/section[1]/div[1]/div[2]/section[1]/section[1]/div[3]/div[1]/div[1]/article[Q]/div[1]/a[1]/img[1]",
                      QtyElem = 5
-                }
-                                   
+                }                                 
             };
 
             var purchaser = new Purchaser
             {
                 FirstName = "Jan",
                 Lastname = "Kowalski",
-                Email = "buziaczek@interia.pl",
+                Email = "kowalskij@interia.pl",
                 Password = "Qwerty123",
-                Birthday = new DateTime(1994, 06, 01).ToShortDateString(),
+                Birthday = new DateTime(1994, 07, 05).ToShortDateString(),
                 PostalCode = "83-110",
                 Address = "Krucza 13/8",
                 City = "Sopot"
