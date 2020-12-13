@@ -90,7 +90,6 @@ def get_or_add_feature(name_to_presta_id: dict, name: str):
 def get_or_add_feature_value(
     name_to_presta_id: dict, feature_name: str, value_name: str
 ):
-    print(f"{feature_name} -> {value_name}")
     presta_id = name_to_presta_id["feature_values"].get(value_name)
     if not presta_id:
         feature_id = get_or_add_feature(name_to_presta_id, feature_name)
