@@ -158,6 +158,12 @@ def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
         edit_presta_object(f"{SA}s", stock["id"], data, SA)
 
 
+def get_tax_rule_id(tax_rule_name_to_id, vat):
+    for name, id in tax_rule_name_to_id.items():
+        if vat in name:
+            return id
+
+
 def main():
     object_types = [
         "manufacturers",
@@ -276,10 +282,17 @@ def main():
             feature_value["value"]["language"]["#text"]
         ] = feature_value["id"]
 
+    # tax rule groups
+    TRG = "tax_rule_group"
+    tax_rule_name_to_id = {}
+    for tax in get_objects_from_presta(f"{TRG}s", TRG):
+        tax = get_object_from_presta(f"{TRG}s/{tax['@id']}", TRG)
+        tax_rule_name_to_id[tax["name"]] = tax["id"]
+
     # products
     products = load_json("products.json")
     name_to_source_id["products"] = {
-        prod["name"]: prod_id for prod_id, prod in products.items()
+        prod["name"].replace("=", "-"): prod_id for prod_id, prod in products.items()
     }
     for prod in get_objects_from_presta("products", "product"):
         prod = get_object_from_presta(f"products/{prod['@id']}", "product")
@@ -335,6 +348,7 @@ def main():
             "link_rewrite": {"language": {"@id": "1", "#text": prod_link_rewrite}},
             "id_manufacturer": prod_manufacturer_id,
             "id_category_default": main_cat,
+            "id_tax_rules_group": get_tax_rule_id(tax_rule_name_to_id, prod["vat"]),
             "price": prod["price"]["regular_price"].replace(",", "."),
             "associations": {
                 "categories": {

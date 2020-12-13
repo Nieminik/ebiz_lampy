@@ -176,11 +176,14 @@ def download_product_image(product):
         save_static_file(file, filepath)
 
 
-def append_prod_attributes(all_products):
+def append_prod_details(all_products):
     for product in all_products.values():
         custom_attributes = get_from_api(f'V1/products/{product["products_id"]}')[
             "custom_attributes"
         ]
+        product["vat"] = next(
+            (x["value"] for x in custom_attributes if x["attribute_code"] == "vat"), 23)
+
         attributes = next(
             (x for x in custom_attributes if x["attribute_code"] == "attributes")
         )
@@ -200,7 +203,7 @@ def main():
     dump_to_file(all_manufacturers, "manufacturers.json")
 
     all_products = extract_products_data(get_products(main_category))
-    all_products = append_prod_attributes(all_products)
+    all_products = append_prod_details(all_products)
     dump_to_file(all_products, "products.json")
 
     for product in all_products.values():
