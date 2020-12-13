@@ -5262,7 +5262,7 @@
                                 "value_to": "-1"
                             },
                             {
-                                "hvalue": "3000",
+                                "hvalue": "2700",
                                 "hvalue_name": "ciepła",
                                 "products_counter": "171",
                                 "value_from": "2200",
@@ -5297,7 +5297,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "2,5",
+                                "hvalue": "2.8",
                                 "hvalue_name": "do 3 [W]",
                                 "products_counter": "26",
                                 "value_from": "0.01",
@@ -5311,14 +5311,14 @@
                                 "value_to": "4.99"
                             },
                             {
-                                "hvalue": "5,5",
+                                "hvalue": "5",
                                 "hvalue_name": "5-7 [W]",
                                 "products_counter": "126",
                                 "value_from": "5",
                                 "value_to": "6.99"
                             },
                             {
-                                "hvalue": "8",
+                                "hvalue": "7",
                                 "hvalue_name": "7-10 [W]",
                                 "products_counter": "70",
                                 "value_from": "7",
@@ -5346,7 +5346,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "130",
+                                "hvalue": "100",
                                 "hvalue_name": "do 200 [lm]"
                             },
                             {
@@ -5357,21 +5357,21 @@
                                 "value_to": "299"
                             },
                             {
-                                "hvalue": "300",
+                                "hvalue": "320",
                                 "hvalue_name": "300-400 [lm]",
                                 "products_counter": "31",
                                 "value_from": "300",
                                 "value_to": "399"
                             },
                             {
-                                "hvalue": "420",
+                                "hvalue": "470",
                                 "hvalue_name": "400-500 [lm]",
                                 "products_counter": "145",
                                 "value_from": "400",
                                 "value_to": "499"
                             },
                             {
-                                "hvalue": "640",
+                                "hvalue": "600",
                                 "hvalue_name": "500-1.000 [lm]",
                                 "products_counter": "97",
                                 "value_from": "500",
@@ -15978,8 +15978,7 @@
                         "values": [
                             {
                                 "hvalue": "80",
-                                "hvalue_name": "do 200 [lm]",
-                                "products_counter": "31"
+                                "hvalue_name": "do 200 [lm]"
                             },
                             {
                                 "hvalue": "225",
@@ -16926,7 +16925,7 @@
                                 "value_to": "4999"
                             },
                             {
-                                "hvalue": "6500",
+                                "hvalue": "6000-6500",
                                 "hvalue_name": "zimna",
                                 "products_counter": "2",
                                 "value_from": "5000",
@@ -16961,7 +16960,7 @@
                                 "value_to": "49.99"
                             },
                             {
-                                "hvalue": "60",
+                                "hvalue": "88",
                                 "hvalue_name": "50-100 [W]",
                                 "products_counter": "19",
                                 "value_from": "50",
@@ -16996,21 +16995,21 @@
                         },
                         "values": [
                             {
-                                "hvalue": "3780",
+                                "hvalue": "4500",
                                 "hvalue_name": "2.500-5.000 [lm]",
                                 "products_counter": "4",
                                 "value_from": "2500",
                                 "value_to": "4999"
                             },
                             {
-                                "hvalue": "5400",
+                                "hvalue": "6800",
                                 "hvalue_name": "5.000-10.000 [lm]",
                                 "products_counter": "15",
                                 "value_from": "5000",
                                 "value_to": "9999"
                             },
                             {
-                                "hvalue": "11200",
+                                "hvalue": "11000",
                                 "hvalue_name": "10.000-15.000 [lm]",
                                 "products_counter": "11",
                                 "value_from": "10000",
@@ -17585,18 +17584,18 @@
                             {
                                 "currency_name": "PLN",
                                 "currency": "PLN",
-                                "regular_price": "4,47",
-                                "regular_price_brutto": "5,50",
-                                "price": "4,47",
-                                "price_brutto": "5,50"
+                                "regular_price": "4,44",
+                                "regular_price_brutto": "5,46",
+                                "price": "4,44",
+                                "price_brutto": "5,46"
                             },
                             {
                                 "currency_name": "EUR",
                                 "currency": "EUR",
                                 "regular_price": "0,00",
                                 "regular_price_brutto": "0,00",
-                                "price": "1,02",
-                                "price_brutto": "1,26"
+                                "price": "1,01",
+                                "price_brutto": "1,25"
                             }
                         ],
                         "discount_percent": 0
@@ -19925,7 +19924,7 @@
                                 "value_to": "4999"
                             },
                             {
-                                "hvalue": "5700",
+                                "hvalue": "6500",
                                 "hvalue_name": "zimna",
                                 "products_counter": "62",
                                 "value_from": "5000",
@@ -19953,21 +19952,21 @@
                                 "value_to": "20"
                             },
                             {
-                                "hvalue": "38",
+                                "hvalue": "36",
                                 "hvalue_name": "wąski [20°-45°]",
                                 "products_counter": "75",
                                 "value_from": "21",
                                 "value_to": "45"
                             },
                             {
-                                "hvalue": "60",
+                                "hvalue": "50",
                                 "hvalue_name": "standardowy [46°-90°]",
                                 "products_counter": "6",
                                 "value_from": "46",
                                 "value_to": "90"
                             },
                             {
-                                "hvalue": "110",
+                                "hvalue": "120",
                                 "hvalue_name": "szeroki [>90°]",
                                 "products_counter": "169",
                                 "value_from": "90",
@@ -20027,28 +20026,28 @@
                         },
                         "values": [
                             {
-                                "hvalue": "1",
+                                "hvalue": "2",
                                 "hvalue_name": "do 3 [W]",
                                 "products_counter": "19",
                                 "value_from": "0.01",
                                 "value_to": "2.99"
                             },
                             {
-                                "hvalue": "3",
+                                "hvalue": "4,3",
                                 "hvalue_name": "3-5 [W]",
                                 "products_counter": "68",
                                 "value_from": "3",
                                 "value_to": "4.99"
                             },
                             {
-                                "hvalue": "5",
+                                "hvalue": "6,9",
                                 "hvalue_name": "5-7 [W]",
                                 "products_counter": "86",
                                 "value_from": "5",
                                 "value_to": "6.99"
                             },
                             {
-                                "hvalue": "8",
+                                "hvalue": "7",
                                 "hvalue_name": "7-10 [W]",
                                 "products_counter": "68",
                                 "value_from": "7",
@@ -20076,32 +20075,32 @@
                         },
                         "values": [
                             {
-                                "hvalue": "180",
+                                "hvalue": "80",
                                 "hvalue_name": "do 200 [lm]"
                             },
                             {
-                                "hvalue": "250",
+                                "hvalue": "210",
                                 "hvalue_name": "200-300 [lm]",
                                 "products_counter": "37",
                                 "value_from": "200",
                                 "value_to": "299"
                             },
                             {
-                                "hvalue": "350",
+                                "hvalue": "380",
                                 "hvalue_name": "300-400 [lm]",
                                 "products_counter": "68",
                                 "value_from": "300",
                                 "value_to": "399"
                             },
                             {
-                                "hvalue": "410",
+                                "hvalue": "480",
                                 "hvalue_name": "400-500 [lm]",
                                 "products_counter": "32",
                                 "value_from": "400",
                                 "value_to": "499"
                             },
                             {
-                                "hvalue": "500",
+                                "hvalue": "575",
                                 "hvalue_name": "500-1.000 [lm]",
                                 "products_counter": "90",
                                 "value_from": "500",
@@ -21334,7 +21333,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "30",
+                                "hvalue": "45",
                                 "hvalue_name": "wąski [20°-45°]",
                                 "products_counter": "53",
                                 "value_from": "21",
@@ -21438,7 +21437,7 @@
                                 "value_to": "999"
                             },
                             {
-                                "hvalue": "1200",
+                                "hvalue": "1280",
                                 "hvalue_name": "1.000-2.500 [lm]",
                                 "products_counter": "25",
                                 "value_from": "1000",
@@ -22066,7 +22065,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "30",
+                                "hvalue": "40",
                                 "hvalue_name": "wąski [20°-45°]",
                                 "products_counter": "37",
                                 "value_from": "21",
@@ -22135,14 +22134,14 @@
                         },
                         "values": [
                             {
-                                "hvalue": "9",
+                                "hvalue": "8",
                                 "hvalue_name": "7-10 [W]",
                                 "products_counter": "6",
                                 "value_from": "7",
                                 "value_to": "9.99"
                             },
                             {
-                                "hvalue": "12",
+                                "hvalue": "11,8",
                                 "hvalue_name": "10-13 [W]",
                                 "products_counter": "24",
                                 "value_from": "10",
@@ -22177,7 +22176,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "770",
+                                "hvalue": "650",
                                 "hvalue_name": "500-1.000 [lm]",
                                 "products_counter": "36",
                                 "value_from": "500",
@@ -22998,7 +22997,7 @@
                                 "value_to": "-1"
                             },
                             {
-                                "hvalue": "3000",
+                                "hvalue": "2700",
                                 "hvalue_name": "ciepła",
                                 "products_counter": "21",
                                 "value_from": "2200",
@@ -23102,21 +23101,21 @@
                         },
                         "values": [
                             {
-                                "hvalue": "2",
+                                "hvalue": "2,9",
                                 "hvalue_name": "do 3 [W]",
                                 "products_counter": "6",
                                 "value_from": "0.01",
                                 "value_to": "2.99"
                             },
                             {
-                                "hvalue": "4,6",
+                                "hvalue": "4",
                                 "hvalue_name": "3-5 [W]",
                                 "products_counter": "13",
                                 "value_from": "3",
                                 "value_to": "4.99"
                             },
                             {
-                                "hvalue": "6",
+                                "hvalue": "5",
                                 "hvalue_name": "5-7 [W]",
                                 "products_counter": "13",
                                 "value_from": "5",
@@ -23149,14 +23148,14 @@
                                 "products_counter": "3"
                             },
                             {
-                                "hvalue": "230",
+                                "hvalue": "280",
                                 "hvalue_name": "200-300 [lm]",
                                 "products_counter": "9",
                                 "value_from": "200",
                                 "value_to": "299"
                             },
                             {
-                                "hvalue": "390",
+                                "hvalue": "300",
                                 "hvalue_name": "300-400 [lm]",
                                 "products_counter": "15",
                                 "value_from": "300",
@@ -23170,7 +23169,7 @@
                                 "value_to": "499"
                             },
                             {
-                                "hvalue": "500",
+                                "hvalue": "600",
                                 "hvalue_name": "500-1.000 [lm]",
                                 "products_counter": "10",
                                 "value_from": "500",
@@ -24568,7 +24567,7 @@
                                 "value_to": "4999"
                             },
                             {
-                                "hvalue": "6400",
+                                "hvalue": "6500",
                                 "hvalue_name": "zimna",
                                 "products_counter": "19",
                                 "value_from": "5000",
@@ -24603,14 +24602,14 @@
                                 "value_to": "4.99"
                             },
                             {
-                                "hvalue": "5",
+                                "hvalue": "6",
                                 "hvalue_name": "5-7 [W]",
                                 "products_counter": "20",
                                 "value_from": "5",
                                 "value_to": "6.99"
                             },
                             {
-                                "hvalue": "7,5",
+                                "hvalue": "8",
                                 "hvalue_name": "7-10 [W]",
                                 "products_counter": "5",
                                 "value_from": "7",
@@ -24643,14 +24642,14 @@
                                 "products_counter": "3"
                             },
                             {
-                                "hvalue": "200",
+                                "hvalue": "230",
                                 "hvalue_name": "200-300 [lm]",
                                 "products_counter": "26",
                                 "value_from": "200",
                                 "value_to": "299"
                             },
                             {
-                                "hvalue": "300",
+                                "hvalue": "390",
                                 "hvalue_name": "300-400 [lm]",
                                 "products_counter": "26",
                                 "value_from": "300",
@@ -24664,7 +24663,7 @@
                                 "value_to": "499"
                             },
                             {
-                                "hvalue": "550",
+                                "hvalue": "600",
                                 "hvalue_name": "500-1.000 [lm]",
                                 "products_counter": "17",
                                 "value_from": "500",
@@ -25252,7 +25251,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "2700",
+                                "hvalue": "3000",
                                 "hvalue_name": "ciepła",
                                 "products_counter": "17",
                                 "value_from": "2200",
@@ -25266,7 +25265,7 @@
                                 "value_to": "4999"
                             },
                             {
-                                "hvalue": "5000",
+                                "hvalue": "6400",
                                 "hvalue_name": "zimna",
                                 "products_counter": "4",
                                 "value_from": "5000",
@@ -25287,7 +25286,7 @@
                         },
                         "values": [
                             {
-                                "hvalue": "1,8",
+                                "hvalue": "2",
                                 "hvalue_name": "do 3 [W]",
                                 "products_counter": "20",
                                 "value_from": "0.01",
@@ -27819,7 +27818,7 @@
                                 "value_to": "4999"
                             },
                             {
-                                "hvalue": "6500",
+                                "hvalue": "6000",
                                 "hvalue_name": "zimna",
                                 "products_counter": "97",
                                 "value_from": "5000",
@@ -27888,14 +27887,14 @@
                                 "value_to": "12.99"
                             },
                             {
-                                "hvalue": "14",
+                                "hvalue": "14,5",
                                 "hvalue_name": "13-16 [W]",
                                 "products_counter": "14",
                                 "value_from": "13",
                                 "value_to": "15.99"
                             },
                             {
-                                "hvalue": "16,1",
+                                "hvalue": "18",
                                 "hvalue_name": "16-20 [W] ",
                                 "products_counter": "79",
                                 "value_from": "16",
@@ -27947,14 +27946,14 @@
                         },
                         "values": [
                             {
-                                "hvalue": "840",
+                                "hvalue": "800",
                                 "hvalue_name": "500-1.000 [lm]",
                                 "products_counter": "45",
                                 "value_from": "500",
                                 "value_to": "999"
                             },
                             {
-                                "hvalue": "1800",
+                                "hvalue": "1900",
                                 "hvalue_name": "1.000-2.500 [lm]",
                                 "products_counter": "159",
                                 "value_from": "1000",
@@ -29625,21 +29624,21 @@
                         },
                         "values": [
                             {
-                                "hvalue": "1",
+                                "hvalue": "1,3",
                                 "hvalue_name": "do 3 [W]",
                                 "products_counter": "4",
                                 "value_from": "0.01",
                                 "value_to": "2.99"
                             },
                             {
-                                "hvalue": "4,5",
+                                "hvalue": "3,5",
                                 "hvalue_name": "3-5 [W]",
                                 "products_counter": "4",
                                 "value_from": "3",
                                 "value_to": "4.99"
                             },
                             {
-                                "hvalue": "5",
+                                "hvalue": "6",
                                 "hvalue_name": "5-7 [W]",
                                 "products_counter": "16",
                                 "value_from": "5",
@@ -29653,14 +29652,14 @@
                                 "value_to": "9.99"
                             },
                             {
-                                "hvalue": "12",
+                                "hvalue": "11",
                                 "hvalue_name": "10-13 [W]",
                                 "products_counter": "15",
                                 "value_from": "10",
                                 "value_to": "12.99"
                             },
                             {
-                                "hvalue": "15",
+                                "hvalue": "14",
                                 "hvalue_name": "13-16 [W]",
                                 "products_counter": "7",
                                 "value_from": "13",
@@ -29674,14 +29673,14 @@
                                 "value_to": "19.99"
                             },
                             {
-                                "hvalue": "24",
+                                "hvalue": "21",
                                 "hvalue_name": "20-30 [W]",
                                 "products_counter": "15",
                                 "value_from": "20",
                                 "value_to": "29.99"
                             },
                             {
-                                "hvalue": "36,6",
+                                "hvalue": "34,0",
                                 "hvalue_name": "30-50 [W]",
                                 "products_counter": "5",
                                 "value_from": "30",
@@ -31130,18 +31129,18 @@
                                     {
                                         "currency_name": "PLN",
                                         "currency": "PLN",
-                                        "regular_price": "392,97",
-                                        "regular_price_brutto": "483,35",
-                                        "price": "392,97",
-                                        "price_brutto": "483,35"
+                                        "regular_price": "395,81",
+                                        "regular_price_brutto": "486,85",
+                                        "price": "395,81",
+                                        "price_brutto": "486,85"
                                     },
                                     {
                                         "currency_name": "EUR",
                                         "currency": "EUR",
                                         "regular_price": "0,00",
                                         "regular_price_brutto": "0,00",
-                                        "price": "89,72",
-                                        "price_brutto": "110,35"
+                                        "price": "90,37",
+                                        "price_brutto": "111,15"
                                     }
                                 ],
                                 "discount_percent": 0
@@ -31323,7 +31322,7 @@
                                         "value_to": "299.9"
                                     },
                                     {
-                                        "hvalue": "360",
+                                        "hvalue": "400",
                                         "hvalue_name": "pow. 300 [W]",
                                         "products_counter": "28",
                                         "value_from": "300",
@@ -31910,18 +31909,18 @@
                                     {
                                         "currency_name": "PLN",
                                         "currency": "PLN",
-                                        "regular_price": "12,88",
-                                        "regular_price_brutto": "15,84",
-                                        "price": "12,88",
-                                        "price_brutto": "15,84"
+                                        "regular_price": "12,83",
+                                        "regular_price_brutto": "15,78",
+                                        "price": "12,83",
+                                        "price_brutto": "15,78"
                                     },
                                     {
                                         "currency_name": "EUR",
                                         "currency": "EUR",
                                         "regular_price": "0,00",
                                         "regular_price_brutto": "0,00",
-                                        "price": "2,94",
-                                        "price_brutto": "3,62"
+                                        "price": "2,93",
+                                        "price_brutto": "3,60"
                                     }
                                 ],
                                 "discount_percent": 0
@@ -32126,7 +32125,7 @@
                                         "value_to": "29.99"
                                     },
                                     {
-                                        "hvalue": "40",
+                                        "hvalue": "38",
                                         "hvalue_name": "30-50 [W]",
                                         "products_counter": "16",
                                         "value_from": "30",
@@ -33159,17 +33158,17 @@
                                     {
                                         "currency_name": "PLN",
                                         "currency": "PLN",
-                                        "regular_price": "33,23",
-                                        "regular_price_brutto": "40,87",
-                                        "price": "33,23",
-                                        "price_brutto": "40,87"
+                                        "regular_price": "33,21",
+                                        "regular_price_brutto": "40,85",
+                                        "price": "33,21",
+                                        "price_brutto": "40,85"
                                     },
                                     {
                                         "currency_name": "EUR",
                                         "currency": "EUR",
                                         "regular_price": "0,00",
                                         "regular_price_brutto": "0,00",
-                                        "price": "7,59",
+                                        "price": "7,58",
                                         "price_brutto": "9,33"
                                     }
                                 ],
@@ -34128,7 +34127,7 @@
                                         "value_to": "29.99"
                                     },
                                     {
-                                        "hvalue": "50",
+                                        "hvalue": "60",
                                         "hvalue_name": "50-100 [W]",
                                         "products_counter": "5",
                                         "value_from": "50",
@@ -34142,7 +34141,7 @@
                                         "value_to": "149.9"
                                     },
                                     {
-                                        "hvalue": "150",
+                                        "hvalue": "175",
                                         "hvalue_name": "150-200 [W]",
                                         "products_counter": "4",
                                         "value_from": "150",
@@ -35046,14 +35045,14 @@
                                         "value_to": "29.99"
                                     },
                                     {
-                                        "hvalue": "48",
+                                        "hvalue": "35",
                                         "hvalue_name": "30-50 [W]",
                                         "products_counter": "15",
                                         "value_from": "30",
                                         "value_to": "49.99"
                                     },
                                     {
-                                        "hvalue": "50",
+                                        "hvalue": "60",
                                         "hvalue_name": "50-100 [W]",
                                         "products_counter": "19",
                                         "value_from": "50",
@@ -35081,7 +35080,7 @@
                                         "value_to": "299.9"
                                     },
                                     {
-                                        "hvalue": "1000",
+                                        "hvalue": "400",
                                         "hvalue_name": "pow. 300 [W]",
                                         "products_counter": "10",
                                         "value_from": "300",
@@ -35172,7 +35171,7 @@
                                 "value_to": "4.99"
                             },
                             {
-                                "hvalue": "5",
+                                "hvalue": "6",
                                 "hvalue_name": "5-7 [W]",
                                 "products_counter": "3",
                                 "value_from": "5",
@@ -35186,7 +35185,7 @@
                                 "value_to": "9.99"
                             },
                             {
-                                "hvalue": "11",
+                                "hvalue": "10",
                                 "hvalue_name": "10-13 [W]",
                                 "products_counter": "12",
                                 "value_from": "10",
@@ -35207,28 +35206,28 @@
                                 "value_to": "19.99"
                             },
                             {
-                                "hvalue": "28",
+                                "hvalue": "26",
                                 "hvalue_name": "20-30 [W]",
                                 "products_counter": "65",
                                 "value_from": "20",
                                 "value_to": "29.99"
                             },
                             {
-                                "hvalue": "35",
+                                "hvalue": "40",
                                 "hvalue_name": "30-50 [W]",
                                 "products_counter": "110",
                                 "value_from": "30",
                                 "value_to": "49.99"
                             },
                             {
-                                "hvalue": "70",
+                                "hvalue": "60",
                                 "hvalue_name": "50-100 [W]",
                                 "products_counter": "109",
                                 "value_from": "50",
                                 "value_to": "99.99"
                             },
                             {
-                                "hvalue": "100",
+                                "hvalue": "125",
                                 "hvalue_name": "100-150 [W]",
                                 "products_counter": "17",
                                 "value_from": "100",
@@ -35249,7 +35248,7 @@
                                 "value_to": "299.9"
                             },
                             {
-                                "hvalue": "450",
+                                "hvalue": "600",
                                 "hvalue_name": "pow. 300 [W]",
                                 "products_counter": "39",
                                 "value_from": "300",
