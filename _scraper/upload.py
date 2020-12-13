@@ -8,6 +8,7 @@ import settings
 
 OUTPUT_DIR = "output"
 IMAGES_DIR = "images"
+CATEGORIES = ["oprawy-domowe-led"]  # "zrodla-swiatla-led",]
 
 presta_api = PrestashopApi(settings.PRESTASHOP_API_URL, settings.WEBSERVICE_KEY)
 
@@ -89,6 +90,7 @@ def get_or_add_feature(name_to_presta_id: dict, name: str):
 def get_or_add_feature_value(
     name_to_presta_id: dict, feature_name: str, value_name: str
 ):
+    print(f"{feature_name} -> {value_name}")
     presta_id = name_to_presta_id["feature_values"].get(value_name)
     if not presta_id:
         feature_id = get_or_add_feature(name_to_presta_id, feature_name)
@@ -105,7 +107,7 @@ def get_or_add_feature_value(
     return presta_id
 
 
-def main():
+def do_everything(category_name: str):
     object_types = [
         "manufacturers",
         "categories",
@@ -120,7 +122,7 @@ def main():
     category_parent = {}
 
     # manufacturers
-    manufacturers = load_json("manufacturers.json")
+    manufacturers = load_json(f"manufacturers-{category_name}.json")
     name_to_source_id["manufacturers"] = {
         value: key for key, value in manufacturers.items()
     }
@@ -147,7 +149,7 @@ def main():
         source_id_to_presta_id["manufacturers"][man_id] = presta_id
 
     # categories
-    categories = parse_categories(load_json("categories.json"))
+    categories = parse_categories(load_json(f"categories-{category_name}.json"))
     name_to_source_id["categories"] = {
         cat["title"]: cat["products_categories_id"] for cat in categories
     }
@@ -224,9 +226,9 @@ def main():
         ] = feature_value["id"]
 
     # products
-    products = load_json("products.json")
+    products = load_json(f"products-{category_name}.json")
     name_to_source_id["products"] = {
-        prod["name"]: prod_id for prod_id, prod in products.items()
+        prod["name"].replace("=", "-"): prod_id for prod_id, prod in products.items()
     }
     for prod in get_objects_from_presta("products", "product"):
         prod = get_object_from_presta(f"products/{prod['@id']}", "product")
@@ -281,7 +283,7 @@ def main():
             "link_rewrite": {"language": {"@id": "1", "#text": prod_link_rewrite}},
             "id_manufacturer": prod_manufacturer_id,
             "id_category_default": main_cat,
-            "price": prod["price"]["regular_price"].replace(",", "."),
+            "price": prod["price"]["regular_price"].replace(",", ".").replace(" ", ""),
             "associations": {
                 "categories": {
                     "category": [{"id": cat_id} for cat_id in prod_categories]
@@ -292,13 +294,25 @@ def main():
         if prod_name in name_to_presta_id["products"]:
             # edit
             presta_id = name_to_presta_id["products"][prod_name]
-            edit_presta_object("products", presta_id, data, "product")
+            response = edit_presta_object("products", presta_id, data, "product")
         else:
             # add
             response = add_object_to_presta("products", data, "product")
             presta_id = response["id"]
+
+        if not response["id_default_image"].get("#text"):
+            # upload img
+            resource_name = prod["image_url"]
+            image_path = f"{IMAGES_DIR}/{resource_name}"
+            presta_api.add_image(f"products/{presta_id}", image_path)
+
         name_to_presta_id["products"][prod_name] = presta_id
         source_id_to_presta_id["products"][prod_id] = presta_id
+
+
+def main():
+    for category_name in CATEGORIES:
+        do_everything(category_name)
 
 
 if __name__ == "__main__":
