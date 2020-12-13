@@ -105,6 +105,59 @@ def get_or_add_feature_value(
     return presta_id
 
 
+def fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products_json):
+    """ This one only fills the existing stock_available entities based on the scraped data."""
+
+    def get_available_prod_id(presta_prod_id_to_prod):
+        for id, prod in presta_prod_id_to_prod.items():
+            if prod["associations"][f"{SA}s"].get(f"{SA}"):
+                # skip one with existing stock
+                continue
+            yield id
+    prod_gen = get_available_prod_id(presta_prod_id_to_prod)
+    SA = "stock_available"
+
+    for stock in get_objects_from_presta(f"{SA}s", SA):
+        stock = get_object_from_presta(f'{SA}s/{stock["@id"]}', SA)
+        stock_prod_id = stock["id_product"]["#text"]
+
+        if stock_prod_id in presta_prod_id_to_prod.keys():
+            presta_prod_id = stock_prod_id
+        else:
+            try:
+                presta_prod_id = next(prod_gen)
+            except StopIteration:
+                # If the script enters here it means that stock.prod_id is pointing
+                # to a non-existent product and all the products have stock assigned.
+                # Continuing to ensure all the stocks with valid products are updated.
+                continue
+
+        source_id = {v: k for k, v in source_id_to_presta_id["products"].items()}[presta_prod_id]
+        json_product = next((x for x in products_json.values() if x["products_id"] == source_id), None)
+        if json_product is None:
+            continue
+        
+        first_word = json_product["quantity"].split(" ")[0]
+        try:
+            value = int(first_word)
+        except ValueError:
+            quantity = 21
+        else:
+            quantity = max(21, value)
+        
+        data = {
+            "id_product": presta_prod_id,
+            "id_product_attribute": stock["id_product_attribute"],
+            "id_shop": stock["id_shop"]["#text"],
+            "id_shop_group": stock["id_shop_group"],
+            "depends_on_stock": stock["depends_on_stock"],
+            "out_of_stock": stock["out_of_stock"],
+            "quantity": quantity,
+            "location": stock["location"]
+        }
+        edit_presta_object(f"{SA}s", stock["id"], data, SA)
+
+
 def get_tax_rule_id(tax_rule_name_to_id, vat):
     for name, id in tax_rule_name_to_id.items():
         if vat in name:
@@ -252,6 +305,7 @@ def main():
         for name, p_id in name_to_source_id["products"].items()
     }
 
+    presta_prod_id_to_prod = {}  # used to cache the added / updated products
     for prod_id, prod in products.items():
         prod_name = prod["name"].replace("=", "-")
         prod_link_rewrite = (
@@ -306,13 +360,17 @@ def main():
         if prod_name in name_to_presta_id["products"]:
             # edit
             presta_id = name_to_presta_id["products"][prod_name]
-            edit_presta_object("products", presta_id, data, "product")
+            response = edit_presta_object("products", presta_id, data, "product")
+            presta_prod_id_to_prod[response["id"]] = response
         else:
             # add
             response = add_object_to_presta("products", data, "product")
+            presta_prod_id_to_prod[response["id"]] = response
             presta_id = response["id"]
         name_to_presta_id["products"][prod_name] = presta_id
         source_id_to_presta_id["products"][prod_id] = presta_id
+
+    fill_stocks(presta_prod_id_to_prod, source_id_to_presta_id, products)
 
 
 if __name__ == "__main__":
