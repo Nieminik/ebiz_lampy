@@ -226,7 +226,7 @@ def main():
     # products
     products = load_json("products.json")
     name_to_source_id["products"] = {
-        prod["name"]: prod_id for prod_id, prod in products.items()
+        prod["name"].replace("=", "-"): prod_id for prod_id, prod in products.items()
     }
     for prod in get_objects_from_presta("products", "product"):
         prod = get_object_from_presta(f"products/{prod['@id']}", "product")
