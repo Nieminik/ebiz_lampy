@@ -51,7 +51,7 @@ namespace ToolsQA
         public void NavigateToProducts() 
         {
             //Click +
-            webDriver.Navigate().GoToUrl("https://dniemiro.dev/2-strona-glowna");
+            webDriver.Navigate().GoToUrl("https://dniemiro.dev/2-kategorie");
             webDriver.FindElement(By.XPath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/div[1]/i[1]")).Click();
         }
 
