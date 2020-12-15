@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+    web:
+        image: nginx
+        ports: 
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - db
+        volumes:
+            - ../presta_app:/prestashop
+    db:
+        image: mariadb:latest
+        restart: always
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=True
+            - MYSQL_USER=prestashopuser
+            - MYSQL_PASSWORD=biznesbaza
+            - MYSQL_DATABASE=prestashop
+        volumes:
+            - ../backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
+            - ./db_data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+
+        
