@@ -1,7 +1,7 @@
 version: "3.9"
 services:
     web:
-        image: nginx
+        image: nginx:latest
         ports: 
             - "80:80"
             - "443:443"
@@ -9,6 +9,7 @@ services:
             - db
         volumes:
             - ../presta_app:/prestashop
+            - ./site.conf:/etc/nginx/conf.d/default.conf
     db:
         image: mariadb:latest
         restart: always
@@ -22,5 +23,8 @@ services:
             - ./db_data:/var/lib/mysql
         ports:
             - "3306:3306"
-
+    php:
+        build: php
+        volumes:
+            - ../presta_app:/prestashop
         
