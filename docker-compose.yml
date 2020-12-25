@@ -8,8 +8,8 @@ services:
         depends_on:
             - db
         volumes:
-            - ../presta_app:/var/www/html
-            - ./httpd.conf:/etc/httpd/conf/httpd.conf
+            - ./presta_app:/var/www/html
+            - ./php-apache/httpd.conf:/etc/httpd/conf/httpd.conf
         links:
            - "db:database"
     db:
@@ -21,7 +21,7 @@ services:
             - MYSQL_PASSWORD=biznesbaza
             - MYSQL_DATABASE=prestashop
         volumes:
-            - ../backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
-            - ./db_data:/var/lib/mysql
+            - ./backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
+            - ./.db_data:/var/lib/mysql
         ports:
             - "3307:3306"
