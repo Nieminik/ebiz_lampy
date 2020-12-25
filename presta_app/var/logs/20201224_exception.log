@@ -1,3 +1,4 @@
 *ERROR* 	v1.7.6.8	2020/12/24 - 22:07:49: Link to database cannot be established: SQLSTATE[HY000] [2002] No such file or directory at line 127 in file classes/db/DbPDO.php
 *ERROR* 	v1.7.6.8	2020/12/24 - 22:07:56: Link to database cannot be established: SQLSTATE[HY000] [2002] No such file or directory at line 127 in file classes/db/DbPDO.php
 *ERROR* 	v1.7.6.8	2020/12/24 - 22:09:25: Link to database cannot be established: SQLSTATE[HY000] [2002] No such file or directory at line 127 in file classes/db/DbPDO.php
+*ERROR* 	v1.7.6.8	2020/12/24 - 22:28:51: Link to database cannot be established: SQLSTATE[HY000] [2002] Connection refused at line 127 in file classes/db/DbPDO.php
