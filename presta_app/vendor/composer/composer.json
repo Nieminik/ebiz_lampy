@@ -1,0 +1,5 @@
+{
+    "require": {
+        "prestashop/circuit-breaker": "^3.0"
+    }
+}

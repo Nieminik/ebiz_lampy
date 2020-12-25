@@ -6,6 +6,30 @@
     <language>pl</language>
      <atom:link href="https://www.prestashop.com/pl/blog/feed.xml" rel="self" type="application/rss+xml" />
       <item>
+    <title>Wiemy, czego pragniesz - czyli personalizacja w oparciu o dane</title>
+    <link>https://www.prestashop.com/pl/blog/personalizacja-oparciu-dane</link>
+    <description>Czego dusza pragnie? Przede wszystkim personalnego podejścia. Dzisiejsze trendy w marketingu jednoznacznie pokazują, że konsument oczekuje od marki autentyczności.</description>
+     <pubDate>Wed, 16 Dec 2020 17:44:19 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/personalizacja-oparciu-dane</guid>
+  </item>
+  <item>
+    <title>Szał promocji: jak skutecznie dobierać zniżki?</title>
+    <link>https://www.prestashop.com/pl/blog/promocji-dobierac-znizki</link>
+    <description>Koniec roku jest najgorętszym okresem sprzedażowym, w którym e-sklepy odnotowują najwyższe dochody. Wtedy przychodzi czas największych akcji rabatowych, znanych m.in.</description>
+     <pubDate>Wed, 16 Dec 2020 16:14:11 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/promocji-dobierac-znizki</guid>
+  </item>
+  <item>
+    <title>10 wskazówek dla lepszego zarządzania logistyką e-commerce</title>
+    <link>https://www.prestashop.com/pl/blog/wskazowek-logistyka-ecommerce</link>
+    <description>Jeśli e-commerce porównać do organizmu, to marketing byłby jego mózgiem, natomiast logistyka sercem – dlatego warto dbać o jej efektywne działanie i trzymać rękę na pulsie.</description>
+     <pubDate>Mon, 14 Dec 2020 17:52:09 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/wskazowek-logistyka-ecommerce</guid>
+  </item>
+  <item>
     <title>Jak optymalizować zamówienia i dostawę?</title>
     <link>https://www.prestashop.com/pl/blog/optymalizowac-zamowienia-dostawe</link>
     <description>Automatyzacja to jedno z narzędzi, na którym można bezpiecznie polegać w kontekście logistyki e-commerce.</description>
@@ -60,30 +84,6 @@
      <pubDate>Thu, 19 Nov 2020 17:08:38 +0100</pubDate>
  <dc:creator>luca mastroianni</dc:creator>
  <guid isPermaLink="false">https://www.prestashop.com/pl/blog/logistyka-e-commerce-klienta</guid>
-  </item>
-  <item>
-    <title>Czym jest rozwiązanie click &amp;amp; collect i jak je szybko ustawić?</title>
-    <link>https://www.prestashop.com/pl/blog/click-collect-ustawic</link>
-    <description>Jak sprawnie ustawić w swoim sklepie usługę click and collect.</description>
-     <pubDate>Mon, 16 Nov 2020 16:32:23 +0100</pubDate>
- <dc:creator>PrestaShop Team</dc:creator>
- <guid isPermaLink="false">https://www.prestashop.com/pl/blog/click-collect-ustawic</guid>
-  </item>
-  <item>
-    <title>5 sposobów na poprawę doświadczenia Twoich klientów za pomocą cyfrowych narzędzi</title>
-    <link>https://www.prestashop.com/pl/blog/sposobow-doswiadczenia-twoich</link>
-    <description>Internet staje się powszechnym miejscem robienia zakupów – aż 73% internautów w Polsce kupowało już przez internet[1].</description>
-     <pubDate>Fri, 13 Nov 2020 17:27:30 +0100</pubDate>
- <dc:creator>luca mastroianni</dc:creator>
- <guid isPermaLink="false">https://www.prestashop.com/pl/blog/sposobow-doswiadczenia-twoich</guid>
-  </item>
-  <item>
-    <title>5 kroków, które należy wykonać przed założeniem sklepu internetowego</title>
-    <link>https://www.prestashop.com/pl/blog/krokow-ktore-nalezy</link>
-    <description>Branża e-commerce rozwija się w Polsce bardzo dynamicznie. W latach 2014-2019 wartość tego rynku się podwoiła. Analizy wskazują, że w najbliższych latach tempo wzrostu nie spadnie.</description>
-     <pubDate>Tue, 10 Nov 2020 15:39:21 +0100</pubDate>
- <dc:creator>Paweł Gil</dc:creator>
- <guid isPermaLink="false">https://www.prestashop.com/pl/blog/krokow-ktore-nalezy</guid>
   </item>
   </channel>
 </rss>
