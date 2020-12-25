@@ -65,7 +65,7 @@ class Sendinblue extends Module
         $this->name = 'sendinblue';
         $this->tab = 'emailing';
         $this->author = 'Sendinblue';
-        $this->version = '3.4.1';
+        $this->version = '3.4.2';
         $this->module_key = 'fa4c321492032ab1bdeea359aa1e4e3d';
         $this->sib_api_url = 'https://api.sendinblue.com/v2.0';
 
@@ -219,6 +219,10 @@ class Sendinblue extends Module
                 }
             }
         } else {
+            if (!$this->checkCaptchaValidation()) {
+                return false;
+            }
+
             $this->newsletter = Tools::getValue('newsletter');
             $this->email = Tools::getValue('email');
             $id_country = Tools::getValue('id_country');
@@ -2922,6 +2926,9 @@ WHERE email = "'.pSQL($this->email).'"');
      */
     private function newsletterRegistration($guest_iso)
     {
+        if (!$this->checkCaptchaValidation()) {
+            return false;
+        }
         $post_action = Tools::getValue('action');
         $s_new_timestamp = date('Y-m-d H:m:s');
 
@@ -4725,6 +4732,19 @@ EOT;
         $module = Module::getInstanceByName('ps_emailsubscription');
         return $module->version;
     }
-    
+
+    /**
+     * check google captcha response validate
+     */
+    public function checkCaptchaValidation()
+    {
+        $posted_values = Tools::getAllValues();
+        if (array_key_exists("g-recaptcha-response", $posted_values) && empty($posted_values['g-recaptcha-response'])) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //end file
 }
