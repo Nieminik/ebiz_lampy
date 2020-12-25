@@ -13,3 +13,5 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install intl
 RUN docker-php-ext-install pdo pdo_mysql zip
 RUN a2enmod rewrite
+RUN usermod -u 1000 www-data
+RUN usermod -G staff www-data
