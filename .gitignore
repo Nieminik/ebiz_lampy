@@ -1,3 +1,4 @@
 presta_app/cache
 presta_app/var/cache
 docker/db_data
+.db_data

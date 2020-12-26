@@ -1,27 +1,37 @@
 version: "3.9"
 services:
+    load_balancer:
+       image: nginx:alpine
+       ports:
+          - "80:80"
+          - "443:443"
+       depends_on:
+          - web
+          - db
+       volumes:
+          - ./docker/load_balancer/lb.conf:/etc/nginx/nginx.conf
+
     web:
-        build: php-apache
-        ports: 
-            - "80:80"
-            - "443:443"
-        depends_on:
-            - db
-        volumes:
-            - ./presta_app:/var/www/html
-            - ./php-apache/httpd.conf:/etc/httpd/conf/httpd.conf
-        links:
-           - "db:database"
+       build: docker/php-apache
+       volumes:
+           - ./presta_app:/var/www/html
+           - ./docker/php-apache/httpd.conf:/etc/httpd/conf/httpd.conf
+       links:
+          - "db:database"
+       scale: 3
+       depends_on:
+           - db
+
     db:
-        image: mariadb:latest
-        restart: always
-        environment:
-            - MYSQL_RANDOM_ROOT_PASSWORD=True
-            - MYSQL_USER=prestashopuser
-            - MYSQL_PASSWORD=biznesbaza
-            - MYSQL_DATABASE=prestashop
-        volumes:
-            - ./backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
-            - ./.db_data:/var/lib/mysql
-        ports:
-            - "3307:3306"
+       image: mariadb:latest
+       restart: always
+       environment:
+           - MYSQL_RANDOM_ROOT_PASSWORD=True
+           - MYSQL_USER=prestashopuser
+           - MYSQL_PASSWORD=biznesbaza
+           - MYSQL_DATABASE=prestashop
+       volumes:
+           - ./backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
+           - ./docker/.db_data:/var/lib/mysql
+       ports:
+           - "3307:3306"
