@@ -30,8 +30,10 @@ services:
            - MYSQL_USER=prestashopuser
            - MYSQL_PASSWORD=biznesbaza
            - MYSQL_DATABASE=prestashop
+           - PS_SHOP_DOMAIN=${PS_SHOP_DOMAIN}
        volumes:
+           - ./docker/db/.db_data:/var/lib/mysql
            - ./backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
-           - ./docker/.db_data:/var/lib/mysql
+           - ./docker/db/update_domain.sh:/docker-entrypoint-initdb.d/update_domain.sh
        ports:
            - "3307:3306"
