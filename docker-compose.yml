@@ -5,11 +5,15 @@ services:
        ports:
           - "80:80"
           - "443:443"
+       environment:
+          - PS_SHOP_DOMAIN=${PS_SHOP_DOMAIN}
        depends_on:
           - web
           - db
        volumes:
-          - ./docker/load_balancer/lb.conf:/etc/nginx/nginx.conf
+          - ./docker/load_balancer/lb.conf:/etc/nginx/nginx.conf.template
+       command: ["/bin/sh", "-c", "export PS_SHOP_DOMAIN && envsubst '$${PS_SHOP_DOMAIN}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
+            #command: /bin/sh -c "envsubst '${PS_SHOP_DOMAIN}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf"
 
     web:
        build: docker/php-apache
