@@ -5,11 +5,15 @@ services:
        ports:
           - "80:80"
           - "443:443"
+       environment:
+          - PS_SHOP_DOMAIN=${PS_SHOP_DOMAIN}
        depends_on:
           - web
           - db
        volumes:
-          - ./docker/load_balancer/lb.conf:/etc/nginx/nginx.conf
+          - ./docker/load_balancer/lb.conf:/etc/nginx/nginx.conf.template
+       command: ["/bin/sh", "-c", "export PS_SHOP_DOMAIN && envsubst '$${PS_SHOP_DOMAIN}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"]
+            #command: /bin/sh -c "envsubst '${PS_SHOP_DOMAIN}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf"
 
     web:
        build: docker/php-apache
@@ -30,8 +34,10 @@ services:
            - MYSQL_USER=prestashopuser
            - MYSQL_PASSWORD=biznesbaza
            - MYSQL_DATABASE=prestashop
+           - PS_SHOP_DOMAIN=${PS_SHOP_DOMAIN}
        volumes:
+           - ./docker/db/.db_data:/var/lib/mysql
            - ./backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
-           - ./docker/.db_data:/var/lib/mysql
+           - ./docker/db/update_domain.sh:/docker-entrypoint-initdb.d/update_domain.sh
        ports:
            - "3307:3306"
