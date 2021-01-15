@@ -11,7 +11,7 @@ namespace ToolsQA
         {
             IWebDriver driver = new FirefoxDriver()
             {
-                Url = @"https://dniemiro.dev/"
+                Url = @"https://172.20.83.89/"
             };
 
             var cardManager = new ProductManager(driver);

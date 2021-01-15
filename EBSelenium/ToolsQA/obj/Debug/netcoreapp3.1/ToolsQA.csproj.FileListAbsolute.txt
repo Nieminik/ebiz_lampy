@@ -29,4 +29,3 @@ C:\Users\Tamasa\Desktop\ebiz_2020_2021\EBSelenium\ToolsQA\bin\Debug\netcoreapp3.
 C:\Users\Tamasa\Desktop\ebiz_2020_2021\EBSelenium\ToolsQA\bin\Debug\netcoreapp3.1\WebDriver.dll
 C:\Users\Tamasa\Desktop\ebiz_2020_2021\EBSelenium\ToolsQA\obj\Debug\netcoreapp3.1\ToolsQA.csproj.CopyComplete
 C:\Users\Tamasa\Desktop\ebiz_2020_2021\EBSelenium\ToolsQA\obj\Debug\netcoreapp3.1\ToolsQA.genruntimeconfig.cache
-C:\Users\Tamasa\Desktop\ebiz_2020_2021\EBSelenium\ToolsQA\obj\Debug\netcoreapp3.1\ToolsQA.csprojAssemblyReference.cache

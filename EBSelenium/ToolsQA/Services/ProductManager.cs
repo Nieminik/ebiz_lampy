@@ -42,7 +42,7 @@ namespace ToolsQA
             webDriver.Navigate().Back();
         }
 
-        public void RemoveFromCard(int qty = 1)
+        public void RemoveFromCard()
         {      
             webDriver.FindElement(By.XPath("//div[@class='blockcart cart-preview active']")).Click();
             webDriver.FindElement(By.XPath("/html[1]/body[1]/main[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[3]/div[1]/div[3]/div[1]/a[1]/i[1]")).Click();
