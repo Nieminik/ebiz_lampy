@@ -40,5 +40,3 @@ services:
       - ./docker/db/.db_data:/var/lib/mysql
       - ./backups/prestashop.sql:/docker-entrypoint-initdb.d/dump.sql
       - ./docker/db/update_domain.sh:/docker-entrypoint-initdb.d/update_domain.sh
-    ports:
-      - "3307:3306"
