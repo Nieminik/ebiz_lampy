@@ -5,6 +5,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+sudo rm -rf presta_app/var/cache
 sudo rm -rf docker/db/.db_data
 sudo rm -rf docker/ssl/*
 ./generate_cert.sh
