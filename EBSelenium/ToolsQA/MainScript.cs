@@ -9,9 +9,11 @@ namespace ToolsQA
     {
         static void Main(string[] args)
         {
-            IWebDriver driver = new FirefoxDriver()
+            FirefoxOptions options = new FirefoxOptions();
+            options.AddAdditionalCapability("acceptInsecureCerts", true, true);
+            IWebDriver driver = new FirefoxDriver(options)
             {
-                Url = @"https://dniemiro.dev/"
+                Url = @"https://172.20.83.89"
             };
 
             var cardManager = new ProductManager(driver);
