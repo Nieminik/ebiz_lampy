@@ -5,7 +5,7 @@ namespace ToolsQA
 {
     class Order
     {
-        private readonly string cartUrl = "https://dniemiro.dev/index.php?controller=cart&action=show";
+        private readonly string cartUrl = "https://172.20.83.89/index.php?controller=cart&action=show";
 
 
         private readonly IWebDriver webDriver;
